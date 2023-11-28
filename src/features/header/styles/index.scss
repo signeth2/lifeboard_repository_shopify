@@ -1,0 +1,96 @@
+.nav {
+    z-index: 1000;
+    background-color: var(--contrast-color);
+    padding-top: 28px;
+    padding-bottom: 28px;
+    position: fixed;
+    top: 0%;
+    bottom: auto;
+    left: 0%;
+    right: 0%;
+    .logo{
+        max-width: 200px;
+        max-height: 30px;
+    }
+    .content-wrapper {
+        height: 64px;
+        justify-content: center;
+        display: flex;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 3vw;
+        padding-right: 3vw;
+        .nav-inner {
+            flex: 1;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            .menu{
+                margin: auto auto;
+                display: flex;
+                .dropdown{
+                    display: flex;
+                    margin: auto;
+                    
+                    
+                }
+                .dropdown-box{
+                    min-width: 313px;
+                    margin-top: 15px;
+                    box-shadow: 0 20px 50px 9px rgba(0,0,0,.18);
+                    position: absolute;
+                    
+                    .dropdown-item{
+                        align-items: center;
+                        display: flex;
+                        grid-column-gap: 22px;
+                        padding: 14px 21px 14px 14px;
+                        border-bottom: 1px solid #e7edf0;
+                        background-color: white;
+                        svg{
+                            height: 11px;
+                            width: 11px;
+                            position: absolute;
+                            right: 20px;
+                        }
+                        .circle-icon{
+                            height: 50px;
+                            width: 50px;
+                            border: 1px solid #d1d1d1;
+                            border-radius: 50%;
+                        }
+                    }
+                    
+                }
+                .dropdown svg{
+                    height: 11px;
+                    width: 11px;
+                    margin-left: 4px;
+                }
+                .menu-link{
+                    align-items: center;
+                    margin: 12px 1.8vw;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 1em;
+                    display: flex;   
+                }
+            }
+            .nav-right {
+                flex: 1;
+                justify-content: space-between;
+                align-items: flex-end;
+                display: flex;
+                .information{
+                    display: flex;
+                    align-items: center;
+                    gap: 11px;
+                    .button{
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}

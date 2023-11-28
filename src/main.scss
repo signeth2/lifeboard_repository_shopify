@@ -1,10 +1,40 @@
-
+@import 'base.scss';
 @import 'features/header/styles/index.scss';
 @import 'features/404/styles/index.scss';
 
+
+
+
 body { 
-    background-color: white;
-    font-family: sans-serif;
+    background-color: var(white);
+    font-family: var( --font-body);
+    text-decoration: none;
+    list-style: none;
+    color: var( --text-color);
 }
 
-
+.button{
+    background-color: var(--dark-red);
+    color: #fff;
+    z-index: 0;
+    grid-column-gap: 11px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    height: 20px;
+    .button-text {
+        z-index: 2;
+        font-size: 16px;
+        line-height: 1em;
+        position: relative;
+        color: white;
+    }
+}

@@ -1,0 +1,67 @@
+:root {
+    /* Fonts */
+    --font-header: 'Bai Jamjuree, sans-serif', Arial, sans-serif;
+    --font-body: 'Bai Jamjuree, sans-serif', Arial, sans-serif;
+
+  
+    --text-color: #182e4c;
+    --heading-color: #182e4c;
+    --page-background: #e7edf0;
+    --blue-background: #1032cf;
+    --light-red: #f84f43;
+    --dark-red: #db3832;
+    --contrast-color: #fef050;
+}
+    html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+h1 {
+    font-family: var(--font-header);
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 1em;
+    overflow-wrap: anywhere;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #182e4c;
+    margin: 0.67em 0 0 0;
+
+}
+
+p{
+    font-family: var(--font-body);
+    margin-bottom: 0;
+    font-size: 19px;
+    line-height: 1.4em;
+    color: #182e4c;
+}
+
+.block-text {
+    grid-row-gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+}
+
+.center-text{
+text-align: center; }

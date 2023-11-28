@@ -1,0 +1,72 @@
+
+
+<nav class="nav">
+    <div class="content-wrapper">
+        <div class="nav-inner">
+            <img class="logo" src="{{ section.settings.logo_image | img_url }}" alt="">
+            <div class="nav-right">
+                <div class="menu">
+                    {% for link in linklists[section.settings.menu_links].links %}
+                        {% if link.links != blank %}
+                            <div>
+                                <div class="dropdown" onclick="toggleDropdown">
+                                <a href="{{ link.url }}" class="menu-link" >{{ link.title }} {% render 'icon-dropdown' %}</a>
+                                </div>
+                            <div class="dropdown-box">
+                                {% for sublink in link.links %}
+                                    <div class="dropdown-item">
+                                        
+                                        <div class="circle-icon" ></div>
+                                             
+                                                <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                                            
+                                        {% render 'icon-arrow-right' %}
+                                       
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+                            
+                            
+                        {% else %}
+                            <a href="{{ link.url }}" class="menu-link">{{ link.title }}</a>
+                        {% endif %}
+                        
+ 
+                        
+                    {% endfor %}
+                </div>
+                <div class="information">
+                    <a href="{{ routes.account_login_url }}">Login</a>
+                    <button class="button">
+                        {% render 'icon-shopping-bag' %}
+                        <a class="button-text" href="{{ routes.cart_url }}" >Cart</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+{% schema %}
+{
+    "name": "header",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "menu_links",
+            "label": "Primary menu links",
+            "default": "main-menu"
+
+        },
+        {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Logo image"
+
+
+        }
+        ]
+}
+{% endschema %}
