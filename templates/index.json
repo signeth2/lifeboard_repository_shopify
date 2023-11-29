@@ -1,0 +1,17 @@
+{
+    "name": "template-landingpage",
+    "layout": "theme",
+    "wrapper": "div",
+    "sections": {
+      "template-hero": {
+        "type": "hero"
+      },
+      "template-text-with-image": {
+        "type": "text-with-image"
+      },
+      "template-two-image-elements": {
+        "type": "two-image-elements"
+      }
+    },
+    "order": ["template-hero", "template-text-with-image", "two-image-elements"]
+  }

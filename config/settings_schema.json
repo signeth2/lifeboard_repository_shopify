@@ -8,7 +8,7 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
-    "name": "hero",
+    "name": "Typografi",
     "settings": [
       {
         "type": "text",
@@ -20,14 +20,20 @@
         "label": "Hero Image",
         "id": "hero_image"
       }
-    ],
-    "blocks": [
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
       {
         "type": "text",
-        "name": "Hero Block",
-        "settings": {
-          "text": "Default Text"
-        }
+        "label": "Another Section Text",
+        "id": "another_section_text"
+      },
+      {
+        "type": "image_picker",
+        "label": "Another Section Image",
+        "id": "another_section_image"
       }
     ]
   }

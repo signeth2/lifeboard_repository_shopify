@@ -13,14 +13,16 @@
   </head>
   <body>
 
-    {% section 'header' %}
-    {% section 'divider' %}
-    {% section 'hero' %}
-{% section 'text-with-image' %}
+  {% section 'header' %}
+  {% section 'divider' %}
+  
+
+  {{ content_for_layout }}
+
+
+
     
-    
-    <main role="main">
-     {{ content_for_layout }}
-    </main>
+ 
+
   </body>
 </html>

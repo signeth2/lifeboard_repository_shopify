@@ -1,0 +1,125 @@
+<div class="two-elements">
+    <div class="image-element">
+        <img  src="{{ section.settings.img_url_element_one | img_url: 'master' }}" alt="">
+        <div class="image-information">
+            <h1>{{ section.settings.header_text_one }}</h1>
+            <p>{{ section.settings.element_two_description }}</p>
+            <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.button_url_one }}">{{ section.settings.button_text_one }}</a></button>
+        </div>
+    </div>  
+    <div class="image-element">
+        <img  src="{{ section.settings.img_url_element_two | img_url: 'master' }}" alt="">
+        <div class="image-information">
+            <h1>{{ section.settings.header_text_two }}</h1>
+            <p>{{ section.settings.element_two_description }}</p>
+            <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.button_url_two }}">{{ section.settings.button_text_two }}</a></button>
+        </div>
+    </div>  
+</div>
+
+
+
+{% schema %}
+    {
+        "name": "two-images-elements",
+        "settings": [
+            {
+                "type": "text",
+                "id": "header_text_one",
+                "label": "Heading text element one",
+                "default": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "element_one_description",
+                "label": "Description text element one",
+                "default": "Description"
+            },
+            {
+                "type": "text",
+                "id": "element_two_description",
+                "label": "Description text element two",
+                "default": "Description"
+            },
+            {
+                "type": "text",
+                "id": "header_text_two",
+                "label": "Heading text element two",
+                "default": "Heading"
+            },
+            {
+                "type": "image_picker",
+                "id": "img_url_element_one",
+                "label": "Pick a background image for element one"
+            },
+            {
+                "type": "image_picker",
+                "id": "img_url_element_two",
+                "label": "Pick a background image for element two"
+            },
+            {
+            "type": "header",
+            "content": "Button settings "
+        },
+        {
+            "type": "text",
+            "id": "button_text_one",
+            "label": "Button one text",
+            "default": "Button"
+        },
+        {
+            "type": "url",
+            "id": "button_url_one",
+            "label": "Button one URL"
+        },
+        {
+            "type": "text",
+            "id": "button_text_two",
+            "label": "Button one text",
+            "default": "Button"
+        },
+        {
+            "type": "url",
+            "id": "button_url_two",
+            "label": "Button one URL"
+        },
+        {
+            "type": "select",
+            "id": "button_style",
+            "label": "Button style primary or secondary",
+            "default": "primary-button",
+            "options": [
+                {"value": "primary-button", "label": "Primary"},
+                {"value": "secondary-button", "label": "Secondary"}
+            ]
+        },
+        {
+            "type": "select",
+            "id": "button_color",
+            "label": "Button color",
+            "default": "red",
+            "options": [
+                {"value": "red", "label": "Red"},
+                {"value": "yellow", "label": "Yellow"},
+                {"value": "blue", "label": "Blue"}
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text_color",
+            "label": "Button text color",
+            "default": "white",
+            "options": [
+                {"value": "white", "label": "White"},
+                {"value": "blue", "label": "Blue"}
+            ]
+        }
+            
+            ],
+            "presets": [
+                {
+                    "name": "Two image elements"
+                }
+            ]
+    }
+    {% endschema %}

@@ -1,8 +1,8 @@
-<div class="text-with-image">
+<div class=" text-with-image {% if section.settings.reverse_layout == true %} text-with-image-reverse {% endif %}" >
     <div class="image-section">  
         <img  src="{{ section.settings.image_url | img_url: 'master' }}" alt="">
     </div>
-    <div class="information">
+    <div class="information {% if section.settings.reverse_layout == true %} information-reverse {% endif %}">
         <img  class="icon" src="{{ section.settings.icon_url | img_url: 'master' }}" alt="">
         <h1>{{ section.settings.information_header_text }}</h1>
         <p>{{ section.settings.information_description_text }}</p>
@@ -13,6 +13,12 @@
 {
     "name": "text-with-image",
     "settings": [
+        {
+            "type": "checkbox",
+            "id": "reverse_layout",
+            "label": "Switch image side",
+            "default": false
+        },
         {
             "type": "image_picker",
             "id": "image_url",
@@ -81,6 +87,11 @@
                 {"value": "blue", "label": "Blue"}
             ]
         }
+        ],
+        "presets": [
+            {
+                "name": "Text with image"
+            }
         ]
 }
 {% endschema %}

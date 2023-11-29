@@ -235,6 +235,7 @@ p {
   position: absolute;
   z-index: -1;
   top: 0;
+  object-fit: cover;
 }
 .hero .hero-text {
   position: absolute;
@@ -263,9 +264,10 @@ p {
   }
 }
 .text-with-image {
-  height: 450px;
+  height: 622px;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  border-bottom: solid 2px var(--page-background);
 }
 .text-with-image .image-section {
   overflow: hidden;
@@ -274,10 +276,10 @@ p {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: cover;
 }
 .text-with-image .information {
   width: 100%;
-  height: 100%;
   max-width: 590px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
@@ -287,21 +289,63 @@ p {
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  padding: 5vw;
+  align-items: start;
 }
 .text-with-image .information .icon {
   width: 30px;
   height: 30px;
 }
+.text-with-image .information .icon img {
+  object-fit: cover;
+}
+
+.text-with-image-reverse {
+  direction: rtl;
+}
+
+.text-with-image .information-reverse {
+  align-items: end;
+  text-align: left;
+}
 
 @media screen and (max-width: 991px) {
   .text-with-image {
-    height: 450px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }
-  .text-with-image .information {
+  .text-with-image .information-reverse {
     width: auto;
+  }
+}
+.two-elements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 5vw;
+  border-bottom: solid 2px var(--page-background);
+}
+.two-elements .image-element img {
+  width: 100%;
+  height: 400px;
+}
+.two-elements .image-information {
+  width: 100%;
+  max-width: 590px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: start;
+}
+
+@media screen and (max-width: 991px) {
+  .two-elements {
+    grid-template-columns: 1fr;
   }
 }
 body {
