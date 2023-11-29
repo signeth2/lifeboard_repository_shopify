@@ -12,6 +12,18 @@
     --dark-red: #db3832;
     --contrast-color: #fef050;
 }
+
+.blue{
+    background-color: var(--text-color);
+    color: white;
+}
+.yellow{
+    background-color: var(--contrast-color);
+}
+.white{
+    color: white;
+}
+
     html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,6 +59,22 @@ h1 {
     margin: 0.67em 0 0 0;
 
 }
+
+@media screen and (max-width: 767px){
+    h1 {
+        overflow-wrap: anywhere;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 479px){
+    h1 {
+        white-space: pre-wrap;
+        font-size: 26px;
+    }
+}
+
+
 
 p{
     font-family: var(--font-body);

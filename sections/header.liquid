@@ -1,6 +1,6 @@
 
 
-<nav class="nav">
+<nav class="nav {{ section.settings.header_color }}">
     <div class="content-wrapper">
         <div class="nav-inner">
             <img class="logo" src="{{ section.settings.logo_image | img_url }}" alt="">
@@ -9,8 +9,8 @@
                     {% for link in linklists[section.settings.menu_links].links %}
                         {% if link.links != blank %}
                             <div>
-                                <div class="dropdown" onclick="toggleDropdown">
-                                <a href="{{ link.url }}" class="menu-link" >{{ link.title }} {% render 'icon-dropdown' %}</a>
+                                <div class="dropdown" >
+                                <a href="{{ link.url }}" class="menu-link"  >{{ link.title }} {% render 'icon-dropdown' %}</a>
                                 </div>
                             <div class="dropdown-box">
                                 {% for sublink in link.links %}
@@ -23,27 +23,31 @@
                                         {% render 'icon-arrow-right' %}
                                        
                                     </div>
-                                {% endfor %}
+                                {% endfor %} 
                                 </div>
                             </div>
                             
                             
                         {% else %}
-                            <a href="{{ link.url }}" class="menu-link">{{ link.title }}</a>
+                            <a href="{{ link.url }}" class="menu-link {% if section.settings.header_color == "blue" %} white {% endif %}"> {{ link.title }}</a>
                         {% endif %}
+                        
                         
  
                         
                     {% endfor %}
                 </div>
                 <div class="information">
-                    <a href="{{ routes.account_login_url }}">Login</a>
-                    <button class="button">
+                    <a href="{{ routes.account_login_url }}" {% if section.settings.header_color == "blue" %} class="white" {% endif %}>Login</a>
+                    <button class="primary-button primary-button-red">
                         {% render 'icon-shopping-bag' %}
-                        <a class="button-text" href="{{ routes.cart_url }}" >Cart</a>
+                        <a class="button-text-white" href="{{ routes.cart_url }}" >Cart</a>
                     </button>
+                    
                 </div>
+                
             </div>
+            <div class="burgerbar">{% render 'icon-burgerbar' %}</div>
         </div>
     </div>
 </nav>
@@ -66,6 +70,16 @@
             "label": "Logo image"
 
 
+        },
+        {
+            "type": "select",
+            "id": "header_color",
+            "label": "Header background color",
+            "default": "yellow",
+            "options": [
+                {"value": "yellow", "label": "yellow"},
+                {"value": "blue", "label": "blue"}
+            ]
         }
         ]
 }

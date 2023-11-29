@@ -8,12 +8,16 @@
     {{ content_for_header }}
 
     {{ 'index.css' | asset_url | stylesheet_tag }}
-    {{ 'application.js' | asset_url | javascript_tag }}
+    
 
   </head>
   <body>
 
     {% section 'header' %}
+    {% section 'divider' %}
+    {% section 'hero' %}
+{% section 'text-with-image' %}
+    
     
     <main role="main">
      {{ content_for_layout }}

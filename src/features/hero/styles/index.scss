@@ -1,0 +1,48 @@
+.hero{
+    width: 100%;
+    height: 700px;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    .image-overlay{
+        position: relative;
+        top: 0;
+        height: 700px;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top:0;
+    }
+    .hero-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white; /* Juster tekstfarven efter baggrundsbilledet */
+        z-index: 1;
+        max-width: 800px;
+        .hero-buttons{
+            display: flex;
+            margin-top: 50px;
+            gap: 60px;
+            justify-content: center;
+        }
+    }
+
+}
+
+@media screen and (max-width: 991px){
+    .hero{
+        height: 350px;
+    }
+    .hero .hero-text .hero-buttons{
+        gap: 11px;
+        margin-top: 20px;
+    }
+}
