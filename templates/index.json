@@ -13,5 +13,5 @@
         "type": "two-image-elements"
       }
     },
-    "order": ["template-hero", "template-text-with-image", "two-image-elements"]
+    "order": ["template-hero", "template-text-with-image", "template-two-image-elements"]
   }
