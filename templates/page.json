@@ -1,19 +1,61 @@
 {
-    "name": "template-featured-product",
-    "wrapper": "div",
-    "sections": {
-      "template-heading": {
-        "type": "heading"
-      },
-      "template-text-with-image": {
-        "type": "text-with-image"
-      },
-      "template-two-image-elements": {
-        "type": "two-image-elements"
-      },
-      "template-product-selection": {
-        "type": "product-selection"
+  "wrapper": "div",
+  "sections": {
+    "template-product-selection": {
+      "type": "product-selection",
+      "settings": {
+        "pop_up_color": "#182e4c",
+        "pop_up_text_color": "white",
+        "pop_up_heading": "Headingjbjb",
+        "pop_up_button_text": "Button",
+        "pop_up_button_url": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
       }
     },
-    "order": [ "template-product-selection", "template-heading", "template-text-with-image", "template-two-image-elements"]
-  }
+    "template-heading": {
+      "type": "heading",
+      "settings": {
+        "heading_text": "Heading",
+        "description_text": "Description",
+        "remove_image": true
+      }
+    },
+    "template-text-with-image": {
+      "type": "text-with-image",
+      "settings": {
+        "reverse_layout": false,
+        "information_header_text": "Heading",
+        "information_description_text": "Description",
+        "information_button_text": "Button",
+        "information_button_url": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
+      }
+    },
+    "template-two-image-elements": {
+      "type": "two-image-elements",
+      "settings": {
+        "header_text_one": "Heading",
+        "element_one_description": "Description",
+        "element_two_description": "Description",
+        "header_text_two": "Heading",
+        "button_text_one": "Button",
+        "button_url_one": "",
+        "button_text_two": "Button",
+        "button_url_two": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
+      }
+    }
+  },
+  "order": [
+    "template-product-selection",
+    "template-heading",
+    "template-text-with-image",
+    "template-two-image-elements"
+  ]
+}

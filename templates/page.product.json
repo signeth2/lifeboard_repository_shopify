@@ -1,19 +1,31 @@
 {
-  "name": "template-product-selection",
   "wrapper": "div",
   "sections": {
     "template-heading": {
-      "type": "heading"
+      "type": "heading",
+      "settings": {
+      }
     },
     "template-text-with-image": {
-      "type": "text-with-image"
+      "type": "text-with-image",
+      "settings": {
+      }
     },
     "template-two-image-elements": {
-      "type": "two-image-elements"
+      "type": "two-image-elements",
+      "settings": {
+      }
     },
     "template-product-selection": {
-      "type": "product-selection"
+      "type": "product-selection",
+      "settings": {
+      }
     }
   },
-  "order": [ "template-product-selection", "template-heading", "template-text-with-image", "template-two-image-elements"]
+  "order": [
+    "template-product-selection",
+    "template-heading",
+    "template-text-with-image",
+    "template-two-image-elements"
+  ]
 }
