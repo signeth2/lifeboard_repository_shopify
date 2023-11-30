@@ -14,14 +14,6 @@
         "text_color": "white"
       }
     },
-    "template-heading": {
-      "type": "heading",
-      "settings": {
-        "heading_text": "Heading",
-        "description_text": "Description",
-        "remove_image": true
-      }
-    },
     "template-text-with-image": {
       "type": "text-with-image",
       "settings": {
@@ -54,7 +46,6 @@
   },
   "order": [
     "template-product-selection",
-    "template-heading",
     "template-text-with-image",
     "template-two-image-elements"
   ]
