@@ -1,0 +1,19 @@
+{
+    "name": "template-solution",
+    "wrapper": "div",
+    "sections": {
+      "template-heading": {
+        "type": "heading"
+      },
+      "template-text-with-image": {
+        "type": "text-with-image"
+      },
+      "template-two-image-elements": {
+        "type": "two-image-elements"
+      },
+      "template-product-selection": {
+        "type": "product-selection"
+      }
+    },
+    "order": [ "template-product-selection", "template-heading", "template-text-with-image", "template-two-image-elements"]
+  }
