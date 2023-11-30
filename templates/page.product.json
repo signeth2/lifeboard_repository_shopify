@@ -1,6 +1,14 @@
 {
   "wrapper": "div",
   "sections": {
+    "f5c2c547-56d3-4ecc-9e23-5bb5dd8b53bd": {
+      "type": "heading",
+      "settings": {
+        "heading_text": "{{ page.title }}",
+        "description_text": "Description",
+        "remove_image": false
+      }
+    },
     "template-product-selection": {
       "type": "product-selection",
       "settings": {
@@ -45,6 +53,7 @@
     }
   },
   "order": [
+    "f5c2c547-56d3-4ecc-9e23-5bb5dd8b53bd",
     "template-product-selection",
     "template-text-with-image",
     "template-two-image-elements"
