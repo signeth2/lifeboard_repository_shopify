@@ -1,0 +1,50 @@
+<div class="heading ">
+    <div class="heading_information">
+        <h1>{{ section.settings.heading_text }}</h1>
+        <p>{{ section.settings.description_text }}</p>
+    </div>
+
+    {% if section.settings.remove_image %}
+        <img src=" {{ section.settings.heading_image | img_url: 'master' }} " alt="">
+    {% endif %}
+
+</div>
+
+
+
+{% schema %}
+{
+    "name": "heading",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading_text",
+            "label": "Heading text",
+            "default": "Heading"
+
+        },
+        {
+            "type": "text",
+            "id": "description_text",
+            "label": "Description text",
+            "default": "Description"
+        },
+        {
+            "type": "image_picker",
+            "id": "heading_image",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "remove_image",
+            "label": "Remove image",
+            "default": true
+        }
+        ],
+        "presets": [
+                {
+                    "name": "Heading"
+                }
+            ]
+}
+{% endschema %}

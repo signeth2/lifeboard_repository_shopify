@@ -1,0 +1,88 @@
+<div class="product-selection">
+    <div class="pop-up" style="background-color: {{ section.settings.pop_up_color }};">
+        <div class="pop-up-information">
+            <h1 style="color: {{ section.settings.pop_up_text_color }} ;">{{ section.settings.pop_up_heading}}</h1>
+            <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.pop_up_button_url }}">{{ section.settings.pop_up_button_text }}</a></button>    </div>
+    
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "Product-selection",
+    "settings": [
+        {
+            "type": "color",
+            "id": "pop_up_color",
+            "label": "Background color",
+            "default": "#182e4c"
+        },
+        {
+            "type": "select",
+            "id": "pop_up_text_color",
+            "label": "Heading text color",
+            "default": "white",
+            "options": [
+                {"value": "#182e4c", "label": "Dark"},
+                {"value": "white", "label": "Light"}
+            ]
+        },
+        {
+            "type": "text",
+            "id": "pop_up_heading",
+            "label": "Heading text",
+            "default": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "pop_up_button_text",
+            "label": "Button one text",
+            "default": "Button"
+        },
+        {
+            "type": "url",
+            "id": "pop_up_button_url",
+            "label": "Button one URL"
+        },
+        {
+            "type": "select",
+            "id": "button_style",
+            "label": "Button style primary or secondary",
+            "default": "primary-button",
+            "options": [
+                {"value": "primary-button", "label": "Primary"},
+                {"value": "secondary-button", "label": "Secondary"}
+            ]
+        },
+        {
+            "type": "select",
+            "id": "button_color",
+            "label": "Button color",
+            "default": "red",
+            "options": [
+                {"value": "red", "label": "Red"},
+                {"value": "yellow", "label": "Yellow"},
+                {"value": "blue", "label": "Blue"}
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text_color",
+            "label": "Button text color",
+            "default": "white",
+            "options": [
+                {"value": "white", "label": "White"},
+                {"value": "blue", "label": "Blue"}
+            ]
+        }
+        ],
+        "presets": [
+                {
+                    "name": "product-selection"
+                }
+            ]
+}
+{% endschema %}

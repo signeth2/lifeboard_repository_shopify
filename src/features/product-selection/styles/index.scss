@@ -1,0 +1,17 @@
+.product-selection{
+    .pop-up{
+        .pop-up-information{
+            max-width: 590px;
+            grid-row-gap: 20px;
+            flex-direction: column;
+            margin-right: auto;
+            display: flex;
+            padding: 5vw;
+            align-items: start;
+            h1{
+                margin: 0;
+            }
+        }
+        
+    }
+}
