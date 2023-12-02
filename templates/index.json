@@ -1,17 +1,78 @@
 {
-  "name": "template-landingpage",
   "layout": "theme",
   "wrapper": "div",
   "sections": {
     "template-hero": {
-      "type": "hero"
+      "type": "hero",
+      "settings": {
+        "hero_img_url": "shopify:\/\/shop_images\/placeholder-4.webp",
+        "hero_header_text": "Heading",
+        "hero_button_one_text": "Button",
+        "hero_button_one_url": "",
+        "hero_button_two_text": "Button",
+        "hero_button_two_url": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white",
+        "remove_buttons": true,
+        "overlay_opacity": 30,
+        "overlay_color": "#000000",
+        "show_overlay": false
+      }
     },
     "template-text-with-image": {
-      "type": "text-with-image"
+      "type": "text-with-image",
+      "settings": {
+        "reverse_layout": false,
+        "image_url": "shopify:\/\/shop_images\/Placeholder_view_vector_svg.png",
+        "information_header_text": "Heading",
+        "information_description_text": "Description",
+        "icon_url": "shopify:\/\/shop_images\/placeholder-4.webp",
+        "information_button_text": "Button",
+        "information_button_url": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
+      }
+    },
+    "11a19539-36ff-481a-abe8-bb75f7f9a0e2": {
+      "type": "text-with-image",
+      "settings": {
+        "reverse_layout": true,
+        "image_url": "shopify:\/\/shop_images\/placeholder-4.webp",
+        "information_header_text": "Heading",
+        "information_description_text": "Description",
+        "icon_url": "shopify:\/\/shop_images\/Placeholder_view_vector_svg.png",
+        "information_button_text": "Button",
+        "information_button_url": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
+      }
     },
     "template-two-image-elements": {
-      "type": "two-image-elements"
+      "type": "two-image-elements",
+      "settings": {
+        "header_text_one": "Heading",
+        "element_one_description": "Description",
+        "element_two_description": "Description",
+        "header_text_two": "Heading",
+        "img_url_element_one": "shopify:\/\/shop_images\/placeholder-4.webp",
+        "img_url_element_two": "shopify:\/\/shop_images\/Placeholder_view_vector_svg.png",
+        "button_text_one": "Button",
+        "button_url_one": "",
+        "button_text_two": "Button",
+        "button_url_two": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
+      }
     }
   },
-  "order": ["template-hero", "template-text-with-image", "template-two-image-elements"]
+  "order": [
+    "template-hero",
+    "template-text-with-image",
+    "11a19539-36ff-481a-abe8-bb75f7f9a0e2",
+    "template-two-image-elements"
+  ]
 }
