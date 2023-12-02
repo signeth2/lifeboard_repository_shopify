@@ -1,12 +1,65 @@
 <div class="product-selection">
     <div class="pop-up" style="background-color: {{ section.settings.pop_up_color }};">
-        <div class="pop-up-information">
+        <div id="pop-up-information">
             <h1 style="color: {{ section.settings.pop_up_text_color }} ;">{{ section.settings.pop_up_heading}}</h1>
-            <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.pop_up_button_url }}">{{ section.settings.pop_up_button_text }}</a></button>    </div>
-    
+            <button onclick="closeHeading()" class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}">
+                <a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.pop_up_button_url }}">{{ section.settings.pop_up_button_text}}</a>
+            </button>
         </div>
+
+        <div id="popup-container" class="popup-container">
+            <div class="question" data-question="Q1">
+                <p>Spørgsmål 1: Hvad er din præference?</p>
+                <div class="options">
+                    <button onclick="answerQuestion('Q1', 'Mulighed 1')"><p>Mulighed 1</p></button>
+                    <button onclick="answerQuestion('Q1', 'Mulighed 2')"><p>Mulighed 2</p></button>
+                    <button onclick="answerQuestion('Q1', 'Mulighed 3')"><p>Mulighed 3</p></button>
+                </div>
+            </div>
+
+            <div class="question" data-question="Q2">
+                <p>Spørgsmål 2: Et eller andet spørgsmål?</p>
+                <div class="options">
+                    <button onclick="answerQuestion('Q2', 'Mulighed A')"><p>Mulighed A</p></button>
+                    <button onclick="answerQuestion('Q2', 'Mulighed B')"><p>Mulighed B</p></button>
+                    <button onclick="answerQuestion('Q2', 'Mulighed C')"><p>Mulighed C</p></button>
+                </div>
+            </div>
+
+            
+            <button onclick="closeTest()"
+            class="close-button {{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}">{{ section.settings.close_button_text}}</a>
+            </button>
+        </div>
+        
+
     </div>
+
+   
+    <h1 class="text-center">{{ section.settings.heading_package_solution }}</h1>
+
+    <div id="result" class="result text-center" style="display: none;">
+        <p>Din pakkeløsning: <span id="result-text"></span></p>
+    </div>
+    <div class="package-solution">
+        {% for block in section.blocks %}
+            <div class="package">
+                    <div>
+                        <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
+                        <div class="solution solution-one" id="package_{{ block.settings.package_number }}">
+                            <p>{{ block.settings.header_package }}</p>
+                            <p>beskrivelse</p>
+                        </div>
+                        
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
 </div>
+
 
 
 
@@ -43,9 +96,21 @@
             "default": "Button"
         },
         {
+            "type": "text",
+            "id": "close_button_text",
+            "label": "Button close pop up text",
+            "default": "Button"
+        },
+        {
             "type": "url",
             "id": "pop_up_button_url",
             "label": "Button one URL"
+        },
+        {
+            "type": "text",
+            "id": "heading_package_solution",
+            "label": "Heading for package solution",
+            "default": "Heading"
         },
         {
             "type": "select",
@@ -78,6 +143,36 @@
                 {"value": "blue", "label": "Blue"}
             ]
         }
+        ],
+        "blocks": [
+            {
+                "name": "package",
+                "type": "fdnkdf",
+                "settings": [
+                    {
+                        "type": "number",
+                        "id": "package_number",
+                        "label": "Package number"
+                    },
+                    {
+                        "type": "text",
+                        "id": "header_package",
+                        "label": "Heading package",
+                        "default": "Heading"
+                    },
+                    {
+                        "type": "text",
+                        "id": "client_case_name",
+                        "label": "Name client case",
+                        "default": "Client case"
+                    },
+                    {
+                        "type": "url",
+                        "id": "client_case_url",
+                        "label": "Name client url"
+                    }
+                ]
+            }
         ],
         "presets": [
                 {

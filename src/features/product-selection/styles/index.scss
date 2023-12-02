@@ -1,17 +1,76 @@
-.product-selection{
-    .pop-up{
-        .pop-up-information{
-            max-width: 590px;
-            grid-row-gap: 20px;
-            flex-direction: column;
-            margin-right: auto;
-            display: flex;
-            padding: 5vw;
-            align-items: start;
-            h1{
-                margin: 0;
-            }
-        }
-        
+.product-selection {
+  .pop-up {
+    #pop-up-information {
+      max-width: 590px;
+      grid-row-gap: 20px;
+      flex-direction: column;
+      margin-right: auto;
+      display: flex;
+      padding: 5vw;
+      align-items: start;
+
+      h1 {
+        margin: 0;
+      }
     }
+
+    #popup-container {
+      padding: 20px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      display: none;
+      p{
+        color: white;
+      }
+      .options{
+        gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+      }
+      .options button {
+        background-color: var(--page-background);
+        min-width: 340px;
+        height: 45px;
+        border: none;
+        p{
+          color: var(--text-color);
+          text-align: left;
+          margin-left: 20px;
+        }
+        .close-button{
+          margin-top: 20px;
+        }
+  
+      }
+      
+  
+      .result, #result-text {
+        margin-top: 20px;
+        color: var(--text-color);
+      }
+    }
+    .close-button{
+      margin: auto;
+    }
+
+  }
+.package-solution{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 5vw;
+    gap:20px;
+    flex-wrap: wrap;
+    color: var(--text-color);
+    .solution{
+      background-color: var(--page-background);
+      border: 2px solid #002e6a2b;
+      padding: 3vw;
+      min-width: 200px;
+    }
+}
+
 }

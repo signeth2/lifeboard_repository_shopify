@@ -5,6 +5,7 @@
 @import 'features/two-image-elements/styles/index.scss';
 @import 'features/heading/styles/index.scss';
 @import 'features/product-selection/styles/index.scss';
+@import 'features/package-solution/styles/index.scss';
 @import 'features/404/styles/index.scss';
 
 
@@ -20,6 +21,10 @@ body {
 
 .flex{
     display: flex;
+}
+
+.text-center{
+    text-align: center;
 }
 
 .primary-button{
