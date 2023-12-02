@@ -11,12 +11,48 @@
     },
     "template-product-selection": {
       "type": "product-selection",
+      "blocks": {
+        "c35ce882-7884-4830-a362-224ed9b71c1b": {
+          "type": "fdnkdf",
+          "settings": {
+            "package_number": 1,
+            "header_package": "Pakkeløsning 1",
+            "client_case_name": "Client case",
+            "client_case_url": ""
+          }
+        },
+        "35f26dea-57b5-4952-b3ac-a69e4af2d290": {
+          "type": "fdnkdf",
+          "settings": {
+            "package_number": 2,
+            "header_package": "Pakkeløsning 2",
+            "client_case_name": "Client case",
+            "client_case_url": ""
+          }
+        },
+        "1e1aaef8-1785-4dcd-8e1f-bd77dc751659": {
+          "type": "fdnkdf",
+          "settings": {
+            "package_number": 3,
+            "header_package": "Pakkeløsning 3 Standard",
+            "client_case_name": "Client case",
+            "client_case_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "c35ce882-7884-4830-a362-224ed9b71c1b",
+        "35f26dea-57b5-4952-b3ac-a69e4af2d290",
+        "1e1aaef8-1785-4dcd-8e1f-bd77dc751659"
+      ],
       "settings": {
         "pop_up_color": "#182e4c",
         "pop_up_text_color": "white",
         "pop_up_heading": "Tag testen",
         "pop_up_button_text": "Button",
+        "close_button_text": "Button",
         "pop_up_button_url": "",
+        "heading_package_solution": "Heading",
         "button_style": "primary-button",
         "button_color": "red",
         "text_color": "white"
