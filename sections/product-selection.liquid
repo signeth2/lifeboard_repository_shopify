@@ -2,32 +2,32 @@
     <div class="pop-up" style="background-color: {{ section.settings.pop_up_color }};">
         <div id="pop-up-information">
             <h1 style="color: {{ section.settings.pop_up_text_color }} ;">{{ section.settings.pop_up_heading}}</h1>
-            <button onclick="closeHeading()" class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}">
+            <button onclick="openPopup()" class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}">
                 <a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.pop_up_button_url }}">{{ section.settings.pop_up_button_text}}</a>
             </button>
         </div>
 
-        <div id="popup-container" class="popup-container">
+        <div id="popup-container" class="popup-container" >
             <div class="question" data-question="Q1">
                 <p>Spørgsmål 1: Hvad er din præference?</p>
                 <div class="options">
-                    <button onclick="answerQuestion('Q1', 'Mulighed 1')"><p>Mulighed 1</p></button>
-                    <button onclick="answerQuestion('Q1', 'Mulighed 2')"><p>Mulighed 2</p></button>
-                    <button onclick="answerQuestion('Q1', 'Mulighed 3')"><p>Mulighed 3</p></button>
+                    <button onclick="answerQuestion('Q1', 'Mulighed 1')"><p class="bold">Mulighed 1</p><p>Beskrivelse</p></button>
+                    <button onclick="answerQuestion('Q1', 'Mulighed 2')"><p class="bold">Mulighed 2</p><p>Beskrivelse</p></button>
+                    <button onclick="answerQuestion('Q1', 'Mulighed 3')"><p class="bold">Mulighed 3</p><p>Beskrivelse</p></button>
                 </div>
             </div>
 
             <div class="question" data-question="Q2">
                 <p>Spørgsmål 2: Et eller andet spørgsmål?</p>
                 <div class="options">
-                    <button onclick="answerQuestion('Q2', 'Mulighed A')"><p>Mulighed A</p></button>
-                    <button onclick="answerQuestion('Q2', 'Mulighed B')"><p>Mulighed B</p></button>
-                    <button onclick="answerQuestion('Q2', 'Mulighed C')"><p>Mulighed C</p></button>
+                    <button onclick="answerQuestion('Q2', 'Mulighed A')"><p class="bold">Mulighed A</p><p>Beskrivelse</p></button>
+                    <button onclick="answerQuestion('Q2', 'Mulighed B')"><p class="bold">Mulighed B</p><p>Beskrivelse</p></button>
+                    <button onclick="answerQuestion('Q2', 'Mulighed C')"><p class="bold">Mulighed C</p><p>Beskrivelse</p></button>
                 </div>
             </div>
 
             
-            <button onclick="closeTest()"
+            <button onclick="closePopup()"
             class="close-button {{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}">{{ section.settings.close_button_text}}</a>
             </button>
         </div>
@@ -47,7 +47,7 @@
                     <div>
                         <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
                         <div class="solution solution-one" id="package_{{ block.settings.package_number }}">
-                            <p>{{ block.settings.header_package }}</p>
+                            <p> <b>{{ block.settings.header_package }}</b></p>
                             <p>beskrivelse</p>
                         </div>
                         

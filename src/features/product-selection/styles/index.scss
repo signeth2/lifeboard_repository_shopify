@@ -20,7 +20,7 @@
       justify-content: center;
       align-items: center;
       gap: 40px;
-      display: none;
+
       p{
         color: white;
       }
@@ -28,17 +28,20 @@
         gap: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        
+        margin-top: 10px;
       }
       .options button {
         background-color: var(--page-background);
         min-width: 340px;
-        height: 45px;
+        min-height: 60px;
         border: none;
+        padding: 15px;
         p{
           color: var(--text-color);
           text-align: left;
-          margin-left: 20px;
+
+          font-size: 16px;
+   
         }
         .close-button{
           margin-top: 20px;
@@ -72,5 +75,12 @@
       min-width: 200px;
     }
 }
+
+}
+
+@media screen and (max-width: 791px){
+  .product-selection  .pop-up #popup-container .options{
+    grid-template-columns: 1fr;
+  }
 
 }

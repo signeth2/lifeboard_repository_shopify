@@ -1,5 +1,6 @@
 
 
+
 let currentQuestion = 0;
 const answers = {};
 
@@ -68,16 +69,13 @@ function calculateResult(answers) {
 
 
 
-
-function closeHeading() {
-  document.getElementById('pop-up-information').style.display = 'none';
+function openPopup() {
   document.getElementById('popup-container').style.display = 'block';
-
+  
 }
 
-function closeTest() {
+function closePopup() {
   document.getElementById('popup-container').style.display = 'none';
-  document.getElementById('pop-up-information').style.display = 'block';
-
-
 }
+
+
