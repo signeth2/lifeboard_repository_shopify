@@ -48,9 +48,19 @@
                 </div>
                 
             </div>
-            <div class="burgerbar">{% render 'icon-burgerbar' %}</div>
+            <div id="toggle" aria-expanded="false" onclick="toggleAriaExpanded('toggle')" class=" burgerbar">{% render 'icon-burgerbar' %}</div>
         </div>
     </div>
+    
+    <div class="mega-menu">
+        {% for link in linklists[section.settings.menu_links].links %}
+            <div class="mega-menu_nav-item flex">
+                <div class="mega-menu_circle-icon"></div>
+                <a href="{{ link.url }}" class="menu-link {% if section.settings.header_color == "blue" %} white {% endif %}"> {{ link.title }}</a>
+            </div>
+        {% endfor %}
+    </div>   
+   
 </nav>
 
 

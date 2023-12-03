@@ -2,7 +2,6 @@
   .pop-up {
     #pop-up-information {
       max-width: 590px;
-      grid-row-gap: 20px;
       flex-direction: column;
       margin-right: auto;
       display: flex;
@@ -11,6 +10,7 @@
 
       h1 {
         margin: 0;
+        margin: 20px 0;
       }
     }
 
@@ -20,6 +20,7 @@
       justify-content: center;
       align-items: center;
       gap: 40px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
 
       p{
         color: white;
@@ -28,7 +29,7 @@
         gap: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        margin-top: 10px;
+        margin: 10px 0 30px 0;
       }
       .options button {
         background-color: var(--page-background);

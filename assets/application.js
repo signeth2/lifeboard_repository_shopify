@@ -69,13 +69,31 @@ function calculateResult(answers) {
 
 
 
-function openPopup() {
+function openPopup(event) {
+  event.preventDefault(); 
   document.getElementById('popup-container').style.display = 'block';
-  
+  document.getElementById('pop-up-information').style.display = 'none';
 }
 
 function closePopup() {
   document.getElementById('popup-container').style.display = 'none';
+  document.getElementById('pop-up-information').style.display = 'block';
 }
 
 
+
+function toggleAriaExpanded(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (element) {
+      const currentExpanded = element.getAttribute('aria-expanded') === 'true';
+      element.setAttribute('aria-expanded', String(!currentExpanded));
+
+      var test = document.getElementsByClassName('mega-menu')[0];
+      test.style.display = currentExpanded ? 'none' : 'block';
+  } else {
+      console.error(`Element with id '${elementId}' not found.`);
+  }
+}
+
+toggleAriaExpanded('toggle');

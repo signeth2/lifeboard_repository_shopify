@@ -2,12 +2,12 @@
     <div class="pop-up" style="background-color: {{ section.settings.pop_up_color }};">
         <div id="pop-up-information">
             <h1 style="color: {{ section.settings.pop_up_text_color }} ;">{{ section.settings.pop_up_heading}}</h1>
-            <button onclick="openPopup()" class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}">
+            <button type="button" onclick="openPopup(event)" class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}">
                 <a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.pop_up_button_url }}">{{ section.settings.pop_up_button_text}}</a>
             </button>
         </div>
 
-        <div id="popup-container" class="popup-container" >
+        <div id="popup-container" class="popup-container" style="display: none;">
             <div class="question" data-question="Q1">
                 <p>Spørgsmål 1: Hvad er din præference?</p>
                 <div class="options">
