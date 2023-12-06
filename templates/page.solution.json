@@ -80,7 +80,7 @@
         "cart_button_text": "Button",
         "cart_button_url": "",
         "button_style": "primary-button",
-        "button_color": "red",
+        "button_color": "blue",
         "text_color": "white"
       }
     }
