@@ -317,7 +317,7 @@ p {
 .text-with-image {
   height: 622px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
   border-bottom: solid 2px var(--page-background);
 }
 .text-with-image .image-section {
@@ -330,7 +330,6 @@ p {
   object-fit: cover;
 }
 .text-with-image .information {
-  width: 100%;
   max-width: 590px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
@@ -377,8 +376,9 @@ p {
   border-bottom: solid 2px var(--page-background);
 }
 .two-elements .image-element img {
-  width: 100%;
+  max-width: 100%;
   height: 400px;
+  object-fit: cover;
 }
 .two-elements .image-information {
   width: 100%;
@@ -396,6 +396,9 @@ p {
 @media screen and (max-width: 991px) {
   .two-elements {
     grid-template-columns: 1fr;
+  }
+  .two-elements .image-element img {
+    width: 100%;
   }
 }
 .heading {
@@ -490,6 +493,105 @@ p {
     grid-template-columns: 1fr;
   }
 }
+.shopping {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 20px;
+  padding: 5vw;
+}
+.shopping h3 {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 20px 0;
+}
+.shopping .products .service {
+  height: 120px;
+  background-color: #e6e6e6;
+  position: relative;
+  padding: 20px;
+}
+.shopping .products .service .price {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.shopping .products .product {
+  display: grid;
+  grid-template-columns: 160px 2fr;
+  grid-row-gap: 20px;
+}
+.shopping .products .product .product-information {
+  background-color: #e6e6e6;
+  position: relative;
+  padding: 20px;
+}
+.shopping .products .product .product-information .price {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.shopping .products .product .product-information .package {
+  display: flex;
+  padding-left: 5vw;
+}
+.shopping .products .product .product-information .package img {
+  height: 85px;
+  width: 85px;
+}
+.shopping .products .product .product-information .amount {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  align-items: center;
+  gap: 5px;
+}
+.shopping .products .product .product-information .amount .number {
+  background-color: white;
+  border-radius: 50px;
+  padding: 5px;
+}
+.shopping .products .product .product-information .amount svg {
+  height: 15px;
+  width: 15px;
+}
+.shopping .products img {
+  height: 160px;
+  width: 160px;
+}
+.shopping .cart {
+  background-color: #e6e6e6;
+  position: sticky;
+  top: 140px;
+  height: fit-content;
+  padding: 20px;
+}
+.shopping .cart .total {
+  margin-top: 40px;
+  font-weight: 600;
+}
+.shopping .cart .shipping {
+  margin-bottom: 40px;
+}
+.shopping .cart .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.shopping .cart .align-right {
+  text-align: right;
+}
+.shopping .cart button {
+  margin: 20px auto 40px auto;
+  width: 100%;
+}
+.shopping .cart button a {
+  display: flex;
+  gap: inherit;
+}
+.shopping .cart button svg {
+  height: 15px;
+}
+
 body {
   background-color: var(white);
   font-family: var(--font-body);

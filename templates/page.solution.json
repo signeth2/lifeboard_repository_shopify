@@ -42,11 +42,15 @@
         "button_color": "red",
         "text_color": "white"
       }
+    },
+    "template-shopping": {
+      "type": "shopping"
     }
   },
   "order": [
     "template-heading",
     "template-text-with-image",
-    "template-two-image-elements"
+    "template-two-image-elements",
+    "template-shopping"
   ]
 }

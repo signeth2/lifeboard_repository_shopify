@@ -1,0 +1,168 @@
+<div class="shopping">
+    <div class="products">
+        <h3 class="categorie-name">Service aftale</h3>
+        <div class="service">
+            <p class="product-name"><b>Service aftale</b></p>
+            <p class="product description">Description</p>
+            <p class="price">0</p>
+
+        </div>
+        <h3 class="categorie-name">Produkter</h3>
+
+        <div class="product" >
+            {% for block in section.blocks %}
+            {% assign product = block.settings.product %}
+            {% assign product_title = product.title %}
+            {% assign product_image = product.image | img_url: 'master' %}
+            {% assign product_description = product.description %}
+            {% assign product_price = product.price %}
+            
+            <img src="{{ product_image }}" alt="">
+            <div class="product-information">
+                <p class="product-name">{{ product_title }}</p>
+                <p class="product-description">{{ product_description }}</p>
+                <p class="price">{{ product_price | divided_by: 100.0  }}kr</p>
+                <div class="amount" data-product-title="{{ product.title }}" data-product-id="{{ product.id }} " data-price="{{ product.price | divided_by: 100.0  }}" >
+                    <div class="number">0</div>
+                    <div class="icon-minus">{% render 'icon-minus' %}</div>
+                    <div class="icon-plus">{% render 'icon-plus' %}</div>
+                </div>
+                {% if block.settings.package %}
+                    <hr>
+                    <div class="package">
+                        <img src="" alt="">
+                        <div class="product-information">
+                            <p class="product-name">title</p>
+                            <p class="product-description">beskrivelse</p>
+                            <div class="amount"></div>
+                        </div>
+                    </div>
+                    <div class="package">
+                        <img src="" alt="">
+                        <div class="product-information">
+                            <p class="product-name">title</p>
+                            <p class="product-description">beskrivelse</p>
+                            <div class="amount"></div>
+                        </div>
+                    </div>
+                    
+                {% endif %}
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+        <div class="cart">
+            <h3>Cart</h3>
+            
+            <div class="subtotal grid">
+                <p>Subtotal</p>
+                <p class="value align-right" id="subtotal-value">0</p>
+                <div class="update-subtotal"></div>
+            </div>
+            <div class="shipping grid">
+                <p>Shipping</p>
+                <p class="align-right" id="shipping-value">{{ section.settings.delivery_price }}</p>
+            </div>
+            <div class="selected-products">
+                <!-- Dette område vil blive opdateret dynamisk -->
+            </div>
+            <hr>
+            <div class="total grid">
+                <p>Total</p>
+                <p class="align-right" id="total-value">0</p>
+            </div>
+            <button class="{{ section.settings.button_style }} {{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.cart_button_url }}">{{ section.settings.cart_button_text }} {% render 'icon-arrow-right' %}</a></button>
+        </div>
+
+</div>
+
+
+
+
+
+{% schema %}
+{
+    "name": "shopping",
+    "settings": [
+        {
+            "type": "number",
+            "id": "delivery_price",
+            "label": "Delivery price",
+            "default": 500
+
+        },
+        {
+            "type": "header",
+            "content": "Button settings "
+        },
+        {
+            "type": "text",
+            "id": "cart_button_text",
+            "label": "Button one text",
+            "default": "Button"
+        },
+        {
+            "type": "url",
+            "id": "cart_button_url",
+            "label": "Button two URL"
+        },
+        {
+            "type": "select",
+            "id": "button_style",
+            "label": "Button style primary or secondary",
+            "default": "primary-button",
+            "options": [
+                {"value": "primary-button", "label": "Primary"},
+                {"value": "secondary-button", "label": "Secondary"}
+            ]
+        },
+        {
+            "type": "select",
+            "id": "button_color",
+            "label": "Button color",
+            "default": "red",
+            "options": [
+                {"value": "red", "label": "Red"},
+                {"value": "yellow", "label": "Yellow"},
+                {"value": "blue", "label": "Blue"}
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text_color",
+            "label": "Button text color",
+            "default": "white",
+            "options": [
+                {"value": "white", "label": "White"},
+                {"value": "blue", "label": "Blue"}
+            ]
+        }
+        ],
+        "blocks": [
+            {
+                "name": "products",
+                "type": "products",
+                "settings": [
+                    {
+                        "type": "checkbox",
+                        "id": "package",
+                        "label": "Package product",
+                        "default": false
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "product"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+                {
+                    "name": "product-selection"
+                }
+            ]
+}
+{% endschema %}

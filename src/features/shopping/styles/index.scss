@@ -1,0 +1,106 @@
+.shopping{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 20px;
+    padding: 5vw;
+    h3{
+        font-weight: 600;
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    
+    .products{
+        
+        .service{
+            height: 120px;
+            background-color: #e6e6e6;
+            position: relative;
+            padding: 20px;
+            .price{
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+        .product{
+            display: grid;
+            grid-template-columns: 160px 2fr;
+            grid-row-gap: 20px;
+            
+            .product-information{
+                background-color: #e6e6e6;
+                position: relative;
+                padding: 20px;
+                .price{
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+                .package{
+                    display: flex;
+                    padding-left: 5vw;
+                    img{
+                        height: 85px;
+                        width: 85px;
+                    }
+                }
+                .amount{
+                    display: flex;
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    align-items: center;
+                    gap: 5px;
+                    .number{
+                        
+                        background-color: white;
+                        border-radius: 50px;
+                        padding: 5px;
+                    }
+                    svg {
+                        height: 15px;
+                        width: 15px;
+                    }
+                }
+            }
+            
+
+        }
+        img{
+            height: 160px;
+            width: 160px;
+        }
+    }
+    .cart{
+        background-color: #e6e6e6;
+        position: sticky;
+        top: 140px;
+        height: fit-content;
+        padding: 20px;
+        .total{
+            margin-top: 40px;
+            font-weight: 600;
+        }
+        .shipping{
+            margin-bottom: 40px;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .align-right{
+            text-align: right;
+        }
+        button{
+            margin: 20px auto 40px auto;
+            width: 100%;
+            a{
+                display: flex;
+                gap: inherit;
+            }
+            svg{
+                height: 15px;
+            }
+        }
+    }
+}

@@ -1,12 +1,16 @@
-<div class=" text-with-image {% if section.settings.reverse_layout == true %} text-with-image-reverse {% endif %}" >
-    <div class="image-section">  
-        <img  src="{{ section.settings.image_url | img_url: 'master' }}" alt="">
-    </div>
+<div class=" text-with-image {% if section.settings.reverse_layout == true %} text-with-image-reverse {% endif %}" style="height: {{ section.settings.section_height }}px;" >
+    
     <div class="information {% if section.settings.reverse_layout == true %} information-reverse {% endif %}">
         <img  class="icon" src="{{ section.settings.icon_url | img_url: 'master' }}" alt="">
         <h1>{{ section.settings.information_header_text }}</h1>
         <p>{{ section.settings.information_description_text }}</p>
-        <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.information_button_url }}">{{ section.settings.information_button_text }}</a></button>    </div>
+        {% if section.settings.section_add_button %}
+            <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.information_button_url }}">{{ section.settings.information_button_text }}</a></button>    
+        {% endif %}
+    </div>
+    <div class="image-section">  
+        <img  src="{{ section.settings.image_url | img_url: 'master' }}" alt="">
+    </div>
 </div>
 
 {% schema %}
@@ -14,10 +18,24 @@
     "name": "text-with-image",
     "settings": [
         {
+            "type": "header",
+            "content": "General settings "
+        },
+        {
             "type": "checkbox",
             "id": "reverse_layout",
             "label": "Switch image side",
             "default": false
+        },
+        {
+            "type": "range",
+            "id": "section_height",
+            "label": "Section height",
+            "unit": "px",
+            "min":  370,
+            "max": 1200,
+            "step": 10,
+            "default": 500
         },
         {
             "type": "image_picker",
@@ -55,6 +73,12 @@
             "type": "url",
             "id": "information_button_url",
             "label": "Button one URL"
+        },
+        {
+            "type": "checkbox",
+            "id": "section_add_button",
+            "label": "Add button",
+            "default": true
         },
         {
             "type": "select",

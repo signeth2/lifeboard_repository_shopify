@@ -1,7 +1,7 @@
 .text-with-image{
     height: 622px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
     border-bottom: solid 2px var(--page-background);
     .image-section{
        overflow: hidden;
@@ -14,7 +14,6 @@
        }
     }
     .information{
-        width: 100%;
         max-width: 590px;
         grid-column-gap: 20px;
         grid-row-gap: 20px;

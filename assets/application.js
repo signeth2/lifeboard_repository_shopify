@@ -1,5 +1,6 @@
 
 
+// quiz logic
 
 let currentQuestion = 0;
 const answers = {};
@@ -67,7 +68,7 @@ function calculateResult(answers) {
 }
 
 
-
+//  toggle quiz
 
 function openPopup(event) {
   event.preventDefault(); 
@@ -81,7 +82,7 @@ function closePopup() {
 }
 
 
-
+// mega menu toggle 
 function toggleAriaExpanded(elementId) {
   const element = document.getElementById(elementId);
 
@@ -97,3 +98,78 @@ function toggleAriaExpanded(elementId) {
 }
 
 toggleAriaExpanded('toggle');
+
+
+
+// add to cart - shopping section
+document.addEventListener('DOMContentLoaded', function () {
+  const amountContainers = document.querySelectorAll('.amount');
+  const subtotalValue = document.getElementById('subtotal-value');
+  const shippingValue = document.getElementById('shipping-value');
+  const totalValue = document.getElementById('total-value');
+  const selectedProductsContainer = document.querySelector('.selected-products');
+
+  amountContainers.forEach(function (amountContainer) {
+      const numberElement = amountContainer.querySelector('.number');
+      const iconMinusElement = amountContainer.querySelector('.icon-minus');
+      const iconPlusElement = amountContainer.querySelector('.icon-plus');
+
+      if (numberElement && iconMinusElement && iconPlusElement) {
+          iconMinusElement.addEventListener('click', function () {
+              if (parseInt(numberElement.textContent) > 0) {
+                  numberElement.textContent = parseInt(numberElement.textContent) - 1;
+                  updateSubtotal();
+                  updateSelectedProducts();
+              }
+          });
+
+          iconPlusElement.addEventListener('click', function () {
+              numberElement.textContent = parseInt(numberElement.textContent) + 1;
+              updateSubtotal();
+              updateSelectedProducts();
+          });
+      } 
+  });
+
+  function updateSubtotal() {
+      let subtotal = 0;
+      amountContainers.forEach(function (amountContainer) {
+          const numberElement = amountContainer.querySelector('.number');
+          const price = parseFloat(amountContainer.dataset.price);
+
+          if (numberElement && price) {
+              subtotal += parseInt(numberElement.textContent) * price;
+          } 
+      });
+
+
+      subtotalValue.textContent = subtotal.toFixed(2);
+
+      // Update total (subtotal + shipping)
+      updateTotal(subtotal);
+  }
+
+  function updateTotal(subtotal) {
+      const shipping = parseFloat(shippingValue.textContent);
+      const total = subtotal + shipping;
+
+
+      totalValue.textContent = total.toFixed(2);
+  }
+
+  function updateSelectedProducts() {
+      // Tøm containeren og opbyg den igen
+      selectedProductsContainer.innerHTML = '';
+
+      amountContainers.forEach(function (amountContainer) {
+          const numberElement = amountContainer.querySelector('.number');
+          const productTitle = amountContainer.dataset.productTitle;
+
+          if (numberElement && productTitle && parseInt(numberElement.textContent) > 0) {
+              const selectedProduct = document.createElement('div');
+              selectedProduct.textContent = `${productTitle} x ${numberElement.textContent}`;
+              selectedProductsContainer.appendChild(selectedProduct);
+          }
+      });
+  }
+});
