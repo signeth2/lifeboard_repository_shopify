@@ -5,7 +5,7 @@
     "template-hero": {
       "type": "hero",
       "settings": {
-        "hero_heading_text_color": "white",
+        "hero_heading_text_color": "#182e4c",
         "hero_img_url": "shopify:\/\/shop_images\/placeholder-4.webp",
         "hero_header_text": "Heading",
         "hero_button_one_text": "Button",
