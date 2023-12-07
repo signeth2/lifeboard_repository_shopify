@@ -5,26 +5,102 @@
     "template-hero": {
       "type": "hero",
       "settings": {
+        "hero_heading_text_color": "white",
+        "hero_header_text": "Heading",
+        "hero_button_one_text": "Button",
+        "hero_button_one_url": "",
+        "hero_button_two_text": "Button",
+        "hero_button_two_url": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white",
+        "remove_buttons": true,
+        "overlay_opacity": 30,
+        "overlay_color": "#000",
+        "show_overlay": false
       }
     },
     "template-text-with-image": {
       "type": "text-with-image",
       "settings": {
+        "reverse_layout": false,
+        "remove_image_section": true,
+        "section_height": 500,
+        "information_header_text": "Heading",
+        "information_description_text": "Description",
+        "information_button_text": "Button",
+        "information_button_url": "",
+        "section_add_button": true,
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
+      }
+    },
+    "template-column-information": {
+      "type": "column-information",
+      "blocks": {
+        "84cef4d1-ae0c-452e-8e33-1e4e7ebf32c1": {
+          "type": "columns",
+          "settings": {
+            "column_background_color": "#f1403c",
+            "column_heading_text": "01",
+            "column_description_text": "text",
+            "column_text_color": "#182e4c"
+          }
+        },
+        "fb89b083-caf2-467d-b9d3-fc2869d540d0": {
+          "type": "columns",
+          "settings": {
+            "column_background_color": "#f1403c",
+            "column_heading_text": "01",
+            "column_description_text": "text",
+            "column_text_color": "#182e4c"
+          }
+        },
+        "863bb639-a703-413f-bfe3-9ff8a23d986d": {
+          "type": "columns",
+          "settings": {
+            "column_background_color": "#f1403c",
+            "column_heading_text": "01",
+            "column_description_text": "text",
+            "column_image": "shopify:\/\/shop_images\/ef3-placeholder-image.jpg",
+            "column_text_color": "#182e4c"
+          }
+        }
+      },
+      "block_order": [
+        "84cef4d1-ae0c-452e-8e33-1e4e7ebf32c1",
+        "fb89b083-caf2-467d-b9d3-fc2869d540d0",
+        "863bb639-a703-413f-bfe3-9ff8a23d986d"
+      ],
+      "settings": {
+        "columns": 3
       }
     },
     "template-two-image-elements": {
       "type": "two-image-elements",
       "settings": {
-      }
-    },
-    "template-column-information": {
-      "type": "column-information",
-      "settings": {
+        "header_text_one": "Heading",
+        "element_one_description": "Description",
+        "header_text_two": "Heading",
+        "element_two_description": "Description",
+        "button_text_one": "Button",
+        "button_url_one": "",
+        "button_text_two": "Button",
+        "button_url_two": "",
+        "button_style": "primary-button",
+        "button_color": "red",
+        "text_color": "white"
       }
     },
     "template-quote": {
       "type": "quote",
       "settings": {
+        "quote_color": "#fef050",
+        "quote_text_color": "#182e4c",
+        "quote_description": "Here is an awsome quote",
+        "quote_author": "Name",
+        "quote_author_education": "Author education"
       }
     }
   },
