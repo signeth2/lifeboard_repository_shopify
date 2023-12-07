@@ -18,7 +18,7 @@
             "package_number": 1,
             "header_package": "Pakkeløsning 1",
             "client_case_name": "Client case",
-            "client_case_url": ""
+            "client_case_url": "shopify:\/\/pages\/kundecase"
           }
         },
         "35f26dea-57b5-4952-b3ac-a69e4af2d290": {
@@ -62,6 +62,7 @@
       "type": "text-with-image",
       "settings": {
         "reverse_layout": true,
+        "remove_image_section": true,
         "section_height": 500,
         "image_url": "shopify:\/\/shop_images\/placeholder-4.webp",
         "information_header_text": "Heading",
