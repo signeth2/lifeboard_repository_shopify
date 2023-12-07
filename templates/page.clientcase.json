@@ -80,17 +80,19 @@
         "columns": 3
       }
     },
-    "template-two-image-elements": {
-      "type": "two-image-elements",
+    "752bf88e-26d2-4eba-9c85-99e6865ff22a": {
+      "type": "text-with-image",
       "settings": {
-        "header_text_one": "Heading",
-        "element_one_description": "Description",
-        "header_text_two": "Heading",
-        "element_two_description": "Description",
-        "button_text_one": "Button",
-        "button_url_one": "",
-        "button_text_two": "Button",
-        "button_url_two": "",
+        "reverse_layout": true,
+        "remove_image_section": true,
+        "section_height": 500,
+        "image_url": "shopify:\/\/shop_images\/Placeholder_view_vector_svg_5e7d4250-92d4-45f1-83e3-40b91883a246.png",
+        "information_header_text": "Heading",
+        "information_description_text": "Description",
+        "icon_url": "shopify:\/\/shop_images\/placeholder-4.webp",
+        "information_button_text": "Button",
+        "information_button_url": "",
+        "section_add_button": true,
         "button_style": "primary-button",
         "button_color": "red",
         "text_color": "white"
@@ -112,7 +114,7 @@
     "template-hero",
     "template-text-with-image",
     "template-column-information",
-    "template-two-image-elements",
+    "752bf88e-26d2-4eba-9c85-99e6865ff22a",
     "template-quote"
   ]
 }
