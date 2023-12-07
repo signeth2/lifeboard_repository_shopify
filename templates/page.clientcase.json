@@ -1,23 +1,38 @@
 {
-    "layout": "theme",
-    "wrapper": "div",
-    "sections": {
-      "template-hero": {
-        "type": "hero"
-      },
-      "template-text-with-image": {
-        "type": "text-with-image"
-      },
-      "template-two-image-elements": {
-        "type": "two-image-elements"
-      },
-      "template-column-information": {
-        "type": "column-information"
-      },
-      "template-quote": {
-        "type": "quote"
+  "layout": "theme",
+  "wrapper": "div",
+  "sections": {
+    "template-hero": {
+      "type": "hero",
+      "settings": {
       }
     },
-    "order": ["template-hero", "template-text-with-image", "template-column-information", "template-two-image-elements", "template-quote"]
-  }
-  
+    "template-text-with-image": {
+      "type": "text-with-image",
+      "settings": {
+      }
+    },
+    "template-two-image-elements": {
+      "type": "two-image-elements",
+      "settings": {
+      }
+    },
+    "template-column-information": {
+      "type": "column-information",
+      "settings": {
+      }
+    },
+    "template-quote": {
+      "type": "quote",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "template-hero",
+    "template-text-with-image",
+    "template-column-information",
+    "template-two-image-elements",
+    "template-quote"
+  ]
+}
