@@ -7,50 +7,51 @@
         "heading_text": "Skræddersyet løsning",
         "description_text": "Description",
         "heading_image": "shopify:\/\/shop_images\/placeholder-4.webp",
-        "remove_image": true
-      }
-    },
-    "template-text-with-image": {
-      "type": "text-with-image",
-      "settings": {
-        "reverse_layout": false,
-        "image_url": "shopify:\/\/shop_images\/placeholder-4.webp",
-        "information_header_text": "Heading",
-        "information_description_text": "Description",
-        "icon_url": "shopify:\/\/shop_images\/Placeholder_view_vector_svg.png",
-        "information_button_text": "Button",
-        "information_button_url": "",
-        "button_style": "primary-button",
-        "button_color": "red",
-        "text_color": "white"
-      }
-    },
-    "template-two-image-elements": {
-      "type": "two-image-elements",
-      "settings": {
-        "header_text_one": "Heading",
-        "element_one_description": "Description",
-        "element_two_description": "Description",
-        "header_text_two": "Heading",
-        "img_url_element_one": "shopify:\/\/shop_images\/Placeholder_view_vector_svg.png",
-        "img_url_element_two": "shopify:\/\/shop_images\/placeholder-4.webp",
-        "button_text_one": "Button",
-        "button_url_one": "",
-        "button_text_two": "Button",
-        "button_url_two": "",
-        "button_style": "primary-button",
-        "button_color": "red",
-        "text_color": "white"
+        "remove_image": false
       }
     },
     "template-shopping": {
-      "type": "shopping"
+      "type": "shopping",
+      "blocks": {
+        "7f9f85c1-dddc-4637-a3f1-d2a855633a83": {
+          "type": "products",
+          "settings": {
+            "package": false,
+            "product": "test-1"
+          }
+        },
+        "c1a0093d-7126-4fa2-b2fe-8675384ca1d7": {
+          "type": "products",
+          "settings": {
+            "package": false,
+            "product": "test-2"
+          }
+        },
+        "dadec26a-9d62-4a28-8d85-e8c63bfdb2a3": {
+          "type": "products",
+          "settings": {
+            "package": true,
+            "product": "kopi-af-produkt-2"
+          }
+        }
+      },
+      "block_order": [
+        "7f9f85c1-dddc-4637-a3f1-d2a855633a83",
+        "c1a0093d-7126-4fa2-b2fe-8675384ca1d7",
+        "dadec26a-9d62-4a28-8d85-e8c63bfdb2a3"
+      ],
+      "settings": {
+        "delivery_price": 500,
+        "cart_button_text": "Button",
+        "cart_button_url": "",
+        "button_style": "primary-button",
+        "button_color": "blue",
+        "text_color": "white"
+      }
     }
   },
   "order": [
     "template-heading",
-    "template-text-with-image",
-    "template-two-image-elements",
     "template-shopping"
   ]
 }
