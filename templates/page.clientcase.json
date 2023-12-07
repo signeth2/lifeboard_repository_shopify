@@ -51,10 +51,11 @@
         "fb89b083-caf2-467d-b9d3-fc2869d540d0": {
           "type": "columns",
           "settings": {
-            "column_background_color": "#f1403c",
+            "column_background_color": "#1773b0",
             "column_heading_text": "01",
             "column_description_text": "text",
-            "column_text_color": "#182e4c"
+            "column_image": "shopify:\/\/shop_images\/Placeholder_view_vector_svg_5e7d4250-92d4-45f1-83e3-40b91883a246.png",
+            "column_text_color": "white"
           }
         },
         "863bb639-a703-413f-bfe3-9ff8a23d986d": {
