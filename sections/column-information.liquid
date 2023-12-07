@@ -1,0 +1,82 @@
+
+<div class="column-information flex">
+    {% for block in section.blocks %}
+        <div class="column column-one flex" style="background-color: {{ block.settings.column_background_color }};">
+            <div class="information">
+                <h1 style="color: {{ block.settings.column_text_color }};">{{ block.settings.column_heading_text }}</h1>
+                <p style="color: {{ block.settings.column_text_color }};">{{ block.settings.column_description_text }}</p>
+            </div>
+            <img src="{{ block.settings.column_image |  image_url }}" alt="">
+        </div>
+
+    {% endfor %}
+</div>
+
+
+{% schema %}
+{
+    "name": "column-information",
+    "settings": [
+        {
+            "type": "range",
+            "id": "columns",
+            "default": 3,
+            "min": 2,
+            "max": 4,
+            "step": 1,
+            "label": "Columns between 2 and four"
+
+        }
+        ],
+        "blocks": [
+            {
+                "name": "columns",
+                "type": "columns",
+                "settings": [
+                    
+                    {
+                        "type": "color",
+                        "id": "column_background_color",
+                        "default": "#f1403c",
+                        "label": "Column background color"
+                    },
+                    {
+                        "type": "text",
+                        "id": "column_heading_text",
+                        "default": "01",
+                        "label": "Number heading"
+                    },
+                    {
+                        "type": "text",
+                        "id": "column_description_text",
+                        "default": "text",
+                        "label": "Description text"
+                    },
+                    {
+                        "type":"image_picker",
+                        "id": "column_image",
+                        "label": "Column image"
+                    },
+                    {
+                        "type": "select",
+                        "id": "column_text_color",
+                        "label": "Text color",
+                        "default": "#182e4c",
+                        "options": [
+                            {"value": "white", "label": "White"},
+                            {"value": "#182e4c", "label": "Blue"},
+                            {"value": "#fef050", "label": "Yellow"}
+                        ]
+                    }
+                    
+                    
+                ]
+            }
+        ],
+        "presets": [
+                {
+                    "name": "Column information"
+                }
+            ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+.column-information{
+    min-height: 240px;
+    width: 100%;
+
+    .column{
+        width: 100%;
+        color: white;
+        padding: 3vw;
+        gap: 20px;
+        img{
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            margin: auto;
+        }
+        .information{
+            flex: 2;
+        }
+    }
+}
+
+@media screen and (max-width: 991px){
+    .column-information{
+        height: auto;
+        flex-wrap: wrap;
+    }
+}

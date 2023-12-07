@@ -8,17 +8,20 @@
 
         </div>
         <h3 class="categorie-name">Produkter</h3>
+        
+        
 
         <div class="product" >
             {% for block in section.blocks %}
-            {% assign product = block.settings.product %}
+            {% comment %} {% if block.settings.package %} <h3 class="categorie-name">Pakker</h3>{% endif %} {% endcomment %}
+            {% assign product = block.settings.products %}
             {% assign product_title = product.title %}
-            {% assign product_image = product.image | img_url: 'master' %}
+            {% assign product_image = product.image | img_url %}
             {% assign product_description = product.description %}
             {% assign product_price = product.price %}
             
-            <img src="{{ product_image }}" alt="">
-            <div class="product-information">
+            <img {% if block.settings.package %} class="padding-image" {% endif %} src="{{ product_image }}" alt="">
+            <div  class="product-information">
                 <p class="product-name">{{ product_title }}</p>
                 <p class="product-description">{{ product_description }}</p>
                 <p class="price">{{ product_price | divided_by: 100.0  }}kr</p>
@@ -30,18 +33,18 @@
                 {% if block.settings.package %}
                     <hr>
                     <div class="package">
-                        <img src="" alt="">
+                        <img src="{{ block.settings.package_image_one | img_url }} }}" alt="">
                         <div class="product-information">
-                            <p class="product-name">title</p>
-                            <p class="product-description">beskrivelse</p>
+                            <p class="product-name">{{ block.settings.package_title_one }}</p>
+                            <p class="product-description">{{ block.settings.package_description_one }}</p>
                             <div class="amount"></div>
                         </div>
                     </div>
                     <div class="package">
-                        <img src="" alt="">
+                        <img src="{{ block.settings.package_image_two | img_url }} }}" alt="">
                         <div class="product-information">
-                            <p class="product-name">title</p>
-                            <p class="product-description">beskrivelse</p>
+                            <p class="product-name">{{ block.settings.package_title_two }}</p>
+                            <p class="product-description">{{ block.settings.package_description_two }}</p>
                             <div class="amount"></div>
                         </div>
                     </div>
@@ -145,6 +148,16 @@
                 "name": "products",
                 "type": "products",
                 "settings": [
+                    
+                    {
+                        "type": "product",
+                        "id": "products",
+                        "label": "product"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Package product settings"
+                    },
                     {
                         "type": "checkbox",
                         "id": "package",
@@ -152,10 +165,40 @@
                         "default": false
                     },
                     {
-                        "type": "product",
-                        "id": "product",
-                        "label": "product"
+                        "type": "image_picker",
+                        "id": "package_image_one",
+                        "label": "Image package one"
+                    },
+                    {
+                        "type": "text",
+                        "id": "package_title_one",
+                        "label": "Title package one",
+                        "default": "title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "package_description_one",
+                        "label": "Description package one",
+                        "default": "description"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "package_image_two",
+                        "label": "Image package one"
+                    },
+                    {
+                        "type": "text",
+                        "id": "package_title_two",
+                        "label": "Title package one",
+                        "default": "title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "package_description_two",
+                        "label": "Description package one",
+                        "default": "description"
                     }
+                    
                 ]
             }
         ],

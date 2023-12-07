@@ -1,4 +1,4 @@
-<div class=" text-with-image {% if section.settings.reverse_layout == true %} text-with-image-reverse {% endif %}" style="height: {{ section.settings.section_height }}px;" >
+<div class=" text-with-image {% if section.settings.reverse_layout == true %} text-with-image-reverse {% endif %}" style="height: {{ section.settings.section_height }}px;"  >
     
     <div class="information {% if section.settings.reverse_layout == true %} information-reverse {% endif %}">
         <img  class="icon" src="{{ section.settings.icon_url | img_url: 'master' }}" alt="">
@@ -8,9 +8,17 @@
             <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.information_button_url }}">{{ section.settings.information_button_text }}</a></button>    
         {% endif %}
     </div>
-    <div class="image-section">  
-        <img  src="{{ section.settings.image_url | img_url: 'master' }}" alt="">
-    </div>
+    
+        
+            {% if section.settings.remove_image_section %}
+                <div class="image-section">
+                    <img src="{{ section.settings.image_url | img_url: 'master' }}" alt="">
+                </div>
+            
+            {% endif %}
+         
+    
+    
 </div>
 
 {% schema %}
@@ -28,13 +36,19 @@
             "default": false
         },
         {
+            "type": "checkbox",
+            "id": "remove_image_section",
+            "label": "Remove image",
+            "default": true
+        },
+        {
             "type": "range",
             "id": "section_height",
             "label": "Section height",
             "unit": "px",
-            "min":  370,
+            "min":  100,
             "max": 1200,
-            "step": 10,
+            "step": 100,
             "default": 500
         },
         {

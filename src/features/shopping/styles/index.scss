@@ -104,3 +104,32 @@
         }
     }
 }
+
+.padding-image{
+    background-color: #e6e6e6; 
+    padding-bottom:140px;
+}
+
+@media screen and (max-width: 991px){
+    .padding-image{
+        background-color: transparent; 
+        padding-bottom:0;
+    }
+    .shopping{
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+
+    }
+    .shopping .products .product{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 0;
+    }
+    .shopping  .products .product img{
+        height: 160px;
+        width: 100%;
+    }
+    .shopping .products .product .product-information{
+        margin-bottom: 20px;
+    }
+}

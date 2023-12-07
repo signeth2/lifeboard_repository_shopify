@@ -1,0 +1,23 @@
+{
+    "layout": "theme",
+    "wrapper": "div",
+    "sections": {
+      "template-hero": {
+        "type": "hero"
+      },
+      "template-text-with-image": {
+        "type": "text-with-image"
+      },
+      "template-two-image-elements": {
+        "type": "two-image-elements"
+      },
+      "template-column-information": {
+        "type": "column-information"
+      },
+      "template-quote": {
+        "type": "quote"
+      }
+    },
+    "order": ["template-hero", "template-text-with-image", "template-column-information", "template-two-image-elements", "template-quote"]
+  }
+  

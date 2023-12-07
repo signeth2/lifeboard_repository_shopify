@@ -173,3 +173,32 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 });
+
+
+
+// slider
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelector('.slides');
+  const slideWidth = 460;
+  let currentSlide = 0;
+
+  function updateSlides() {
+      slides.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
+  }
+
+  document.querySelector('.next').addEventListener('click', function () {
+      currentSlide = Math.min(currentSlide + 1, slides.children.length - 2);
+      updateSlides();
+  });
+
+  document.querySelector('.prev').addEventListener('click', function () {
+      currentSlide = Math.max(currentSlide - 1, 0);
+      updateSlides();
+  });
+
+  updateSlides();
+});
