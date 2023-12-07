@@ -45,7 +45,8 @@
             "column_background_color": "#f1403c",
             "column_heading_text": "01",
             "column_description_text": "text",
-            "column_text_color": "#182e4c"
+            "column_image": "shopify:\/\/shop_images\/placeholder-4.webp",
+            "column_text_color": "white"
           }
         },
         "fb89b083-caf2-467d-b9d3-fc2869d540d0": {
@@ -99,6 +100,7 @@
       "settings": {
         "quote_color": "#fef050",
         "quote_text_color": "#182e4c",
+        "quote_icon": "shopify:\/\/shop_images\/ef3-placeholder-image.jpg",
         "quote_description": "Here is an awsome quote",
         "quote_author": "Name",
         "quote_author_education": "Author education"
