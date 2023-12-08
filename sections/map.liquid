@@ -1,0 +1,233 @@
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+<div class="map">
+    <div class="map-container">
+        <p>{{ section.settings.map_description }}</p>
+        <div id="search-container"> 
+        <input type="text" id="locationInput" placeholder="Søg efter en strand">
+        <button onclick="searchLocation()">Søg</button>
+    </div>
+
+    
+</div>
+
+    <div id="map"></div>
+    <div id="icons">
+        <button class="icon1" onclick="selectIcon('icon1')"><img src="{{ 'lifeboard.png' | asset_url }}" alt=""></button>
+        <button class="icon2" onclick="selectIcon('icon2')"><img src="{{ 'redningskrans.png' | asset_url }}" alt=""></button>
+        <button class="icon3" onclick="selectIcon('icon3')"><img src="{{ 'lifeguard-tower.png' | asset_url }}" alt=""></button>
+    </div>
+</div>
+
+
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+
+<script>
+var map; 
+var selectedIcon = null;
+var circle; 
+
+function selectIcon(iconType) {
+    selectedIcon = iconType;
+}
+
+var beachCoordinates = {
+    'amager strandpark': [55.6383, 12.6517],
+    'blåvand': [55.5454, 8.1285],
+    'marielyst': [54.7137, 11.9217],
+    'skagen': [57.7210, 10.5839],
+    'hornbæk ': [56.0983, 12.4898],
+    'løkken ': [57.4013, 9.6968],
+    'grenen ': [57.7224, 10.6028],
+    'vesterhavet, klitmøller': [57.0478, 9.5343],
+    'tisvildeleje ': [55.9911, 11.8368],
+    'søndervig ': [56.0052, 8.1245],
+    'vig ': [55.9694, 11.7165],
+    'henne ': [55.7324, 8.1691],
+    'blokhus ': [57.2465, 9.6935],
+    'ebeltoft ': [56.1889, 10.5712],
+    'gilleleje ': [56.1213, 12.3072],
+    'rømø ': [55.1007, 8.5671],
+    'bønnerup ': [56.5103, 10.5758],
+    'dueodde , bornholm': [55.0628, 14.8907],
+    'fanø ': [55.3415, 8.3981],
+    'rødhus ': [57.1645, 9.6374],
+    'agger ': [56.6949, 8.3305],
+    'gudmindrup ': [55.9349, 11.4157],
+    'boderne , bornholm': [55.1923, 14.9491],
+    'kerteminde nordstrand': [55.4514, 10.6605],
+    'tversted ': [57.5598, 10.2418],
+    'fjaltring ': [56.2705, 8.1428],
+    'fur ': [56.7943, 8.8788],
+};
+function searchLocation() {
+    var locationInput = document.getElementById('locationInput').value.toLowerCase(); // Konverter input til små bogstaver
+    var closestMatch = null;
+    var minDistance = Infinity;
+
+
+    for (var beachName in beachCoordinates) {
+        var lowercaseBeachName = beachName.toLowerCase();
+        var distance = levenshteinDistance(locationInput, lowercaseBeachName);
+
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestMatch = beachName;
+        }
+    }
+
+    if (closestMatch !== null) {
+        var dummyCoordinates = beachCoordinates[closestMatch];
+        map.setView(dummyCoordinates, 13);
+        document.getElementById('search-results').innerHTML = 'Resultater: ' + closestMatch + ' (' + dummyCoordinates.join(', ') + ')';
+    } 
+}
+
+
+function levenshteinDistance(s1, s2) {
+    if (s1.length === 0) return s2.length;
+    if (s2.length === 0) return s1.length;
+
+    var matrix = [];
+
+    for (var i = 0; i <= s2.length; i++) {
+        matrix[i] = [i];
+    }
+
+    for (var j = 0; j <= s1.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    for (var i = 1; i <= s2.length; i++) {
+        for (var j = 1; j <= s1.length; j++) {
+            if (s2.charAt(i - 1) === s1.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
+                );
+            }
+        }
+    }
+
+    return matrix[s2.length][s1.length];
+}
+
+
+
+
+window.onload = function () {
+    map = L.map('map').setView([56, 10], 7);
+    var markers = L.layerGroup();
+    var deletingIcon = false;
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+    }).addTo(map);
+
+    function createCustomIcon(iconType) {
+        var iconStyles = {
+            'icon1': { iconUrl: '{{ 'lifeboard.png' | asset_url }}', iconSize: [30, 50] },
+            'icon2': { iconUrl: '{{ 'redningskrans.png' | asset_url }}', iconSize: [40, 40] },
+            'icon3': { iconUrl: '{{ 'lifeguard-tower.png' | asset_url }}', iconSize: [40, 50] }
+        };
+
+        return L.icon(iconStyles[iconType]);
+    }
+
+    function addCustomIcon(latlng, iconType) {
+    var icon = createCustomIcon(iconType);
+    var marker = L.marker(latlng, {
+        draggable: true,
+        icon: icon
+    });
+
+    var circleOptions = {
+        radius: 0,
+        color: 'red',
+        opacity: 0.5,
+        fillOpacity: 0.2
+    };
+
+    switch (iconType) {
+        case 'icon1':
+            circleOptions.color = 'red';
+            circleOptions.radius = 200; // 1 km radius
+            break;
+        case 'icon2':
+            circleOptions.color = 'blue';
+            circleOptions.radius = 100; // 2 km radius
+            break;
+        case 'icon3':
+            circleOptions.color = 'green';
+            circleOptions.radius = 400; // 4 km radius
+            break;
+    }
+
+    var circle = L.circle(latlng, circleOptions).addTo(map);
+
+    marker.on('click', function () {
+        if (!deletingIcon) {
+            map.removeLayer(marker);
+            map.removeLayer(circle);
+        }
+    });
+
+    marker.on('dragstart', function () {
+        deletingIcon = false;
+    });
+
+    marker.on('drag', function (e) {
+        circle.setLatLng(e.target.getLatLng());
+    });
+
+    marker.on('dragend', function () {
+        circle.setLatLng(marker.getLatLng());
+    });
+
+    markers.addLayer(marker);
+}
+
+    map.on('click', function (e) {
+        if (selectedIcon) {
+            addCustomIcon(e.latlng, selectedIcon);
+        }
+    });
+
+    map.addLayer(markers);
+    map.invalidateSize();
+};
+</script>
+
+
+
+
+
+
+{% schema %}
+    {
+        "name": "map",
+        "settings": [
+            {
+                "type": "text",
+                "id": "map_description",
+                "label": "Map description",
+                "default": "Description"
+            }
+         
+            ],
+            "presets": [
+                    {
+                        "name": "Map"
+                    }
+                ]
+    }
+    {% endschema %}

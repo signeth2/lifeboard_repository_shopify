@@ -721,6 +721,39 @@ p {
   object-fit: cover;
 }
 
+.map {
+  padding: 5vw;
+}
+.map .map-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+.map .map-container p {
+  flex: 1;
+}
+.map #map {
+  height: 500px;
+}
+.map #icons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border: none;
+}
+.map #icons button {
+  border: none;
+  background-color: transparent;
+}
+.map #icons .icon1 img {
+  height: 50px;
+  width: 30px;
+}
+.map #icons img {
+  height: 50px;
+  width: 50px;
+}
+
 body {
   background-color: var(white);
   font-family: var(--font-body);

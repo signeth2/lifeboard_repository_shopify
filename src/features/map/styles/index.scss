@@ -1,0 +1,44 @@
+.map{
+    padding: 5vw;
+    .map-container{
+        display: flex;
+        margin-bottom: 10px;
+        p {
+            flex: 1;
+        }
+    }
+    #map {
+        height: 500px; 
+    
+    
+    }    
+    #icons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    
+        button{
+            border:none;
+            background-color: transparent;
+        }
+        .icon1{
+            img{
+                height: 50px;
+                width: 30px;
+            }
+        }
+    
+            border: none;
+            img{
+                height: 50px;
+                width: 50px;
+            }
+    
+        
+    }
+    
+}
+
+
+
