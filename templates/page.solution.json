@@ -16,22 +16,34 @@
         "7f9f85c1-dddc-4637-a3f1-d2a855633a83": {
           "type": "products",
           "settings": {
+            "products": "test-1",
             "package": false,
-            "product": "test-1"
+            "package_title_one": "title",
+            "package_description_one": "description",
+            "package_title_two": "title",
+            "package_description_two": "description"
           }
         },
         "c1a0093d-7126-4fa2-b2fe-8675384ca1d7": {
           "type": "products",
           "settings": {
+            "products": "test-2",
             "package": false,
-            "product": "test-2"
+            "package_title_one": "title",
+            "package_description_one": "description",
+            "package_title_two": "title",
+            "package_description_two": "description"
           }
         },
         "dadec26a-9d62-4a28-8d85-e8c63bfdb2a3": {
           "type": "products",
           "settings": {
+            "products": "kopi-af-produkt-2",
             "package": true,
-            "product": "kopi-af-produkt-2"
+            "package_title_one": "title",
+            "package_description_one": "description",
+            "package_title_two": "title",
+            "package_description_two": "description"
           }
         }
       },
