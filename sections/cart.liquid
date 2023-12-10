@@ -1,0 +1,38 @@
+{% assign selectedPackages = 'selectedPackages' | customer_data | json %}
+{% assign selectedProducts = 'selectedProducts' | customer_data | json %}
+
+<div class="cart">
+  <h3>Cart</h3>
+  
+  <div class="subtotal grid">
+    <p>Subtotal</p>
+    <p class="value align-right" id="subtotal-value">0</p>
+  </div>
+  
+  <div class="selected-products">
+    <h1>Selected Products:</h1>
+    <ul>
+      {% for product in selectedProducts %}
+        <li>  {{ product.title }}  {{ product.quantity }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+  <h1>Selected Packages:</h1>
+  <div class="selected-packages">
+    
+    <ul>
+        <li>
+          <p><b>{{ package.title }}</b></p>
+        </li>
+    </ul>
+  </div>
+
+
+  <div class="total grid">
+    <p>Total</p>
+    <p class="align-right" id="total-value">0</p>
+  </div>
+</div>
+

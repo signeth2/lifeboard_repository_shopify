@@ -1,3 +1,5 @@
+
+
 <div class="product-selection">
     <div class="pop-up" style="background-color: {{ section.settings.pop_up_color }};">
         <div id="pop-up-information">
@@ -39,22 +41,32 @@
     <h1 class="text-center">{{ section.settings.heading_package_solution }}</h1>
 
     <div id="result" class="result text-center" style="display: none;">
-        <p>Din pakkeløsning: <span id="result-text"></span></p>
+        <p>Din forslået pakkeløsning: <span id="result-text"></span></p>
     </div>
     <div class="package-solution">
         {% for block in section.blocks %}
-            <div class="package">
-                    <div>
-                        <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
-                        <div class="solution solution-one" id="package_{{ block.settings.package_number }}">
-                            <p> <b>{{ block.settings.header_package }}</b></p>
-                            <p>beskrivelse</p>
-                        </div>
-                        
-                    </div>
+          <div class="package" data-package-number="{{ block.settings.package_number }}">
+            <div>
+              <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
+              <div class="solution solution-one" id="package_{{ block.settings.package_number }}">
+                <p><b>{{ block.settings.package_product.title}}</b></p>
+                <p>beskrivelse</p>
+              </div>
             </div>
+          </div>
         {% endfor %}
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; font-weight:600; margin-bottom: 20px;"> <p>Valgt pakke:<div class="selected-packages show-package">{{ package.title }}</div></p></div>
+     
+
+    <div class="flex" style="flex-wrap: wrap; justify-content: center; margin-bottom:5vw; gap: 20px; ">
+        <button class="primary-button primary-button-yellow "> <a class="button-text-blue" href="/cart">Lig i kurv</a></button>
+        <button class="secondary-button secondary-button-yellow "> <a class="button-text-blue" href="">Kontakt sælger</a></button>
+        <button class="secondary-button secondary-button-yellow "> <a class="button-text-blue" href="">Send tilbud til mail</a></button>
     </div>
+        
+ 
 
 
 
@@ -157,6 +169,11 @@
                 "name": "package",
                 "type": "fdnkdf",
                 "settings": [
+                    {
+                        "type": "product",
+                        "id": "package_product",
+                        "label": "product"
+                    },
                     {
                         "type": "number",
                         "id": "package_number",

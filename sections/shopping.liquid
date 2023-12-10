@@ -1,3 +1,5 @@
+
+
 <div class="shopping">
     <div class="products">
         <h3 class="categorie-name">Service aftale</h3>
@@ -76,8 +78,9 @@
                 <p>Total</p>
                 <p class="align-right" id="total-value">0</p>
             </div>
-            <button class="{{ section.settings.button_style }} {{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.cart_button_url }}">{{ section.settings.cart_button_text }} {% render 'icon-arrow-right' %}</a></button>
-        </div>
+            <button id="cart-button" class="{{ section.settings.button_style }} {{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ routes.cart_url }}">{{ section.settings.cart_button_text }} {% render 'icon-arrow-right' %}</a></button>
+
+            </div>
 
 </div>
 

@@ -486,6 +486,7 @@ p {
   border: 2px solid rgba(0, 46, 106, 0.168627451);
   padding: 3vw;
   min-width: 200px;
+  min-height: 250px;
 }
 
 @media screen and (max-width: 791px) {
@@ -752,6 +753,12 @@ p {
 .map #icons img {
   height: 50px;
   width: 50px;
+}
+
+.selected-package div {
+  background-color: #fef050;
+  padding: 5px;
+  margin: 5px;
 }
 
 body {

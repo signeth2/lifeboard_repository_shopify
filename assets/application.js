@@ -1,6 +1,6 @@
 
 
-// quiz logic
+// ------------- quiz logic -------------
 
 let currentQuestion = 0;
 const answers = {};
@@ -68,7 +68,7 @@ function calculateResult(answers) {
 }
 
 
-//  toggle quiz
+// ------------- toggle quiz -------------
 
 function openPopup(event) {
   event.preventDefault(); 
@@ -82,7 +82,7 @@ function closePopup() {
 }
 
 
-// mega menu toggle 
+// ------------- mega menu toggle -------------
 function toggleAriaExpanded(elementId) {
   const element = document.getElementById(elementId);
 
@@ -92,91 +92,201 @@ function toggleAriaExpanded(elementId) {
 
       var test = document.getElementsByClassName('mega-menu')[0];
       test.style.display = currentExpanded ? 'none' : 'block';
-  } else {
-      console.error(`Element with id '${elementId}' not found.`);
-  }
+  } 
 }
 
 toggleAriaExpanded('toggle');
 
 
 
-// add to cart - shopping section
+//  -------------  shopping section - add to cart  -------------
+
 document.addEventListener('DOMContentLoaded', function () {
   const amountContainers = document.querySelectorAll('.amount');
   const subtotalValue = document.getElementById('subtotal-value');
-  const shippingValue = document.getElementById('shipping-value');
   const totalValue = document.getElementById('total-value');
   const selectedProductsContainer = document.querySelector('.selected-products');
 
+  // Hent gemte produkter fra Local Storage
+  function getSelectedProducts() {
+    const savedProductsJSON = localStorage.getItem('selectedProducts');
+    return JSON.parse(savedProductsJSON) || [];
+  }
+
+  // Gem valgte produkter i Local Storage
+  function saveSelectedProductsToLocalStorage(selectedProducts) {
+    const selectedProductsJSON = JSON.stringify(selectedProducts);
+    localStorage.setItem('selectedProducts', selectedProductsJSON);
+  }
+
   amountContainers.forEach(function (amountContainer) {
-      const numberElement = amountContainer.querySelector('.number');
-      const iconMinusElement = amountContainer.querySelector('.icon-minus');
-      const iconPlusElement = amountContainer.querySelector('.icon-plus');
+    const numberElement = amountContainer.querySelector('.number');
+    const iconMinusElement = amountContainer.querySelector('.icon-minus');
+    const iconPlusElement = amountContainer.querySelector('.icon-plus');
 
-      if (numberElement && iconMinusElement && iconPlusElement) {
-          iconMinusElement.addEventListener('click', function () {
-              if (parseInt(numberElement.textContent) > 0) {
-                  numberElement.textContent = parseInt(numberElement.textContent) - 1;
-                  updateSubtotal();
-                  updateSelectedProducts();
-              }
-          });
+    if (numberElement && iconMinusElement && iconPlusElement) {
+      iconMinusElement.addEventListener('click', function () {
+        if (parseInt(numberElement.textContent) > 0) {
+          numberElement.textContent = parseInt(numberElement.textContent) - 1;
+          updateSubtotal();
+          updateSelectedProducts();
+        }
+      });
 
-          iconPlusElement.addEventListener('click', function () {
-              numberElement.textContent = parseInt(numberElement.textContent) + 1;
-              updateSubtotal();
-              updateSelectedProducts();
-          });
-      } 
+      iconPlusElement.addEventListener('click', function () {
+        numberElement.textContent = parseInt(numberElement.textContent) + 1;
+        updateSubtotal();
+        updateSelectedProducts();
+      });
+    }
   });
 
   function updateSubtotal() {
-      let subtotal = 0;
-      amountContainers.forEach(function (amountContainer) {
-          const numberElement = amountContainer.querySelector('.number');
-          const price = parseFloat(amountContainer.dataset.price);
+    let subtotal = 0;
+    amountContainers.forEach(function (amountContainer) {
+      const numberElement = amountContainer.querySelector('.number');
+      const price = parseFloat(amountContainer.dataset.price);
 
-          if (numberElement && price) {
-              subtotal += parseInt(numberElement.textContent) * price;
-          } 
-      });
+      if (numberElement && price) {
+        subtotal += parseInt(numberElement.textContent) * price;
+      }
+    });
+
+    subtotalValue.textContent = subtotal.toFixed(2);
 
 
-      subtotalValue.textContent = subtotal.toFixed(2);
-
-      // Update total (subtotal + shipping)
-      updateTotal(subtotal);
+    updateTotal(subtotal);
   }
 
   function updateTotal(subtotal) {
-      const shipping = parseFloat(shippingValue.textContent);
-      const total = subtotal + shipping;
-
-
-      totalValue.textContent = total.toFixed(2);
+    totalValue.textContent = subtotal.toFixed(2);
   }
 
   function updateSelectedProducts() {
-      // Tøm containeren og opbyg den igen
-      selectedProductsContainer.innerHTML = '';
+    const selectedProducts = [];
 
-      amountContainers.forEach(function (amountContainer) {
-          const numberElement = amountContainer.querySelector('.number');
-          const productTitle = amountContainer.dataset.productTitle;
+    amountContainers.forEach(function (amountContainer) {
+      const numberElement = amountContainer.querySelector('.number');
+      const productTitle = amountContainer.dataset.productTitle;
+      const productId = amountContainer.dataset.productId;
+      const productPrice = amountContainer.dataset.price;
 
-          if (numberElement && productTitle && parseInt(numberElement.textContent) > 0) {
-              const selectedProduct = document.createElement('div');
-              selectedProduct.textContent = `${productTitle} x ${numberElement.textContent}`;
-              selectedProductsContainer.appendChild(selectedProduct);
-          }
-      });
+      if (numberElement && productTitle && productId && productPrice) {
+        const quantity = parseInt(numberElement.textContent);
+
+        if (quantity > 0) {
+          selectedProducts.push({
+            id: productId,
+            title: productTitle,
+            quantity: quantity,
+            price: parseFloat(productPrice),
+          });
+        }
+      }
+    });
+
+    // Opdater valgte produkter og gem dem i Local Storage
+    saveSelectedProductsToLocalStorage(selectedProducts);
+
+
+    selectedProductsContainer.innerHTML = '';
+
+    selectedProducts.forEach(function (selectedProduct) {
+      const productInfo = `${selectedProduct.title} x ${selectedProduct.quantity}`;
+      const selectedProductElement = document.createElement('div');
+      selectedProductElement.textContent = productInfo;
+      selectedProductsContainer.appendChild(selectedProductElement);
+    });
   }
+
+  // Hent gemte produkter, når siden indlæses
+  const savedProducts = getSelectedProducts();
+
+  savedProducts.forEach(function (savedProduct) {
+    const selectedProductElement = document.createElement('div');
+    selectedProductElement.textContent = `${savedProduct.title} x ${savedProduct.quantity}`;
+    selectedProductsContainer.appendChild(selectedProductElement);
+  });
 });
 
+// ---------------- package add to cart ----------------
 
 
-// slider
+document.addEventListener('DOMContentLoaded', function () {
+  const packageButtons = document.querySelectorAll('.package');
+  const addToCartButton = document.getElementById('add-to-cart');
+  const selectedPackagesContainer = document.querySelector('.selected-packages');
+
+
+  function getSelectedPackages() {
+    const savedPackagesJSON = localStorage.getItem('selectedPackages');
+    return JSON.parse(savedPackagesJSON) || [];
+  }
+
+  function saveSelectedPackageToLocalStorage(selectedPackage) {
+    const selectedPackages = [selectedPackage];  
+    localStorage.setItem('selectedPackages', JSON.stringify(selectedPackages));
+    updateSelectedPackages(selectedPackages);
+  }
+
+  function updateSelectedPackages(selectedPackages) {
+    if (selectedPackagesContainer) {
+      selectedPackagesContainer.innerHTML = '';
+      selectedPackages.forEach(function (package) {
+        const packageElement = document.createElement('div');
+        packageElement.textContent = package.title;
+        selectedPackagesContainer.appendChild(packageElement);
+      });
+    }
+  }
+
+  function updateSelectedPackagesUI(selectedPackages) {
+    if (selectedPackagesContainer) {
+      selectedPackagesContainer.innerHTML = '';
+  
+      selectedPackages.forEach(function (package) {
+        const packageElement = document.createElement('div');
+        packageElement.textContent = package.title;
+        packageElement.classList.add('selected-package'); 
+        selectedPackagesContainer.appendChild(packageElement);
+      });
+    }
+  }
+
+  packageButtons.forEach(function (packageButton) {
+    packageButton.addEventListener('click', function () {
+      const packageNumber = packageButton.dataset.packageNumber;
+      const selectedPackage = {
+        number: packageNumber,
+        title: packageButton.querySelector('.solution p b').textContent,
+        description: packageButton.querySelector('.solution p:last-child').textContent
+      };
+      saveSelectedPackageToLocalStorage(selectedPackage);
+  
+      const selectedPackages = getSelectedPackages();
+      updateSelectedPackagesUI(selectedPackages);
+
+      packageButtons.forEach(function (button) {
+        button.classList.remove('selected-package');
+      });
+      packageButton.classList.add('selected-package');
+    });
+  });
+
+  if (addToCartButton) {
+    addToCartButton.addEventListener('click', function () {
+      navigateToCart();
+    });
+  }
+
+  function navigateToCart() {
+    window.location.href = '/cart';
+  }
+
+  const savedPackages = getSelectedPackages();
+  updateSelectedPackages(savedPackages);
+});
+// ------------- slider -------------
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -202,3 +312,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   updateSlides();
 });
+
+

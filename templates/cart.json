@@ -1,0 +1,11 @@
+{
+"name": "template-checkout",
+"wrapper": "div",
+"sections": {
+
+  "template-cart": {
+    "type": "cart"
+  }
+},
+"order": [ "template-cart"]
+}
