@@ -45,8 +45,8 @@
         "reverse_layout": false,
         "remove_image_section": true,
         "section_height": 500,
-        "image_url": "shopify:\/\/shop_images\/Placeholder_view_vector_svg.png",
-        "information_header_text": "Heading",
+        "image_url": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.57.17.png",
+        "information_header_text": "Prøv vores vandsikkerheds beregner",
         "information_description_text": "Description",
         "icon_url": "shopify:\/\/shop_images\/placeholder-4.webp",
         "information_button_text": "Button",
@@ -81,25 +81,25 @@
         "ac956983-2944-460a-be3a-2b6456829da9": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Placeholder_view_vector_svg_5e7d4250-92d4-45f1-83e3-40b91883a246.png"
+            "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.58.43.png"
           }
         },
         "4d80f0ae-4f5f-4852-84d3-0615251f30f2": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/placeholder-4.webp"
+            "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.59.02.png"
           }
         },
         "56715b5e-986e-48eb-a6a6-124436b43111": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Placeholder_view_vector_svg_5e7d4250-92d4-45f1-83e3-40b91883a246.png"
+            "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.59.33.png"
           }
         },
         "e6d9c57e-05a7-4aa5-b0a0-322a288693f5": {
           "type": "slider",
           "settings": {
-            "slider_image": "shopify:\/\/shop_images\/placeholder-4.webp"
+            "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.59.18.png"
           }
         }
       },
