@@ -60,28 +60,10 @@
         "button_color": "red",
         "text_color": "white"
       }
-    },
-    "template-text-with-image": {
-      "type": "text-with-image",
-      "settings": {
-        "reverse_layout": true,
-        "remove_image_section": true,
-        "section_height": 500,
-        "image_url": "shopify:\/\/shop_images\/placeholder-4.webp",
-        "information_header_text": "Heading",
-        "information_description_text": "Description",
-        "information_button_text": "Button",
-        "information_button_url": "",
-        "section_add_button": true,
-        "button_style": "primary-button",
-        "button_color": "red",
-        "text_color": "white"
-      }
     }
   },
   "order": [
     "f5c2c547-56d3-4ecc-9e23-5bb5dd8b53bd",
-    "template-product-selection",
-    "template-text-with-image"
+    "template-product-selection"
   ]
 }
