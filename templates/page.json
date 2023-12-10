@@ -4,8 +4,8 @@
     "template-heading": {
       "type": "heading",
       "settings": {
-        "heading_text": "Heading",
-        "description_text": "Description",
+        "heading_text": "Vandsikkerheds beregner",
+        "description_text": "Prøv vores vandsikkerhedberegner, og se hvor meget jeres redningsudstyr dækker strand ...",
         "remove_image": false
       }
     },
