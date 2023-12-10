@@ -6,42 +6,18 @@
       "settings": {
         "heading_text": "Heading",
         "description_text": "Description",
-        "remove_image": true
+        "remove_image": false
       }
     },
-    "template-text-with-image": {
-      "type": "text-with-image",
+    "ad80679a-9790-4e72-a141-128b296baf2e": {
+      "type": "map",
       "settings": {
-        "reverse_layout": false,
-        "information_header_text": "Heading",
-        "information_description_text": "Description",
-        "information_button_text": "Button",
-        "information_button_url": "",
-        "button_style": "primary-button",
-        "button_color": "red",
-        "text_color": "white"
-      }
-    },
-    "template-two-image-elements": {
-      "type": "two-image-elements",
-      "settings": {
-        "header_text_one": "Heading",
-        "element_one_description": "Description",
-        "element_two_description": "Description",
-        "header_text_two": "Heading",
-        "button_text_one": "Button",
-        "button_url_one": "",
-        "button_text_two": "Button",
-        "button_url_two": "",
-        "button_style": "primary-button",
-        "button_color": "red",
-        "text_color": "white"
+        "map_description": "Description"
       }
     }
   },
   "order": [
     "template-heading",
-    "template-text-with-image",
-    "template-two-image-elements"
+    "ad80679a-9790-4e72-a141-128b296baf2e"
   ]
 }
