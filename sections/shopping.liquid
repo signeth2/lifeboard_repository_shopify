@@ -52,8 +52,18 @@
                     </div>
                     
                 {% endif %}
+                <!-- Form for adding product to cart -->
+                {% form 'product', product %}
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="id" value="{{ product.id }}">
+                                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+    
+                    <button type="submit" class="button product-add">Add to cart</button>
+                {% endform %}
             </div>
+                        
             {% endfor %}
+
 
         </div>
 

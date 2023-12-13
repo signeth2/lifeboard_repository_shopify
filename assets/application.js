@@ -318,43 +318,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // add to cart 
 
-const addToCartForms = document.querySelectorAll('.product-form');
+document.addEventListener('DOMContentLoaded', function () {
+  var productForms = document.querySelectorAll('.product-form');
 
-addToCartForms.forEach((form) => {
-  form.addEventListener('submit', async (event) => {
-    try {
-      event.preventDefault();
+  productForms.forEach(function (form) {
+      var quantityInput = form.querySelector('[name="quantity"]');
+      var minusButton = form.querySelector('.icon-minus');
+      var plusButton = form.querySelector('.icon-plus');
 
-      const productIdInput = form.querySelector('input[name="id"]');
-      const productId = productIdInput ? productIdInput.value : null;
+      minusButton.addEventListener('click', function () {
+          updateQuantity(-1);
+      });
 
-      if (!productId) {
-        console.error('Product ID is missing');
-        return;
+      plusButton.addEventListener('click', function () {
+          updateQuantity(1);
+      });
+
+      function updateQuantity(amount) {
+          var currentQuantity = parseInt(quantityInput.value, 10);
+          var newQuantity = Math.max(0, currentQuantity + amount);
+          quantityInput.value = newQuantity;
       }
 
-      // Submit form with ajax
-      await fetch('/cart', {
-        method: 'post',
-        body: new FormData(form),
+      form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          var formData = new FormData(form);
+
+          if (document.body.classList.contains('shopping')) {
+              var productId = formData.get('id');
+              var quantity = parseInt(formData.get('quantity'), 10);
+
+              formData.set('quantity', quantity);
+
+              fetch('/cart/add.js', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: new URLSearchParams(formData).toString(),
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      console.log('Product added to cart:', data);
+                      
+                  })
+                  .catch(error => {
+                      console.error('Error adding product to cart:', error);
+                  });
+          }
       });
-
-      // Get new cart object
-      const res = await fetch('/cart.json');
-      const cart = await res.json();
-
-      // Update cart count
-      document.querySelectorAll('.cart-count').forEach((el) => {
-        el.textContent = cart.item_count;
-      });
-
-      // Display success message or handle other UI updates
-      const message = document.createElement('p');
-      message.classList.add('added-to-cart');
-      message.textContent = 'Added to cart!';
-      form.appendChild(message);
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
   });
 });

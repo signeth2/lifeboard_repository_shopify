@@ -41,29 +41,34 @@
     <h1 class="text-center">{{ section.settings.heading_package_solution }}</h1>
 
     <div id="result" class="result text-center" style="display: none;">
-        <p>Din forslået pakkeløsning: <span id="result-text"></span></p>
+        <p>Din foreslåede pakkeløsning: <span id="result-text"></span></p>
     </div>
+    
     <div class="package-solution">
         {% for block in section.blocks %}
-          <div class="package" data-package-number="{{ block.settings.package_number }}">
-            <div>
-              <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
-              <div class="solution solution-one" id="package_{{ block.settings.package_number }}">
-                <p><b>{{ block.settings.package_product.title}}</b></p>
-                <p>beskrivelse</p>
-              </div>
-            </div>
-            <!-- Form for adding product to cart -->
-          <form action="/cart" method="post" class="product-form">
-          <input type="hidden" name="id" value="{{ block.settings.package_product.id }}">
-          <input type="hidden" name="quantity" value="1">
-          <button type="submit" class="button product-add">Add to cart</button>
-          </form>
-          </div>
-          
-        {% endfor %}
-      </div>
+            <div class="package" data-package-number="{{ block.settings.package_number }}">
+                <div>
+                    <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
+                    <div class="solution solution-one" id="package_{{ block.settings.package_number }}">
+                        <p><b>{{ block.settings.package_product.title }}</b></p>
+                        <p>{{ block.settings.package_product.description }}</p>
+    
+                        <!-- Form for adding product to cart -->
+                        {% form 'product', block.settings.package_product %}
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="id" value="{{ block.settings.package_product.id }}">
+                            <input type="hidden" name="id" value="{{ block.settings.package_product.variants.first.id }}">
 
+                            <button type="submit" class="button product-add">Add to cart</button>
+                        {% endform %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+
+      
       <div style="display: flex; justify-content: center; align-items: center; font-weight:600; margin-bottom: 20px;"> <p>Valgt pakke:<div class="selected-packages show-package">{{ package.title }}</div></p></div>
      
 
