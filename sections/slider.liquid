@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Heading</h1>
+    <h1>{{ section.settings.slider_heading }}</h1>
     <div class="slider">
 
         <div class="slides">
@@ -18,6 +18,11 @@
     {
         "name": "slider",
         "settings": [
+            {
+                "type": "text",
+                "id": "slider_heading",
+                "label": "Heading"
+            }
          
             ],
             "blocks": [

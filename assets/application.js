@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// ---------------- package add to cart ----------------
+// // ---------------- package add to cart ----------------
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -314,3 +314,47 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+// add to cart 
+
+const addToCartForms = document.querySelectorAll('.product-form');
+
+addToCartForms.forEach((form) => {
+  form.addEventListener('submit', async (event) => {
+    try {
+      event.preventDefault();
+
+      const productIdInput = form.querySelector('input[name="id"]');
+      const productId = productIdInput ? productIdInput.value : null;
+
+      if (!productId) {
+        console.error('Product ID is missing');
+        return;
+      }
+
+      // Submit form with ajax
+      await fetch('/cart', {
+        method: 'post',
+        body: new FormData(form),
+      });
+
+      // Get new cart object
+      const res = await fetch('/cart.json');
+      const cart = await res.json();
+
+      // Update cart count
+      document.querySelectorAll('.cart-count').forEach((el) => {
+        el.textContent = cart.item_count;
+      });
+
+      // Display success message or handle other UI updates
+      const message = document.createElement('p');
+      message.classList.add('added-to-cart');
+      message.textContent = 'Added to cart!';
+      form.appendChild(message);
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  });
+});

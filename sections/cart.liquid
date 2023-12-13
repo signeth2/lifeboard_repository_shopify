@@ -36,3 +36,15 @@
   </div>
 </div>
 
+
+<hr>
+
+
+ {% for item in cart.items %}
+    <div>
+
+      <p>{{ item.title }}</p>
+      <p>Quantity: {{ item.quantity }}</p>
+      <p>Price: {{ item.price | money_with_currency }}</p>
+    </div>
+  {% endfor %}

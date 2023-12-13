@@ -53,7 +53,14 @@
                 <p>beskrivelse</p>
               </div>
             </div>
+            <!-- Form for adding product to cart -->
+          <form action="/cart" method="post" class="product-form">
+          <input type="hidden" name="id" value="{{ block.settings.package_product.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="button product-add">Add to cart</button>
+          </form>
           </div>
+          
         {% endfor %}
       </div>
 
