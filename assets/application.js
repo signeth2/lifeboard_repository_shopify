@@ -212,80 +212,80 @@ document.addEventListener('DOMContentLoaded', function () {
 // // ---------------- package add to cart ----------------
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  const packageButtons = document.querySelectorAll('.package');
-  const addToCartButton = document.getElementById('add-to-cart');
-  const selectedPackagesContainer = document.querySelector('.selected-packages');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const packageButtons = document.querySelectorAll('.package');
+//   const addToCartButton = document.getElementById('add-to-cart');
+//   const selectedPackagesContainer = document.querySelector('.selected-packages');
 
 
-  function getSelectedPackages() {
-    const savedPackagesJSON = localStorage.getItem('selectedPackages');
-    return JSON.parse(savedPackagesJSON) || [];
-  }
+//   function getSelectedPackages() {
+//     const savedPackagesJSON = localStorage.getItem('selectedPackages');
+//     return JSON.parse(savedPackagesJSON) || [];
+//   }
 
-  function saveSelectedPackageToLocalStorage(selectedPackage) {
-    const selectedPackages = [selectedPackage];  
-    localStorage.setItem('selectedPackages', JSON.stringify(selectedPackages));
-    updateSelectedPackages(selectedPackages);
-  }
+//   function saveSelectedPackageToLocalStorage(selectedPackage) {
+//     const selectedPackages = [selectedPackage];  
+//     localStorage.setItem('selectedPackages', JSON.stringify(selectedPackages));
+//     updateSelectedPackages(selectedPackages);
+//   }
 
-  function updateSelectedPackages(selectedPackages) {
-    if (selectedPackagesContainer) {
-      selectedPackagesContainer.innerHTML = '';
-      selectedPackages.forEach(function (package) {
-        const packageElement = document.createElement('div');
-        packageElement.textContent = package.title;
-        selectedPackagesContainer.appendChild(packageElement);
-      });
-    }
-  }
+//   function updateSelectedPackages(selectedPackages) {
+//     if (selectedPackagesContainer) {
+//       selectedPackagesContainer.innerHTML = '';
+//       selectedPackages.forEach(function (package) {
+//         const packageElement = document.createElement('div');
+//         packageElement.textContent = package.title;
+//         selectedPackagesContainer.appendChild(packageElement);
+//       });
+//     }
+//   }
 
-  function updateSelectedPackagesUI(selectedPackages) {
-    if (selectedPackagesContainer) {
-      selectedPackagesContainer.innerHTML = '';
+//   function updateSelectedPackagesUI(selectedPackages) {
+//     if (selectedPackagesContainer) {
+//       selectedPackagesContainer.innerHTML = '';
   
-      selectedPackages.forEach(function (package) {
-        const packageElement = document.createElement('div');
-        packageElement.textContent = package.title;
-        packageElement.classList.add('selected-package'); 
-        selectedPackagesContainer.appendChild(packageElement);
-      });
-    }
-  }
+//       selectedPackages.forEach(function (package) {
+//         const packageElement = document.createElement('div');
+//         packageElement.textContent = package.title;
+//         packageElement.classList.add('selected-package'); 
+//         selectedPackagesContainer.appendChild(packageElement);
+//       });
+//     }
+//   }
 
-  packageButtons.forEach(function (packageButton) {
-    packageButton.addEventListener('click', function () {
-      const packageNumber = packageButton.dataset.packageNumber;
-      const selectedPackage = {
-        number: packageNumber,
-        title: packageButton.querySelector('.solution p b').textContent,
-        description: packageButton.querySelector('.solution p:last-child').textContent
-      };
-      saveSelectedPackageToLocalStorage(selectedPackage);
+//   packageButtons.forEach(function (packageButton) {
+//     packageButton.addEventListener('click', function () {
+//       const packageNumber = packageButton.dataset.packageNumber;
+//       const selectedPackage = {
+//         number: packageNumber,
+//         title: packageButton.querySelector('.solution p b').textContent,
+//         description: packageButton.querySelector('.solution p:last-child').textContent
+//       };
+//       saveSelectedPackageToLocalStorage(selectedPackage);
   
-      const selectedPackages = getSelectedPackages();
-      updateSelectedPackagesUI(selectedPackages);
+//       const selectedPackages = getSelectedPackages();
+//       updateSelectedPackagesUI(selectedPackages);
 
-      packageButtons.forEach(function (button) {
-        button.classList.remove('selected-package');
-      });
-      packageButton.classList.add('selected-package');
-    });
-  });
+//       packageButtons.forEach(function (button) {
+//         button.classList.remove('selected-package');
+//       });
+//       packageButton.classList.add('selected-package');
+//     });
+//   });
 
-  if (addToCartButton) {
-    addToCartButton.addEventListener('click', function () {
-      navigateToCart();
-    });
-  }
+//   if (addToCartButton) {
+//     addToCartButton.addEventListener('click', function () {
+//       navigateToCart();
+//     });
+//   }
 
-  function navigateToCart() {
-    window.location.href = '/cart';
-  }
+//   function navigateToCart() {
+//     window.location.href = '/cart';
+//   }
 
-  const savedPackages = getSelectedPackages();
-  updateSelectedPackages(savedPackages);
-});
+//   const savedPackages = getSelectedPackages();
+//   updateSelectedPackages(savedPackages);
+// });
 // ------------- slider -------------
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -322,34 +322,14 @@ document.addEventListener('DOMContentLoaded', function () {
   var productForms = document.querySelectorAll('.product-form');
 
   productForms.forEach(function (form) {
-      var quantityInput = form.querySelector('[name="quantity"]');
-      var minusButton = form.querySelector('.icon-minus');
-      var plusButton = form.querySelector('.icon-plus');
 
-      minusButton.addEventListener('click', function () {
-          updateQuantity(-1);
-      });
-
-      plusButton.addEventListener('click', function () {
-          updateQuantity(1);
-      });
-
-      function updateQuantity(amount) {
-          var currentQuantity = parseInt(quantityInput.value, 10);
-          var newQuantity = Math.max(0, currentQuantity + amount);
-          quantityInput.value = newQuantity;
-      }
-
+    
       form.addEventListener('submit', function (event) {
           event.preventDefault();
 
+
           var formData = new FormData(form);
 
-          if (document.body.classList.contains('shopping')) {
-              var productId = formData.get('id');
-              var quantity = parseInt(formData.get('quantity'), 10);
-
-              formData.set('quantity', quantity);
 
               fetch('/cart/add.js', {
                   method: 'POST',
@@ -366,7 +346,9 @@ document.addEventListener('DOMContentLoaded', function () {
                   .catch(error => {
                       console.error('Error adding product to cart:', error);
                   });
-          }
+
+                  
+          
       });
   });
 });

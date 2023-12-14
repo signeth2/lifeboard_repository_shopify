@@ -42,7 +42,7 @@
                     <a href="{{ routes.account_login_url }}" {% if section.settings.header_color == "blue" %} class="white" {% endif %}>Login</a>
                     <button class="primary-button primary-button-red">
                         {% render 'icon-shopping-bag' %}
-                        <a class="button-text-white" href="{{ routes.cart_url }}" >Cart <div class="cart-count"></div></a>
+                        <a class="button-text-white flex" href="{{ routes.cart_url }}" >Kurv(<div class="cart-count" style="color:white;">{{ cart.item_count }}</div>)</a>
                     </button>
                     
                 </div>

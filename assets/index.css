@@ -184,7 +184,7 @@ p {
   gap: 11px;
 }
 .nav .content-wrapper .nav-inner .nav-right .information .primary-button {
-  width: 150px;
+  width: 170px;
 }
 .nav .mega-menu {
   display: none;
@@ -758,6 +758,64 @@ p {
   width: 50px;
 }
 
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+.quantity-input {
+  width: 50px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.remove {
+  color: var(--dark-red);
+}
+
+.checkhout {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  text-align: center;
+  gap: 10px;
+}
+
+.info {
+  border-bottom: 1px solid gray;
+}
+
+.product-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.product-info {
+  padding: 5px;
+}
+
+.product-title {
+  margin: 0;
+}
+
+.quantity, .price {
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .checkhout {
+    width: 50%;
+  }
+}
 .selected-package div {
   background-color: #fef050;
   padding: 5px;

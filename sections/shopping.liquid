@@ -28,7 +28,16 @@
                 <p class="product-description">{{ product_description }}</p>
                 <p class="price">{{ product_price | divided_by: 100.0  }}kr</p>
                 <div class="amount" data-product-title="{{ product.title }}" data-product-id="{{ product.id }} " data-price="{{ product.price | divided_by: 100.0  }}" >
-                    <div class="number">0</div>
+                   
+                <!-- Form for adding product to cart -->
+                {% form 'product', product %}
+                    <input type="hidden" name="id" value="{{ product.id }}">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" class="button product-add">Add to cart</button>
+                    <input type="hidden" name="quantity" value="1">
+                    <label name="quantity" id="quantity" class="number">0</label>
+                {% endform %}
+
                     <div class="icon-minus">{% render 'icon-minus' %}</div>
                     <div class="icon-plus">{% render 'icon-plus' %}</div>
                 </div>
@@ -52,14 +61,7 @@
                     </div>
                     
                 {% endif %}
-                <!-- Form for adding product to cart -->
-                {% form 'product', product %}
-                    <input type="hidden" name="quantity" value="1">
-                    <input type="hidden" name="id" value="{{ product.id }}">
-                                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-    
-                    <button type="submit" class="button product-add">Add to cart</button>
-                {% endform %}
+                
             </div>
                         
             {% endfor %}
