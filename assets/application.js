@@ -209,83 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// // ---------------- package add to cart ----------------
 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const packageButtons = document.querySelectorAll('.package');
-//   const addToCartButton = document.getElementById('add-to-cart');
-//   const selectedPackagesContainer = document.querySelector('.selected-packages');
-
-
-//   function getSelectedPackages() {
-//     const savedPackagesJSON = localStorage.getItem('selectedPackages');
-//     return JSON.parse(savedPackagesJSON) || [];
-//   }
-
-//   function saveSelectedPackageToLocalStorage(selectedPackage) {
-//     const selectedPackages = [selectedPackage];  
-//     localStorage.setItem('selectedPackages', JSON.stringify(selectedPackages));
-//     updateSelectedPackages(selectedPackages);
-//   }
-
-//   function updateSelectedPackages(selectedPackages) {
-//     if (selectedPackagesContainer) {
-//       selectedPackagesContainer.innerHTML = '';
-//       selectedPackages.forEach(function (package) {
-//         const packageElement = document.createElement('div');
-//         packageElement.textContent = package.title;
-//         selectedPackagesContainer.appendChild(packageElement);
-//       });
-//     }
-//   }
-
-//   function updateSelectedPackagesUI(selectedPackages) {
-//     if (selectedPackagesContainer) {
-//       selectedPackagesContainer.innerHTML = '';
-  
-//       selectedPackages.forEach(function (package) {
-//         const packageElement = document.createElement('div');
-//         packageElement.textContent = package.title;
-//         packageElement.classList.add('selected-package'); 
-//         selectedPackagesContainer.appendChild(packageElement);
-//       });
-//     }
-//   }
-
-//   packageButtons.forEach(function (packageButton) {
-//     packageButton.addEventListener('click', function () {
-//       const packageNumber = packageButton.dataset.packageNumber;
-//       const selectedPackage = {
-//         number: packageNumber,
-//         title: packageButton.querySelector('.solution p b').textContent,
-//         description: packageButton.querySelector('.solution p:last-child').textContent
-//       };
-//       saveSelectedPackageToLocalStorage(selectedPackage);
-  
-//       const selectedPackages = getSelectedPackages();
-//       updateSelectedPackagesUI(selectedPackages);
-
-//       packageButtons.forEach(function (button) {
-//         button.classList.remove('selected-package');
-//       });
-//       packageButton.classList.add('selected-package');
-//     });
-//   });
-
-//   if (addToCartButton) {
-//     addToCartButton.addEventListener('click', function () {
-//       navigateToCart();
-//     });
-//   }
-
-//   function navigateToCart() {
-//     window.location.href = '/cart';
-//   }
-
-//   const savedPackages = getSelectedPackages();
-//   updateSelectedPackages(savedPackages);
-// });
 // ------------- slider -------------
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -317,38 +241,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // add to cart 
-
 document.addEventListener('DOMContentLoaded', function () {
   var productForms = document.querySelectorAll('.product-form');
+  var selectedPackage = document.getElementById('selected-package');
+  var addToCartBtn = document.getElementById('addToCartBtn');
+
+  var selectedVariantId = null;
 
   productForms.forEach(function (form) {
-
-    
       form.addEventListener('submit', function (event) {
           event.preventDefault();
 
-
           var formData = new FormData(form);
+          selectedVariantId = formData.get('variantId');
 
+          console.log('Selected product variant ID:', selectedVariantId);
 
-              fetch('/cart/add.js', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded',
-                  },
-                  body: new URLSearchParams(formData).toString(),
-              })
-                  .then(response => response.json())
-                  .then(data => {
-                      console.log('Product added to cart:', data);
-                      
-                  })
-                  .catch(error => {
-                      console.error('Error adding product to cart:', error);
-                  });
+          // Remove the 'selected' class from all packages
+          document.querySelectorAll('.package').forEach(function (packageElement) {
+              packageElement.classList.remove('selected');
+          });
 
-                  
-          
+          // Add the 'selected' class to the parent .package element
+          form.closest('.package').classList.add('selected');
       });
   });
+
+  addToCartBtn.addEventListener('click', function () {
+      if (selectedVariantId) {
+          // Add selected product to cart
+          fetch('/cart/add.js', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: new URLSearchParams({ id: selectedVariantId, quantity: 1 }).toString(),
+          })
+              .then(response => response.json())
+              .then(data => {
+                  console.log('Product added to cart:', data);
+
+                  // Redirect to the cart page
+                  window.location.href = '/cart';
+              })
+              .catch(error => {
+                  console.error('Error adding product to cart:', error);
+              });
+      } else {
+          console.warn('No product variant selected.');
+      }
+  });
 });
+
+// Remove the 'selected' class from all packages
+document.querySelectorAll('.package').forEach(function (packageElement) {
+  packageElement.classList.remove('selected');
+});
+
+// Add the 'selected' class to the parent .package element
+form.closest('.package').classList.add('selected');

@@ -69,6 +69,19 @@
     gap:20px;
     flex-wrap: wrap;
     color: var(--text-color);
+    .package{
+      position: relative;
+      .product-add{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        border: 0;
+        background-color: var(--text-color);
+        color: white;
+      }
+    }
     .solution{
       background-color: var(--page-background);
       border: 2px solid #002e6a2b;

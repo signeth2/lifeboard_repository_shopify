@@ -481,6 +481,19 @@ p {
   flex-wrap: wrap;
   color: var(--text-color);
 }
+.product-selection .package-solution .package {
+  position: relative;
+}
+.product-selection .package-solution .package .product-add {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  border: 0;
+  background-color: var(--text-color);
+  color: white;
+}
 .product-selection .package-solution .solution {
   background-color: var(--page-background);
   border: 2px solid rgba(0, 46, 106, 0.168627451);
@@ -816,7 +829,7 @@ th, td {
     width: 50%;
   }
 }
-.selected-package div {
+.selected {
   background-color: #fef050;
   padding: 5px;
   margin: 5px;

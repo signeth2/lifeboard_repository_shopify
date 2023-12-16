@@ -27,15 +27,15 @@
                 <p class="product-name">{{ product_title }}</p>
                 <p class="product-description">{{ product_description }}</p>
                 <p class="price">{{ product_price | divided_by: 100.0  }}kr</p>
-                <div class="amount" data-product-title="{{ product.title }}" data-product-id="{{ product.id }} " data-price="{{ product.price | divided_by: 100.0  }}" >
+                <div class="amount" data-product-title="{{ product.title }}" data-product-id="{{ product.id }}" data-variant-id="{{ product.variants.first.id }}" data-price="{{ product.price | divided_by: 100.0 }}">
+
                    
                 <!-- Form for adding product to cart -->
                 {% form 'product', product %}
                     <input type="hidden" name="id" value="{{ product.id }}">
                     <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                    <button type="submit" class="button product-add">Add to cart</button>
                     <input type="hidden" name="quantity" value="1">
-                    <label name="quantity" id="quantity" class="number">0</label>
+                    <label class="number" data-product-id="{{ product.id }}" data-variant-id="{{ product.variants.first.id }}">0</label>
                 {% endform %}
 
                     <div class="icon-minus">{% render 'icon-minus' %}</div>
@@ -71,7 +71,7 @@
 
     </div>
         <div class="cart">
-            <h3>Cart</h3>
+            <h3>Kurv</h3>
             
             <div class="subtotal grid">
                 <p>Subtotal</p>
@@ -79,7 +79,7 @@
                 <div class="update-subtotal"></div>
             </div>
             <div class="shipping grid">
-                <p>Shipping</p>
+                <p>Levering</p>
                 <p class="align-right" id="shipping-value">{{ section.settings.delivery_price }}</p>
             </div>
             <div class="selected-products">
@@ -90,12 +90,87 @@
                 <p>Total</p>
                 <p class="align-right" id="total-value">0</p>
             </div>
-            <button id="cart-button" class="{{ section.settings.button_style }} {{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ routes.cart_url }}">{{ section.settings.cart_button_text }} {% render 'icon-arrow-right' %}</a></button>
+            <button type="button" id="cart-button" class="{{ section.settings.button_style }} {{ section.settings.button_color }}">Lig i kurv</button>
 
             </div>
 
 </div>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var quantityLabels = document.querySelectorAll('.number');
+    var cartButton = document.getElementById('cart-button');
+    var selectedProducts = {};
+
+    
+    document.querySelectorAll('.icon-plus, .icon-minus').forEach(function (icon) {
+        icon.addEventListener('click', function () {
+            var quantityLabel = icon.closest('.amount').querySelector('.number');
+            var quantity = parseInt(quantityLabel.textContent) || 0;
+
+            if (icon.classList.contains('icon-plus')) {
+                quantity + 1;
+            } else if (quantity > 0) {
+                quantity - 1;
+            }
+
+            quantityLabel.textContent = quantity;
+
+         
+            var productId = icon.closest('.amount').dataset.productId;
+            var variantId = icon.closest('.amount').dataset.variantId;
+
+            console.log(`Adding product with Variant ID ${variantId} to cart. Quantity: ${quantity}`);
+
+     
+            selectedProducts[variantId] = quantity;
+        });
+    });
+
+    
+    cartButton.addEventListener('click', function () {
+        console.log('Cart button clicked. Selected products:', selectedProducts);
+
+   
+        var productsArray = [];
+
+    
+        Object.entries(selectedProducts).forEach(([variantId, quantity]) => {
+            productsArray.push({ id: variantId, quantity: quantity });
+        });
+
+        console.log('Products to be added to cart:', productsArray);
+
+
+        fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ items: productsArray }),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to add products to cart. Response: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Products added to cart. Response:', data);
+
+                window.location.href = '/cart';
+            })
+            .catch(error => {
+                console.error('Error adding products to cart:', error);
+            });
+
+        selectedProducts = {};
+    });
+});
+
+
+</script>
 
 
 

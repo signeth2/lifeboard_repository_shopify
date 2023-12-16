@@ -54,11 +54,11 @@
                         <p>{{ block.settings.package_product.description }}</p>
     
                         <!-- Form for adding product to cart -->
-                        {% form 'product', block.settings.package_product %}
+                        {% form 'product', block.settings.package_product, class: 'product-form' %}
                             <input type="hidden" name="quantity" value="1">
                             <input type="hidden" name="id" value="{{ block.settings.package_product.id }}">
-                            <input type="hidden" name="id" value="{{ block.settings.package_product.variants.first.id }}">
-                            <button type="submit" class="button product-add">Add to cart</button>
+                            <input type="hidden" name="variantId" value="{{ block.settings.package_product.variants.first.id }}">
+                            <button type="submit" class="button product-add">Vælg produkt</button>
                         {% endform %}
                     </div>
                 </div>
@@ -66,13 +66,12 @@
         {% endfor %}
     </div>
     
-
-      
-      <div style="display: flex; justify-content: center; align-items: center; font-weight:600; margin-bottom: 20px;"> <p>Valgt pakke:<div class="selected-packages show-package">{{ package.title }}</div></p></div>
-     
-
+    <div style="display: flex; justify-content: center; align-items: center; font-weight:600; margin-bottom: 20px;">
+        <p>Valgt pakke:<div class="selected-packages show-package" id="selected-package"></div></p>
+    </div>
+    
     <div class="flex" style="flex-wrap: wrap; justify-content: center; margin-bottom:5vw; gap: 20px; ">
-        <button class="primary-button primary-button-yellow "> <a class="button-text-blue" href="/cart">Lig i kurv</a></button>
+        <button type="button" class="add-to-cart primary-button primary-button-yellow" id="addToCartBtn">Lig i kurv</button>
         <button class="secondary-button secondary-button-yellow "> <a class="button-text-blue" href="">Kontakt sælger</a></button>
         <button class="secondary-button secondary-button-yellow "> <a class="button-text-blue" href="">Send tilbud til mail</a></button>
     </div>

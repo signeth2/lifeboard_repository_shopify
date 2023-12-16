@@ -11,7 +11,7 @@
             <tr class="info">
                 <th>Produkt</th>
                 <th>Antal</th>
-                <th>Produkt pris</th>
+                <th style="text-align: right;">Produkt pris</th>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
                   
                 </td>
                 <td>
-                    <p class="price">{{ item.price | money_with_currency }}</p>
+                    <p class="price" style="text-align: right;">{{ item.price | money_with_currency }}</p>
                 </td>
             </tr>
             {% endfor %}
