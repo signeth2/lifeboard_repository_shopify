@@ -15,7 +15,9 @@
 @import 'features/404/styles/index.scss';
 
 
-
+img{
+    object-fit: cover;
+}
 
 .selected {
     background-color: #fef050; 

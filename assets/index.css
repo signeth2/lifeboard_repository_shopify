@@ -47,7 +47,7 @@ time, mark, audio, video {
   text-decoration: none;
 }
 
-h1 {
+h1, .h1 {
   font-family: var(--font-header);
   font-size: 54px;
   font-weight: 700;
@@ -60,13 +60,13 @@ h1 {
 }
 
 @media screen and (max-width: 767px) {
-  h1 {
+  h1, .h1 {
     overflow-wrap: anywhere;
     font-size: 40px;
   }
 }
 @media screen and (max-width: 479px) {
-  h1 {
+  h1, .h1 {
     white-space: pre-wrap;
     font-size: 26px;
   }
@@ -186,22 +186,26 @@ p {
 .nav .content-wrapper .nav-inner .nav-right .information .primary-button {
   width: 170px;
 }
+.nav .mega-menu.open {
+  transform: translateX(0);
+  opacity: 1;
+}
 .nav .mega-menu {
-  display: none;
+  transition: transform 0.5s ease-in-out;
   z-index: 100;
   width: 50%;
-  height: 100svh;
+  height: 100vh;
   grid-row-gap: 20px;
   background-color: #fff;
   flex-direction: column;
   flex: none;
   justify-content: flex-start;
   align-items: flex-start;
-  display: none;
+  transform: translateX(100%);
   position: absolute;
   top: 120px;
   bottom: auto;
-  left: auto;
+  right: 0; /* Adjust this property to set the distance from the right */
   overflow: scroll;
   box-shadow: 0 20px 50px 3px rgba(0, 0, 0, 0.18);
   padding: 5vw;
@@ -469,9 +473,6 @@ p {
   margin-top: 20px;
   color: var(--text-color);
 }
-.product-selection .pop-up .close-button {
-  margin: auto;
-}
 .product-selection .package-solution {
   display: flex;
   justify-content: center;
@@ -692,7 +693,7 @@ p {
   overflow: hidden;
   position: relative;
 }
-.container h1 {
+.container .h1 {
   margin: 0;
   color: white;
   margin: 80px 0 15px 5vw;
@@ -700,7 +701,6 @@ p {
 .container .slider {
   height: 200px;
   width: fit-content;
-  overflow: hidden;
   gap: 20px;
 }
 .container .slider button {
@@ -713,15 +713,15 @@ p {
 .container .slider .prev {
   left: 6vw;
   position: absolute;
-  top: 55%;
+  top: 60%;
   transform: translateY(-50%);
   font-size: 18px;
   cursor: pointer;
 }
 .container .slider .next {
-  right: 10px;
+  left: 90vw;
   position: absolute;
-  top: 55%;
+  top: 60%;
   transform: translateY(-50%);
   font-size: 18px;
   cursor: pointer;
@@ -738,6 +738,35 @@ p {
   object-fit: cover;
 }
 
+@media screen and (max-width: 460px) {
+  .container {
+    height: 500px;
+  }
+  .container .slider .slides {
+    padding-left: 0;
+    gap: 0;
+  }
+  .container .slider .slides img {
+    height: 300px;
+  }
+  .container .slider .slides .client-case-name {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
+  .container .slider .next {
+    left: 80vw;
+  }
+  .text-align-center-mobile {
+    text-align: center;
+  }
+  .text-align-center-mobile h1 {
+    margin: 80px 0 15px 0;
+  }
+  .container .h1 {
+    margin: 80px 0 15px 0;
+  }
+}
 .map {
   padding: 5vw;
 }
@@ -829,6 +858,10 @@ th, td {
     width: 50%;
   }
 }
+img {
+  object-fit: cover;
+}
+
 .selected {
   background-color: #fef050;
   padding: 5px;

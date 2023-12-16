@@ -2,40 +2,51 @@
 
 <div class="product-selection">
     <div class="pop-up" style="background-color: {{ section.settings.pop_up_color }};">
-        <div id="pop-up-information">
-            <h1 style="color: {{ section.settings.pop_up_text_color }} ;">{{ section.settings.pop_up_heading}}</h1>
-            <button type="button" onclick="openPopup(event)" class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}">
-                <a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.pop_up_button_url }}">{{ section.settings.pop_up_button_text}}</a>
-            </button>
+    <div id="pop-up-information">
+        <h1 style="color: {{ section.settings.pop_up_text_color }} ;">{{ section.settings.pop_up_heading}}</h1>
+        <button type="button" onclick="openPopup(event)" class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}">
+            <a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.pop_up_button_url }}">{{ section.settings.pop_up_button_text}}</a>
+        </button>
+    </div>
+
+    <div id="popup-container" class="popup-container" style="display: none;">
+        <div class="question" data-question="Q1">
+            <p>Spørgsmål 1: Hvad er din præference?</p>
+            <div class="options">
+                <button onclick="answerQuestion('Q1', 'Mulighed 1')"><p class="bold">Mulighed 1</p><p>Beskrivelse</p></button>
+                <button onclick="answerQuestion('Q1', 'Mulighed 2')"><p class="bold">Mulighed 2</p><p>Beskrivelse</p></button>
+                <button onclick="answerQuestion('Q1', 'Mulighed 3')"><p class="bold">Mulighed 3</p><p>Beskrivelse</p></button>
+            </div>
         </div>
 
-        <div id="popup-container" class="popup-container" style="display: none;">
-            <div class="question" data-question="Q1">
-                <p>Spørgsmål 1: Hvad er din præference?</p>
-                <div class="options">
-                    <button onclick="answerQuestion('Q1', 'Mulighed 1')"><p class="bold">Mulighed 1</p><p>Beskrivelse</p></button>
-                    <button onclick="answerQuestion('Q1', 'Mulighed 2')"><p class="bold">Mulighed 2</p><p>Beskrivelse</p></button>
-                    <button onclick="answerQuestion('Q1', 'Mulighed 3')"><p class="bold">Mulighed 3</p><p>Beskrivelse</p></button>
-                </div>
+        <div class="question" data-question="Q2" style="display: none;">
+            <p>Spørgsmål 2: Et eller andet spørgsmål?</p>
+            <div class="options">
+                <button onclick="answerQuestion('Q2', 'Mulighed A')"><p class="bold">Mulighed A</p><p>Beskrivelse</p></button>
+                <button onclick="answerQuestion('Q2', 'Mulighed B')"><p class="bold">Mulighed B</p><p>Beskrivelse</p></button>
+                <button onclick="answerQuestion('Q2', 'Mulighed C')"><p class="bold">Mulighed C</p><p>Beskrivelse</p></button>
             </div>
-
-            <div class="question" data-question="Q2">
-                <p>Spørgsmål 2: Et eller andet spørgsmål?</p>
-                <div class="options">
-                    <button onclick="answerQuestion('Q2', 'Mulighed A')"><p class="bold">Mulighed A</p><p>Beskrivelse</p></button>
-                    <button onclick="answerQuestion('Q2', 'Mulighed B')"><p class="bold">Mulighed B</p><p>Beskrivelse</p></button>
-                    <button onclick="answerQuestion('Q2', 'Mulighed C')"><p class="bold">Mulighed C</p><p>Beskrivelse</p></button>
-                </div>
+        </div>
+        <div class="question" data-question="Q3" style="display: none;">
+            <p>Spørgsmål 3: Et eller andet spørgsmål?</p>
+            <div class="options">
+                <button onclick="answerQuestion('Q3', 'Mulighed A')"><p class="bold">Mulighed A</p><p>Beskrivelse</p></button>
+                <button onclick="answerQuestion('Q3', 'Mulighed B')"><p class="bold">Mulighed B</p><p>Beskrivelse</p></button>
+                <button onclick="answerQuestion('Q3', 'Mulighed C')"><p class="bold">Mulighed C</p><p>Beskrivelse</p></button>
             </div>
-
-            
-            <button onclick="closePopup()"
-            class="close-button {{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}">{{ section.settings.close_button_text}}</a>
-            </button>
+        </div>
+        <div class="flex" style="justify-content: center;">
+            <button onclick="closePopup()" class="close-button {{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}">{{ section.settings.close_button_text}}</a></button>
+            <button id="retry" onclick="retryTest()" style="    background-color: transparent; width: 40px; color: white; border: none;">{% render 'icon-retry' %}</button>
         </div>
         
-
     </div>
+</div>
+
+
+        
+
+
 
    
     <h1 class="text-center">{{ section.settings.heading_package_solution }}</h1>
@@ -66,12 +77,9 @@
         {% endfor %}
     </div>
     
-    <div style="display: flex; justify-content: center; align-items: center; font-weight:600; margin-bottom: 20px;">
-        <p>Valgt pakke:<div class="selected-packages show-package" id="selected-package"></div></p>
-    </div>
     
     <div class="flex" style="flex-wrap: wrap; justify-content: center; margin-bottom:5vw; gap: 20px; ">
-        <button type="button" class="add-to-cart primary-button primary-button-yellow" id="addToCartBtn">Lig i kurv</button>
+        <button type="button" class="add-to-cart primary-button primary-button-yellow" id="addToCartBtn" style="color: var(--text-color);">Lig i kurv</button>
         <button class="secondary-button secondary-button-yellow "> <a class="button-text-blue" href="">Kontakt sælger</a></button>
         <button class="secondary-button secondary-button-yellow "> <a class="button-text-blue" href="">Send tilbud til mail</a></button>
     </div>

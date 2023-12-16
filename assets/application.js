@@ -6,65 +6,144 @@ let currentQuestion = 0;
 const answers = {};
 
 function answerQuestion(question, answer) {
-  answers[question] = answer;
-  showResult();
+    answers[question] = answer;
+
+    if (question === 'Q1') {
+        showQuestion('Q2');
+        hideQuestion('Q1');
+    } else if (question === 'Q2') {
+        showQuestion('Q3');
+        hideQuestion('Q2');
+    } else if (question === 'Q3') {
+        showResult();
+    }
 }
 
-function showResult() {
-  const resultSection = document.getElementById('result');
-  const resultText = document.getElementById('result-text');
-
-
-  const result = calculateResult(answers);
-
-  resultText.textContent = result;
-  resultSection.style.display = 'block';
+function showQuestion(questionId) {
+    const questionElement = document.querySelector(`.question[data-question="${questionId}"]`);
+    questionElement.style.display = 'block';
+    questionElement.offsetHeight;
+    questionElement.style.opacity = '1';
 }
 
+function hideQuestion(questionId) {
+    const questionElement = document.querySelector(`.question[data-question="${questionId}"]`);
+    questionElement.style.opacity = '0';
+    questionElement.style.display = 'none';
+}
 
 function calculateResult(answers) {
-  const q1Answer = answers['Q1'] || '';
-  const q2Answer = answers['Q2'] || '';
+    const q1Answer = answers['Q1'] || '';
+    const q2Answer = answers['Q2'] || '';
+    const q3Answer = answers['Q3'] || '';
+
+    const packageOne = document.getElementById('package_1');
+    const packageTwo = document.getElementById('package_2');
+    const packageThree = document.getElementById('package_3');
+
+    packageOne.style.border = "none";
+    packageTwo.style.border = "none";
+    packageThree.style.border = "none";
+
+    const distanceToPackageOne = calculateDistance(q1Answer, q2Answer, q3Answer, 'Mulighed 1', 'Mulighed A', 'Mulighed A');
+    const distanceToPackageTwo = calculateDistance(q1Answer, q2Answer, q3Answer, 'Mulighed 2', 'Mulighed B', 'Mulighed B');
+    const distanceToPackageThree = calculateDistance(q1Answer, q2Answer, q3Answer, 'Mulighed 3', 'Mulighed C', 'Mulighed C');
+
+    const minDistance = Math.min(distanceToPackageOne, distanceToPackageTwo, distanceToPackageThree);
+
+    let selectedPackage;
+
+    if (minDistance === distanceToPackageOne) {
+        selectedPackage = packageOne;
+    } else if (minDistance === distanceToPackageTwo) {
+        selectedPackage = packageTwo;
+    } else {
+        selectedPackage = packageThree;
+    }
+
+    if (selectedPackage) {
+        selectedPackage.style.border = "2px solid var(--text-color)";
+    }
+
+    if (selectedPackage === packageOne) {
+        return 'Pakkeløsning A';
+    } else if (selectedPackage === packageTwo) {
+        return 'Pakkeløsning B';
+    } else {
+        return 'Standard Pakkeløsning';
+    }
+}
+
+function calculateDistance(q1Answer, q2Answer, q3Answer, target1, target2, target3) {
+    const distanceToTarget1 = calculateAnswerDistance(q1Answer, target1) + calculateAnswerDistance(q2Answer, target2) + calculateAnswerDistance(q3Answer, target3);
+    return distanceToTarget1;
+}
+
+function calculateAnswerDistance(answer, target) {
+    if (answer === target) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+function retryTest() {
+  answers['Q1'] = '';
+  answers['Q2'] = '';
+  answers['Q3'] = '';
 
   const packageOne = document.getElementById('package_1');
   const packageTwo = document.getElementById('package_2');
   const packageThree = document.getElementById('package_3');
-  
-  // Nulstil grænser for alle pakker
+
   packageOne.style.border = "none";
   packageTwo.style.border = "none";
   packageThree.style.border = "none";
-  
-  let selectedPackage;
-  
-  switch (true) {
-    case q1Answer === 'Mulighed 1' && q2Answer === 'Mulighed A':
-      selectedPackage = packageOne;
-      break;
-    case q1Answer === 'Mulighed 2' && q2Answer === 'Mulighed B':
-      selectedPackage = packageTwo;
-      break;
-    case q1Answer === 'Mulighed 3' && q2Answer === 'Mulighed C':
-      selectedPackage = packageThree;
-      break;
-    default:
-      selectedPackage = null;
-  }
-  
-  if (selectedPackage) {
-    selectedPackage.style.border = "2px solid var(--text-color)";
-  }
-  
 
-  if (selectedPackage === packageOne) {
-    return 'Pakkeløsning A';
-  } else if (selectedPackage === packageTwo) {
-    return 'Pakkeløsning B';
-  } else if (selectedPackage === packageThree) {
-    return 'Standard Pakkeløsning';
-  } else {
-    return 'Standard Pakkeløsning';
-  }
+  hideQuestion('Q3');
+  showQuestion('Q1');
+  document.getElementById('result').style.display = 'none';
+}
+
+function showResult() {
+    const resultSection = document.getElementById('result');
+    const resultText = document.getElementById('result-text');
+
+    const result = calculateResult(answers);
+
+    resultText.textContent = result;
+    resultSection.style.display = 'block';
+
+    if (answers['Q1'] && answers['Q2'] && answers['Q3']) {
+        closePopup();
+
+        const popupHeight = document.querySelector('.pop-up').offsetHeight;
+
+        smoothScroll(window.scrollY + popupHeight + 260);
+    }
+}
+
+function smoothScroll(target) {
+    const currentPosition = window.scrollY;
+    const distance = Math.abs(target - currentPosition);
+    const duration = 500;
+    let startTime;
+
+    function scrollStep(timestamp) {
+        if (!startTime) startTime = timestamp;
+
+        const progress = timestamp - startTime;
+        const easeInOutCubic = progress / duration - 1;
+        const eased = easeInOutCubic * easeInOutCubic * easeInOutCubic + 1;
+
+        window.scrollTo(0, currentPosition + (target - currentPosition) * eased);
+
+        if (progress < duration) {
+            requestAnimationFrame(scrollStep);
+        }
+    }
+
+    requestAnimationFrame(scrollStep);
 }
 
 
@@ -84,15 +163,19 @@ function closePopup() {
 
 // ------------- mega menu toggle -------------
 function toggleAriaExpanded(elementId) {
-  const element = document.getElementById(elementId);
+    const element = document.getElementById(elementId);
+    const megaMenu = document.querySelector('.mega-menu');
 
-  if (element) {
-      const currentExpanded = element.getAttribute('aria-expanded') === 'true';
-      element.setAttribute('aria-expanded', String(!currentExpanded));
+    if (element && megaMenu) {
+        const currentExpanded = element.getAttribute('aria-expanded') === 'true';
+        element.setAttribute('aria-expanded', String(!currentExpanded));
 
-      var test = document.getElementsByClassName('mega-menu')[0];
-      test.style.display = currentExpanded ? 'none' : 'block';
-  } 
+        if (currentExpanded) {
+            megaMenu.classList.remove('open');
+        } else {
+            megaMenu.classList.add('open');
+        }
+    }
 }
 
 toggleAriaExpanded('toggle');
@@ -257,19 +340,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
           console.log('Selected product variant ID:', selectedVariantId);
 
-          // Remove the 'selected' class from all packages
+         
           document.querySelectorAll('.package').forEach(function (packageElement) {
               packageElement.classList.remove('selected');
           });
 
-          // Add the 'selected' class to the parent .package element
+        
           form.closest('.package').classList.add('selected');
       });
   });
 
   addToCartBtn.addEventListener('click', function () {
       if (selectedVariantId) {
-          // Add selected product to cart
+         
           fetch('/cart/add.js', {
               method: 'POST',
               headers: {
@@ -281,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
               .then(data => {
                   console.log('Product added to cart:', data);
 
-                  // Redirect to the cart page
+                 
                   window.location.href = '/cart';
               })
               .catch(error => {
@@ -293,10 +376,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// Remove the 'selected' class from all packages
+
 document.querySelectorAll('.package').forEach(function (packageElement) {
   packageElement.classList.remove('selected');
 });
 
-// Add the 'selected' class to the parent .package element
+
 form.closest('.package').classList.add('selected');

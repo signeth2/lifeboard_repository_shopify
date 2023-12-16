@@ -59,6 +59,10 @@
                 <a href="{{ link.url }}" class="menu-link {% if section.settings.header_color == "blue" %} white {% endif %}"> {{ link.title }}</a>
             </div>
         {% endfor %}
+        <button class="primary-button primary-button-red">
+            {% render 'icon-shopping-bag' %}
+            <a class="button-text-white flex" href="{{ routes.cart_url }}" >Kurv(<div class="cart-count" style="color:white;">{{ cart.item_count }}</div>)</a>
+        </button>
     </div>   
    
 </nav>

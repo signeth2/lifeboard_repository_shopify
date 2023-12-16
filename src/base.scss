@@ -49,7 +49,7 @@ time, mark, audio, video {
   text-decoration: none;
 }
 
-h1 {
+h1, .h1 {
     font-family: var(--font-header);
     font-size: 54px;
     font-weight: 700;
@@ -62,15 +62,17 @@ h1 {
 
 }
 
+
+
 @media screen and (max-width: 767px){
-    h1 {
+    h1, .h1 {
         overflow-wrap: anywhere;
         font-size: 40px;
     }
 }
 
 @media screen and (max-width: 479px){
-    h1 {
+    h1, .h1 {
         white-space: pre-wrap;
         font-size: 26px;
     }

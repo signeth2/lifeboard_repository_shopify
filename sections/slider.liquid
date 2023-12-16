@@ -1,11 +1,17 @@
 <div class="container">
-    <h1>{{ section.settings.slider_heading }}</h1>
+    <h2 class="h1 text-align-center-mobile">{{ section.settings.slider_heading }}</h2>
     <div class="slider">
 
         <div class="slides">
             {% for block in section.blocks %}
-                <img src="{{ block.settings.slider_image | image_url }}" alt="">
+                <div>
+                    <p class="client-case-name" style="color: white;">Kunde case</p>
+                    <img src="{{ block.settings.slider_image | image_url }}" alt="">
+                    <p  class="client-case-name" style="color: white;">Beskrivelse</p>
+                </div>
+                
             {% endfor %}
+            
         </div>
         <button class="prev">{% render 'icon-chevron-left' %}</button>
         <button class="next">{% render 'icon-chevron-right' %}</button>

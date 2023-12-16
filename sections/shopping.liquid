@@ -6,7 +6,7 @@
         <div class="service">
             <p class="product-name"><b>Service aftale</b></p>
             <p class="product description">Description</p>
-            <p class="price">0</p>
+            <p class="price">1000kr</p>
 
         </div>
         <h3 class="categorie-name">Produkter</h3>
@@ -18,11 +18,12 @@
             {% comment %} {% if block.settings.package %} <h3 class="categorie-name">Pakker</h3>{% endif %} {% endcomment %}
             {% assign product = block.settings.products %}
             {% assign product_title = product.title %}
-            {% assign product_image = product.image | img_url %}
+            {% assign product_image = product.featured_image.src %}
             {% assign product_description = product.description %}
             {% assign product_price = product.price %}
+        
             
-            <img {% if block.settings.package %} class="padding-image" {% endif %} src="{{ product_image }}" alt="">
+            <img {% if block.settings.package %} class="padding-image" {% endif %} src="{{ block.settings.product_image_picker | image_url }}" alt="">
             <div  class="product-information">
                 <p class="product-name">{{ product_title }}</p>
                 <p class="product-description">{{ product_description }}</p>
@@ -78,10 +79,15 @@
                 <p class="value align-right" id="subtotal-value">0</p>
                 <div class="update-subtotal"></div>
             </div>
+            <div class="grid">
+                <p>Service aftale</p>
+                <p class="align-right">0</p>
+            </div>
             <div class="shipping grid">
                 <p>Levering</p>
                 <p class="align-right" id="shipping-value">{{ section.settings.delivery_price }}</p>
             </div>
+            
             <div class="selected-products">
                 <!-- Dette område vil blive opdateret dynamisk -->
             </div>
@@ -90,7 +96,7 @@
                 <p>Total</p>
                 <p class="align-right" id="total-value">0</p>
             </div>
-            <button type="button" id="cart-button" class="{{ section.settings.button_style }} {{ section.settings.button_color }}">Lig i kurv</button>
+            <button type="button" id="cart-button" class="{{ section.settings.button_style }} {{ section.settings.button_color }}">Lig i kurv {% render 'icon-arrow-right' %} </button>
 
             </div>
 
@@ -243,6 +249,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         "type": "product",
                         "id": "products",
                         "label": "product"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "product_image_picker",
+                        "label": "Pick a product image"
                     },
                     {
                         "type": "header",

@@ -100,25 +100,29 @@
             }
         }
     }
+    .mega-menu.open {
+        transform: translateX(0);
+        opacity: 1;
+    }
     .mega-menu{
-        display: none;
-        z-index: 100;
-        width: 50%;
-        height: 100svh;
-        grid-row-gap: 20px;
-        background-color: #fff;
-        flex-direction: column;
-        flex: none;
-        justify-content: flex-start;
-        align-items: flex-start;
-        display: none;
-        position: absolute;
-        top: 120px;
-        bottom: auto;
-        left: auto;
-        overflow: scroll;
-        box-shadow: 0 20px 50px 3px rgba(0,0,0,.18);
-        padding: 5vw;
+        transition: transform 0.5s ease-in-out;
+    z-index: 100;
+    width: 50%;
+    height: 100vh;
+    grid-row-gap: 20px;
+    background-color: #fff;
+    flex-direction: column;
+    flex: none;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(100%);
+    position: absolute;
+    top: 120px;
+    bottom: auto;
+    right: 0; /* Adjust this property to set the distance from the right */
+    overflow: scroll;
+    box-shadow: 0 20px 50px 3px rgba(0, 0, 0, .18);
+    padding: 5vw;
         .mega-menu_nav-item{
                 width: 90%;
                 grid-column-gap: 15px;
