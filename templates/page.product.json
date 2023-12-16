@@ -18,7 +18,7 @@
             "package_product": "kopi-af-pakkelosning-3",
             "package_number": 1,
             "header_package": "Pakkeløsning 1",
-            "client_case_name": "Client case",
+            "client_case_name": "Kundecase",
             "client_case_url": "shopify:\/\/pages\/kundecase"
           }
         },
@@ -28,7 +28,7 @@
             "package_product": "kopi-af-pakkelosning-2",
             "package_number": 2,
             "header_package": "Pakkeløsning 2",
-            "client_case_name": "Client case",
+            "client_case_name": "Kunde case",
             "client_case_url": "shopify:\/\/pages\/kundecase"
           }
         },
@@ -38,7 +38,7 @@
             "package_product": "kopi-af-pakkelosning-1",
             "package_number": 3,
             "header_package": "Pakkeløsning 3 Standard",
-            "client_case_name": "Client case",
+            "client_case_name": "Kunde case",
             "client_case_url": "shopify:\/\/pages\/kundecase"
           }
         }
