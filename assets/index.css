@@ -184,7 +184,10 @@ p {
   gap: 11px;
 }
 .nav .content-wrapper .nav-inner .nav-right .information .primary-button {
-  width: 170px;
+  width: fit-content;
+}
+.nav .content-wrapper .nav-inner .nav-right .information .primary-button svg {
+  width: 20px;
 }
 .nav .mega-menu.open {
   transform: translateX(0);
@@ -205,10 +208,20 @@ p {
   position: absolute;
   top: 120px;
   bottom: auto;
-  right: 0; /* Adjust this property to set the distance from the right */
+  right: 0;
   overflow: scroll;
   box-shadow: 0 20px 50px 3px rgba(0, 0, 0, 0.18);
   padding: 5vw;
+}
+.nav .mega-menu .cart-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 30px;
+  width: 170px;
+}
+.nav .mega-menu .cart-button svg {
+  width: 20px;
 }
 .nav .mega-menu .mega-menu_nav-item {
   width: 90%;

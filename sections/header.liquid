@@ -1,4 +1,4 @@
-
+{% unless template == '404' %}
 
 <nav class="nav {{ section.settings.header_color }}">
     <div class="content-wrapper">
@@ -39,8 +39,8 @@
                     {% endfor %}
                 </div>
                 <div class="information">
-                    <a href="{{ routes.account_login_url }}" {% if section.settings.header_color == "blue" %} class="white" {% endif %}>Login</a>
-                    <button class="primary-button primary-button-red">
+                    
+                    <button class="cart-button primary-button primary-button-red">
                         {% render 'icon-shopping-bag' %}
                         <a class="button-text-white flex" href="{{ routes.cart_url }}" >Kurv(<div class="cart-count" style="color:white;">{{ cart.item_count }}</div>)</a>
                     </button>
@@ -56,17 +56,18 @@
         {% for link in linklists[section.settings.menu_links].links %}
             <div class="mega-menu_nav-item flex">
                 <div class="mega-menu_circle-icon"></div>
-                <a href="{{ link.url }}" class="menu-link {% if section.settings.header_color == "blue" %} white {% endif %}"> {{ link.title }}</a>
+                <a href="{{ link.url }}" style="color: var(--text-color);" class="menu-link {% if section.settings.header_color == "blue" %} white {% endif %}"> {{ link.title }}</a>
             </div>
         {% endfor %}
-        <button class="primary-button primary-button-red">
+        <button class="cart-button primary-button primary-button-red">
             {% render 'icon-shopping-bag' %}
-            <a class="button-text-white flex" href="{{ routes.cart_url }}" >Kurv(<div class="cart-count" style="color:white;">{{ cart.item_count }}</div>)</a>
+            <a class=" button-text-white flex" href="{{ routes.cart_url }}" >Kurv(<div class="cart-count" style="color:white;">{{ cart.item_count }}</div>)</a>
         </button>
     </div>   
    
 </nav>
 
+{% endunless %}
 
 {% schema %}
 {
