@@ -5,8 +5,8 @@
         "type": "header",
         "settings": {
           "menu_links": "main-menu",
-          "logo_image": "shopify:\/\/shop_images\/logo.svg",
-          "header_color": "yellow"
+          "logo_image": "shopify:\/\/shop_images\/lifeboard_white.svg",
+          "header_color": "blue"
         }
       },
       "divider": {

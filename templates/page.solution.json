@@ -17,6 +17,7 @@
           "type": "products",
           "settings": {
             "products": "test-1",
+            "product_image_picker": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
             "package": false,
             "package_title_one": "title",
             "package_description_one": "description",
@@ -28,6 +29,7 @@
           "type": "products",
           "settings": {
             "products": "test-2",
+            "product_image_picker": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
             "package": false,
             "package_title_one": "title",
             "package_description_one": "description",
@@ -39,9 +41,12 @@
           "type": "products",
           "settings": {
             "products": "kopi-af-produkt-2",
+            "product_image_picker": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
             "package": true,
+            "package_image_one": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
             "package_title_one": "title",
             "package_description_one": "description",
+            "package_image_two": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
             "package_title_two": "title",
             "package_description_two": "description"
           }
