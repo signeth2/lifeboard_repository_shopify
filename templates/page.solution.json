@@ -56,10 +56,10 @@
             "product_image_picker": "shopify:\/\/shop_images\/logo.svg",
             "package": true,
             "package_image_one": "shopify:\/\/shop_images\/6492e0d68e3dacfa98d7bb91_PRO_outline_front_2_10x-p-500.png",
-            "package_title_one": "title",
+            "package_title_one": "Lifeboard",
             "package_description_one": "description",
             "package_image_two": "shopify:\/\/shop_images\/649c0a1121de1f16fda4f563_Ice_Outline_10x-p-500.png",
-            "package_title_two": "title",
+            "package_title_two": "Is-kit",
             "package_description_two": "description"
           }
         }
