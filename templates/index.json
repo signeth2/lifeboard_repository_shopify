@@ -86,32 +86,12 @@
             "slider_header": "Ærø Kommune",
             "slider_description": ""
           }
-        },
-        "e6d9c57e-05a7-4aa5-b0a0-322a288693f5": {
-          "type": "slider",
-          "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.59.18.png",
-            "slider_url": "shopify:\/\/pages\/kundecase",
-            "slider_header": "",
-            "slider_description": ""
-          }
-        },
-        "58c4db24-4904-4dc0-a85b-3bac3abd7752": {
-          "type": "slider",
-          "settings": {
-            "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.59.49.png",
-            "slider_url": "shopify:\/\/pages\/kundecase",
-            "slider_header": "",
-            "slider_description": ""
-          }
         }
       },
       "block_order": [
         "ac956983-2944-460a-be3a-2b6456829da9",
         "4d80f0ae-4f5f-4852-84d3-0615251f30f2",
-        "56715b5e-986e-48eb-a6a6-124436b43111",
-        "e6d9c57e-05a7-4aa5-b0a0-322a288693f5",
-        "58c4db24-4904-4dc0-a85b-3bac3abd7752"
+        "56715b5e-986e-48eb-a6a6-124436b43111"
       ],
       "settings": {
         "slider_heading": "Se vores cases"
