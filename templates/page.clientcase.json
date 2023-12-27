@@ -12,6 +12,8 @@
         "hero_button_one_url": "",
         "hero_button_two_text": "Button",
         "hero_button_two_url": "",
+        "remove_both_buttons": true,
+        "remove_one_button": true,
         "button_style": "primary-button",
         "button_color": "red",
         "text_color": "white",
@@ -44,9 +46,9 @@
           "type": "columns",
           "settings": {
             "column_background_color": "#f1403c",
-            "column_heading_text": "01",
-            "column_description_text": "text",
-            "column_image": "shopify:\/\/shop_images\/placeholder-4.webp",
+            "column_heading_text": "0{{ page.metafields.custom.antal_boards.value }}",
+            "column_description_text": "Her i kommunen har vi {{ page.metafields.custom.antal_boards.value }} LifeBoards stående",
+            "column_image": "shopify:\/\/shop_images\/64c7aa288e589452ddcd05c1_LB_strop-p-500.jpg",
             "column_text_color": "white"
           }
         },
