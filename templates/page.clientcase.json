@@ -16,7 +16,7 @@
         "button_color": "red",
         "text_color": "white",
         "remove_buttons": false,
-        "overlay_opacity": 75,
+        "overlay_opacity": 65,
         "overlay_color": "#000000",
         "show_overlay": false
       }
