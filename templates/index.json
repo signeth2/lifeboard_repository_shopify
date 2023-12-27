@@ -7,16 +7,18 @@
       "settings": {
         "hero_heading_text_color": "white",
         "hero_img_url": "shopify:\/\/shop_images\/63ed2d9d5d485cebfe2b4346_240655006_3226924147534832_8200666302775872411_n.webp",
-        "hero_header_text": "Køb et LifeBoard idag",
-        "hero_button_one_text": "Button",
-        "hero_button_one_url": "",
+        "hero_header_text": "Få LifeBoard idag",
+        "hero_button_one_text": "Køb en pakke",
+        "hero_button_one_url": "shopify:\/\/pages\/pakkelosninger",
         "hero_button_two_text": "Button",
         "hero_button_two_url": "",
+        "remove_both_buttons": true,
+        "remove_one_button": false,
         "button_style": "primary-button",
         "button_color": "red",
         "text_color": "white",
         "remove_buttons": true,
-        "overlay_opacity": 75,
+        "overlay_opacity": 70,
         "overlay_color": "#000000",
         "show_overlay": false
       }
