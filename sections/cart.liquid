@@ -2,55 +2,52 @@
 {% if cart.item_count > 0 %}
 
 
-<h1 style="text-align: center;">Din kurv</h1>
+    <h1 style="text-align: center;">Din kurv</h1>
 
+    <form action="{{ routes.cart_url }}" method="POST" novalidate>
+        <table>
+            <thead>
+                <tr class="info">
+                    <th>Produkt</th>
+                    <th>Antal</th>
+                    <th style="text-align: right;">Produkt pris</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart.items %}
+                    <tr>
+                        <td>
+                            <a href="#" class="product-link">
+                                <div class="product-info">
+                                    <p class="product-title">{{ item.title }}</p>
+                                    <a class="remove" href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">Fjern</a>
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <input type="number" name="updates[]" value="{{ item.quantity }}" id="updates_{{forloop.index}}" min="1" class="quantity-input">
+                        </td>
+                        <td>
+                            <p class="price" style="text-align: right;">{{ item.price | money_with_currency }}</p>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-<form action="{{ routes.cart_url }}" method="POST" novalidate>
-    <table>
-        <thead>
-            <tr class="info">
-                <th>Produkt</th>
-                <th>Antal</th>
-                <th style="text-align: right;">Produkt pris</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in cart.items %}
-            <tr>
-                <td>
-                    <a href="#" class="product-link">
-                        <div class="product-info">
-                            <p class="product-title">{{ item.title }}</p>
-                            <a class="remove" href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">Fjern</a>
-                        </div>
-                    </a>
-                </td>
-                <td>
-                    <input type="number" name="updates[]" value="{{ item.quantity }}" id="updates_{{forloop.index}}" min="1" class="quantity-input">
-                  
-                </td>
-                <td>
-                    <p class="price" style="text-align: right;">{{ item.price | money_with_currency }}</p>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="checkhout">
+            <p>Total: {{ cart.total_price | money }}</p>
+            <button type="submit" name="update" class="secondary-button secondary-button-red" style="color: #182e4c;">Updater kurv</button>
+            <button type="submit" name="checkhout" class="primary-button primary-button-red">Gå til checkout</button>
+            
+        </div>
 
-    <div class="checkhout">
-        <p>Total: {{ cart.total_price | money }}</p>
-        <button type="submit" name="update" class="secondary-button secondary-button-red" style="color: #182e4c;">Updater kurv</button>
-        <button type="submit" name="checkhout" class="primary-button primary-button-red">Gå til checkout</button>
-        
-    </div>
-
-</form>
+    </form>
 
 {% else %}
 
-<h1 style="text-align: center;">Din kurv er tom</h1>
-
-<button style="margin: auto; margin-top:20px;" class="primary-button primary-button-red"><a class="button-text-white" href="/"> Gå til produkter</a></button>
+    <h1 style="text-align: center;">Din kurv er tom</h1>
+    <button style="margin: auto; margin-top:20px;" class="primary-button primary-button-red"><a class="button-text-white" href="/"> Gå til produkter</a></button>
 
 {% endif %}
 

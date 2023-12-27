@@ -6,19 +6,17 @@
     <div class="map-container">
         <p>{{ section.settings.map_description }}</p>
         <div id="search-container"> 
-        <input type="text" id="locationInput" placeholder="Søg efter en strand">
-        <button onclick="searchLocation()">Søg</button>
+            <input type="text" id="locationInput" placeholder="Søg efter en strand">
+            <button class="primary-button primary-button-red" onclick="searchLocation()">Søg {% render 'icon-magnifying-glass' %}</button>
+        </div>
     </div>
 
-    
-</div>
-
-    <div id="map"></div>
-    <div id="icons">
-        <button class="icon1" onclick="selectIcon('icon1')"><img src="{{ 'lifeboard.png' | asset_url }}" alt=""></button>
-        <button class="icon2" onclick="selectIcon('icon2')"><img src="{{ 'redningskrans.png' | asset_url }}" alt=""></button>
-        <button class="icon3" onclick="selectIcon('icon3')"><img src="{{ 'lifeguard-tower.png' | asset_url }}" alt=""></button>
-    </div>
+        <div id="map"></div>
+        <div id="icons">
+            <button class="icon-button icon1" onclick="selectIcon('icon1')"><img src="{{ 'lifeboard.png' | asset_url }}" alt=""></button>
+            <button class="icon-button icon2" onclick="selectIcon('icon2')"><img src="{{ 'redningskrans.png' | asset_url }}" alt=""></button>
+            <button class="icon-button icon3" onclick="selectIcon('icon3')"><img src="{{ 'lifeguard-tower.png' | asset_url }}" alt=""></button>
+        </div>
 </div>
 
 
@@ -35,6 +33,12 @@ var circle;
 
 function selectIcon(iconType) {
     selectedIcon = iconType;
+
+    document.querySelectorAll('.icon-button').forEach(function (button) {
+        button.style.backgroundColor = '';
+    });
+
+    document.querySelector(`.${iconType}`).style.backgroundColor = 'var(--text-color)';
 }
 
 var beachCoordinates = {
@@ -160,15 +164,15 @@ window.onload = function () {
     switch (iconType) {
         case 'icon1':
             circleOptions.color = 'red';
-            circleOptions.radius = 100; // 1 km radius
+            circleOptions.radius = 100; // 100 m radius
             break;
         case 'icon2':
             circleOptions.color = 'blue';
-            circleOptions.radius = 100; // 2 km radius
+            circleOptions.radius = 100; // 100 km radius
             break;
         case 'icon3':
             circleOptions.color = 'green';
-            circleOptions.radius = 150; // 4 km radius
+            circleOptions.radius = 150; // 150 m radius
             break;
     }
 

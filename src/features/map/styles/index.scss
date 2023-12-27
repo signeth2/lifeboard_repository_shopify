@@ -3,6 +3,22 @@
     .map-container{
         display: flex;
         margin-bottom: 10px;
+
+        #search-container{
+            display: flex;
+            gap: 5px;
+            input{
+                height: 25px;
+                margin: auto;
+                width: 200px;
+            }
+            button{
+                padding: 15px;
+                svg{
+                    width: 20px;
+                }
+            }
+        }
         p {
             flex: 1;
         }
@@ -20,12 +36,17 @@
     
         button{
             border:none;
-            background-color: transparent;
+            background-color: aliceblue;
+            padding: 20px 30px;
+        }
+        button:hover{
+            background-color: var( --text-color);
+            
         }
         .icon1{
             img{
-                height: 50px;
-                width: 30px;
+                object-fit: contain;
+              
             }
         }
     

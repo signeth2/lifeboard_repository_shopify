@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
           var formData = new FormData(form);
           selectedVariantId = formData.get('variantId');
 
-          console.log('Selected product variant ID:', selectedVariantId);
+          // console.log('Selected product variant ID:', selectedVariantId);
 
          
           document.querySelectorAll('.package').forEach(function (packageElement) {
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
           })
               .then(response => response.json())
               .then(data => {
-                  console.log('Product added to cart:', data);
+                  // console.log('Product added to cart:', data);
 
                  
                   window.location.href = '/cart';

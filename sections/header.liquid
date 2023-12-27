@@ -4,49 +4,37 @@
     <div class="content-wrapper">
         <div class="nav-inner">
             <a href="/"> <img class="logo" src="{{ section.settings.logo_image | img_url }}" alt=""></a>
-           
             <div class="nav-right">
                 <div class="menu">
                     {% for link in linklists[section.settings.menu_links].links %}
                         {% if link.links != blank %}
                             <div>
-                                <div class="dropdown" >
-                                <a href="{{ link.url }}" class="menu-link"  >{{ link.title }} {% render 'icon-dropdown' %}</a>
-                                </div>
-                            <div class="dropdown-box">
-                                {% for sublink in link.links %}
-                                    <div class="dropdown-item">
-                                        
-                                        <div class="circle-icon" ></div>
-                                             
-                                                <a href="{{ sublink.url }}">{{ sublink.title }}</a>
-                                            
-                                        {% render 'icon-arrow-right' %}
-                                       
+                                <div>
+                                    <div class="dropdown" id="dropdown">
+                                        <a style="color: white;" href="{{ link.url }}" class="menu-link"> {{ link.title }} {% render 'icon-dropdown' %}</a>
                                     </div>
-                                {% endfor %} 
-                                </div>
-                            </div>
-                            
-                            
+                                    <div class="dropdown-box" id="dropdown-box">
+                                        {% for sublink in link.links %}
+                                        <div class="dropdown-item">
+                                        <div class="circle-icon"><img  src="{{  'lifeboard.png' | asset_url }}" alt=""></div>
+                                        <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                                        {% render 'icon-arrow-right' %}
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    </div>
+                            </div> 
                         {% else %}
                             <a href="{{ link.url }}" class="menu-link {% if section.settings.header_color == "blue" %} white {% endif %}"> {{ link.title }}</a>
                         {% endif %}
-                        
-                        
- 
-                        
                     {% endfor %}
                 </div>
                 <div class="information">
-                    
                     <button class="cart-button primary-button primary-button-red">
                         {% render 'icon-shopping-bag' %}
                         <a class="button-text-white flex" href="{{ routes.cart_url }}" >Kurv(<div class="cart-count" style="color:white;">{{ cart.item_count }}</div>)</a>
                     </button>
-                    
                 </div>
-                
             </div>
             <div id="toggle" aria-expanded="false" onclick="toggleAriaExpanded('toggle')" class=" burgerbar">{% render 'icon-burgerbar' %}</div>
         </div>
@@ -68,6 +56,49 @@
 </nav>
 
 {% endunless %}
+
+<script>
+  var dropdown = document.getElementById('dropdown');
+  var dropdownBox = document.getElementById('dropdown-box');
+  var timeoutId;
+
+  dropdown.addEventListener('mouseenter', function() {
+    clearTimeout(timeoutId); 
+    dropdownBox.style.display = 'block';
+  });
+
+  dropdown.addEventListener('mouseleave', function() {
+
+    timeoutId = setTimeout(function() {
+      dropdownBox.style.display = 'none';
+    }, 200); 
+  });
+
+  dropdownBox.addEventListener('mouseenter', function() {
+    clearTimeout(timeoutId); 
+  });
+
+  dropdownBox.addEventListener('mouseleave', function() {
+    dropdownBox.style.display = 'none';
+  });
+</script>
+
+<style>
+    .dropdown-box {
+      display: none;
+      
+    }
+    .nav .content-wrapper .nav-inner .nav-right .menu .dropdown-box .circle-icon img{
+        height: 40px;
+        width: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: 5%;
+    }
+
+</style>
 
 {% schema %}
 {

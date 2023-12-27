@@ -787,6 +787,21 @@ p {
   display: flex;
   margin-bottom: 10px;
 }
+.map .map-container #search-container {
+  display: flex;
+  gap: 5px;
+}
+.map .map-container #search-container input {
+  height: 25px;
+  margin: auto;
+  width: 200px;
+}
+.map .map-container #search-container button {
+  padding: 15px;
+}
+.map .map-container #search-container button svg {
+  width: 20px;
+}
 .map .map-container p {
   flex: 1;
 }
@@ -802,11 +817,14 @@ p {
 }
 .map #icons button {
   border: none;
-  background-color: transparent;
+  background-color: aliceblue;
+  padding: 20px 30px;
+}
+.map #icons button:hover {
+  background-color: var(--text-color);
 }
 .map #icons .icon1 img {
-  height: 50px;
-  width: 30px;
+  object-fit: contain;
 }
 .map #icons img {
   height: 50px;
