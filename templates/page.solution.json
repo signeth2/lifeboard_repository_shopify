@@ -17,7 +17,7 @@
           "type": "products",
           "settings": {
             "products": "test-1",
-            "product_image_picker": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
+            "product_image_picker": "shopify:\/\/shop_images\/646fc375f0b5532be34617c8_LB_outline_front_adea9fe4-cbed-4c00-914b-3d6b836dbb0d.svg",
             "package": false,
             "package_title_one": "title",
             "package_description_one": "description",
@@ -29,7 +29,19 @@
           "type": "products",
           "settings": {
             "products": "test-2",
-            "product_image_picker": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
+            "product_image_picker": "shopify:\/\/shop_images\/6492e0d68e3dacfa98d7bb91_PRO_outline_front_2_10x-p-500.png",
+            "package": false,
+            "package_title_one": "title",
+            "package_description_one": "description",
+            "package_title_two": "title",
+            "package_description_two": "description"
+          }
+        },
+        "e093ee56-ad53-4854-98ad-3e7ca5b0663d": {
+          "type": "products",
+          "settings": {
+            "products": "test-2",
+            "product_image_picker": "shopify:\/\/shop_images\/649c0a1121de1f16fda4f563_Ice_Outline_10x-p-500.png",
             "package": false,
             "package_title_one": "title",
             "package_description_one": "description",
@@ -41,7 +53,7 @@
           "type": "products",
           "settings": {
             "products": "kopi-af-produkt-2",
-            "product_image_picker": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
+            "product_image_picker": "shopify:\/\/shop_images\/logo.svg",
             "package": true,
             "package_image_one": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
             "package_title_one": "title",
@@ -55,6 +67,7 @@
       "block_order": [
         "7f9f85c1-dddc-4637-a3f1-d2a855633a83",
         "c1a0093d-7126-4fa2-b2fe-8675384ca1d7",
+        "e093ee56-ad53-4854-98ad-3e7ca5b0663d",
         "dadec26a-9d62-4a28-8d85-e8c63bfdb2a3"
       ],
       "settings": {
