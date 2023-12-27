@@ -18,8 +18,8 @@
             "package_product": "kopi-af-pakkelosning-3",
             "package_number": 1,
             "header_package": "Pakkeløsning 1",
-            "client_case_name": "Kundecase",
-            "client_case_url": "shopify:\/\/pages\/kundecase"
+            "client_case_name": "Se: Amager Stand case",
+            "client_case_url": "shopify:\/\/pages\/hellerup-strand"
           }
         },
         "35f26dea-57b5-4952-b3ac-a69e4af2d290": {
@@ -28,8 +28,8 @@
             "package_product": "kopi-af-pakkelosning-2",
             "package_number": 2,
             "header_package": "Pakkeløsning 2",
-            "client_case_name": "Kunde case",
-            "client_case_url": "shopify:\/\/pages\/kundecase"
+            "client_case_name": "Se: Fredrikshavn Kommune",
+            "client_case_url": "shopify:\/\/pages\/fredrikshavn-kommune"
           }
         },
         "1e1aaef8-1785-4dcd-8e1f-bd77dc751659": {
@@ -38,8 +38,8 @@
             "package_product": "kopi-af-pakkelosning-1",
             "package_number": 3,
             "header_package": "Pakkeløsning 3 Standard",
-            "client_case_name": "Kunde case",
-            "client_case_url": "shopify:\/\/pages\/kundecase"
+            "client_case_name": "Se: Ærø Kommune",
+            "client_case_url": "shopify:\/\/pages\/gilleleje-veststrand"
           }
         }
       },
