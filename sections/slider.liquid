@@ -5,13 +5,13 @@
         <div class="slides">
             {% for block in section.blocks %}
                 <a href="{{ block.settings.slider_url }}">
-                    <p class="client-case-name" style="color: white;">Kunde case</p>
+                    <p class="client-case-name" style="color: white;">{{ block.settings.slider_header }}</p>
                     <img src="{{ block.settings.slider_image | image_url }}" alt="">
-                    <p  class="client-case-name" style="color: white;">Beskrivelse</p>
+                    <p  class="client-case-name" style="color: white;">{{ block.settings.slider_description }}</p>
                 </a>
             {% endfor %}
         </div>
-        
+
         <button class="prev">{% render 'icon-chevron-left' %}</button>
         <button class="next">{% render 'icon-chevron-right' %}</button>
     </div>
@@ -45,6 +45,16 @@
                             "type": "url",
                             "id": "slider_url",
                             "label": "Url client case page"
+                        },
+                        {
+                            "type": "text",
+                            "id": "slider_header",
+                            "label": "Header"
+                        },
+                        {
+                            "type": "text",
+                            "id": "slider_description",
+                            "label": "Description"
                         }
                         
                         
