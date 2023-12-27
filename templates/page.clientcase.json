@@ -84,7 +84,7 @@
         "reverse_layout": true,
         "remove_image_section": true,
         "section_height": 500,
-        "image_url": "{{ page.metafields.custom.fredrikshavnstrand_image.value }}",
+        "image_url": "{{ page.metafields.custom.amagerstrand_image.value }}",
         "information_header_text": "Heading",
         "information_description_text": "Description",
         "icon_url": "shopify:\/\/shop_images\/Skaermbillede_2023-12-27_kl._17.11.43.png",
