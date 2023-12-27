@@ -22,7 +22,7 @@
                 {% assign product_price = product.price %}
             
                 
-                <img {% if block.settings.package %} class="padding-image" {% endif %} src="{{ block.settings.product_image_picker | image_url }}" alt="">
+                <img {% if block.settings.package %} class="padding-image" style="padding-bottom:150px ;" {% endif %} src="{{ block.settings.product_image_picker | image_url }}" alt="">
                 <div  class="product-information">
                     <p class="product-name">{{ product_title }}</p>
                     <p class="product-description">{{ product_description }}</p>
