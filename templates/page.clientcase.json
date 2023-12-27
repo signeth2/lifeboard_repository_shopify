@@ -6,7 +6,8 @@
       "type": "hero",
       "settings": {
         "hero_heading_text_color": "#fef050",
-        "hero_header_text": "Heading",
+        "hero_img_url": "{{ page.metafields.custom.hero_clientcases.value }}",
+        "hero_header_text": "{{ page.title }}",
         "hero_button_one_text": "Button",
         "hero_button_one_url": "",
         "hero_button_two_text": "Button",
@@ -15,8 +16,8 @@
         "button_color": "red",
         "text_color": "white",
         "remove_buttons": false,
-        "overlay_opacity": 75,
-        "overlay_color": "#000",
+        "overlay_opacity": 65,
+        "overlay_color": "#000000",
         "show_overlay": false
       }
     },
@@ -26,9 +27,8 @@
         "reverse_layout": false,
         "remove_image_section": false,
         "section_height": 400,
-        "information_header_text": "Heading",
+        "information_header_text": "Udfordringer",
         "information_description_text": "Description",
-        "icon_url": "shopify:\/\/shop_images\/Placeholder_view_vector_svg_5e7d4250-92d4-45f1-83e3-40b91883a246.png",
         "information_button_text": "Button",
         "information_button_url": "",
         "section_add_button": false,
@@ -56,7 +56,6 @@
             "column_background_color": "#182e4c",
             "column_heading_text": "01",
             "column_description_text": "text",
-            "column_image": "shopify:\/\/shop_images\/Placeholder_view_vector_svg_5e7d4250-92d4-45f1-83e3-40b91883a246.png",
             "column_text_color": "white"
           }
         },
@@ -86,10 +85,10 @@
         "reverse_layout": true,
         "remove_image_section": true,
         "section_height": 500,
-        "image_url": "shopify:\/\/shop_images\/Placeholder_view_vector_svg_5e7d4250-92d4-45f1-83e3-40b91883a246.png",
-        "information_header_text": "Heading",
+        "image_url": "{{ page.metafields.custom.amagerstrand_image.value }}",
+        "information_header_text": "LifeBoard",
         "information_description_text": "Description",
-        "icon_url": "shopify:\/\/shop_images\/placeholder-4.webp",
+        "icon_url": "shopify:\/\/shop_images\/Skaermbillede_2023-12-27_kl._17.11.43.png",
         "information_button_text": "Button",
         "information_button_url": "",
         "section_add_button": true,
@@ -103,10 +102,10 @@
       "settings": {
         "quote_color": "#fef050",
         "quote_text_color": "#182e4c",
-        "quote_icon": "shopify:\/\/shop_images\/ef3-placeholder-image.jpg",
-        "quote_description": "Here is an awsome quote",
-        "quote_author": "Name",
-        "quote_author_education": "Author education"
+        "quote_icon": "shopify:\/\/shop_images\/63ef64438838ac24116a2506_quote_1.svg",
+        "quote_description": "LifeBoard er klart en af de bedre ting. Det er nemmere at svømme med Lifeboard, og det giver mere opdrift.",
+        "quote_author": "Erik Bech",
+        "quote_author_education": "Rådet for større Bade- og vandsikkerhed"
       }
     }
   },
