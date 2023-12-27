@@ -40,7 +40,7 @@
         "e093ee56-ad53-4854-98ad-3e7ca5b0663d": {
           "type": "products",
           "settings": {
-            "products": "test-2",
+            "products": "kopi-af-lifeboard",
             "product_image_picker": "shopify:\/\/shop_images\/649c0a1121de1f16fda4f563_Ice_Outline_10x-p-500.png",
             "package": false,
             "package_title_one": "title",
@@ -55,10 +55,10 @@
             "products": "kopi-af-produkt-2",
             "product_image_picker": "shopify:\/\/shop_images\/logo.svg",
             "package": true,
-            "package_image_one": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
+            "package_image_one": "shopify:\/\/shop_images\/6492e0d68e3dacfa98d7bb91_PRO_outline_front_2_10x-p-500.png",
             "package_title_one": "title",
             "package_description_one": "description",
-            "package_image_two": "shopify:\/\/shop_images\/ef3-placeholder-image_3bdb29ab-93af-4236-b1f3-7ecd70f6502d.jpg",
+            "package_image_two": "shopify:\/\/shop_images\/649c0a1121de1f16fda4f563_Ice_Outline_10x-p-500.png",
             "package_title_two": "title",
             "package_description_two": "description"
           }
