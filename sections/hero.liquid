@@ -8,8 +8,12 @@
             <h1 style="color: {{ section.settings.hero_heading_text_color }} ;"> {{ section.settings.hero_header_text }} </h1>
                 {% if section.settings.remove_buttons == true %}
                     <div class="hero-buttons">
-                        <button class="{{ section.settings.button_style }}  {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.hero_button_one_url }}"> {{ section.settings.hero_button_one_text }} </a></button>
-                        <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.hero_button_two_url }}">{{ section.settings.hero_button_two_text }}</a></button>
+                        {% if  section.settings.remove_both_buttons  %}
+                            <button class="{{ section.settings.button_style }}  {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.hero_button_one_url }}"> {{ section.settings.hero_button_one_text }} </a></button>
+                                {% if section.settings.remove_one_button %}
+                                    <button class="{{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}" href="{{ section.settings.hero_button_two_url }}">{{ section.settings.hero_button_two_text }}</a></button>
+                                {% endif %}
+                        {% endif %}
                     </div>
                 {% endif %}  
         </div>
@@ -68,6 +72,18 @@
             "type": "url",
             "id": "hero_button_two_url",
             "label": "Button two URL"
+        },
+        {
+            "type": "checkbox",
+            "id": "remove_both_buttons",
+            "label": "Remove both buttons",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "remove_one_button",
+            "label": "Remove one button",
+            "default": true
         },
         {
             "type": "select",

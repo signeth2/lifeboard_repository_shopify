@@ -1,12 +1,14 @@
 .two-elements{
-    display: grid;
+    display: flex;
+    justify-content: center;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     padding: 5vw;
     border-bottom: solid 2px var(--page-background);
     .image-element{
         img{
-            max-width: 100%;
+            width: 100%;
+            max-width: fit-content;
             height: 400px;
             object-fit: cover;
         }
@@ -28,9 +30,11 @@
 @media screen and (max-width: 991px){
     .two-elements{
         grid-template-columns: 1fr;
+        display: grid;
         
     }
     .two-elements .image-element img{
         width: 100%;
+
     }
 }

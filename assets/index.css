@@ -285,7 +285,7 @@ p {
 }
 .hero {
   width: 100%;
-  height: 700px;
+  height: 600px;
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -294,7 +294,7 @@ p {
 .hero .image-overlay {
   position: relative;
   top: 0;
-  height: 700px;
+  height: 600px;
 }
 .hero img {
   width: 100%;
@@ -386,14 +386,16 @@ p {
   }
 }
 .two-elements {
-  display: grid;
+  display: flex;
+  justify-content: center;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   padding: 5vw;
   border-bottom: solid 2px var(--page-background);
 }
 .two-elements .image-element img {
-  max-width: 100%;
+  width: 100%;
+  max-width: fit-content;
   height: 400px;
   object-fit: cover;
 }
@@ -413,6 +415,7 @@ p {
 @media screen and (max-width: 991px) {
   .two-elements {
     grid-template-columns: 1fr;
+    display: grid;
   }
   .two-elements .image-element img {
     width: 100%;
