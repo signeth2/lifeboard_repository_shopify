@@ -6,6 +6,7 @@
       "type": "hero",
       "settings": {
         "hero_heading_text_color": "#fef050",
+        "hero_img_url": "{{ page.metafields.custom.hero_clientcases.value }}",
         "hero_header_text": "{{ page.title }}",
         "hero_button_one_text": "Button",
         "hero_button_one_url": "",
