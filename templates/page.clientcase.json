@@ -28,9 +28,9 @@
       "settings": {
         "reverse_layout": false,
         "remove_image_section": false,
-        "section_height": 400,
+        "section_height": 500,
         "information_header_text": "Udfordringer",
-        "information_description_text": "{{ page.metafields.custom.beskrivelse_udfordringer.value }}",
+        "information_description_text": "{{ page.metafields.custom.lifeboard_beskrivelse_.value }}",
         "icon_url": "shopify:\/\/shop_images\/Skaermbillede_2023-12-27_kl._17.12.01.png",
         "information_button_text": "Button",
         "information_button_url": "",
