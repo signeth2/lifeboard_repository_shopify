@@ -18,7 +18,7 @@
         "button_color": "red",
         "text_color": "white",
         "remove_buttons": false,
-        "overlay_opacity": 65,
+        "overlay_opacity": 75,
         "overlay_color": "#000000",
         "show_overlay": false
       }
@@ -28,9 +28,10 @@
       "settings": {
         "reverse_layout": false,
         "remove_image_section": false,
-        "section_height": 400,
+        "section_height": 300,
         "information_header_text": "Udfordringer",
         "information_description_text": "Description",
+        "icon_url": "shopify:\/\/shop_images\/Skaermbillede_2023-12-27_kl._17.12.01.png",
         "information_button_text": "Button",
         "information_button_url": "",
         "section_add_button": false,
