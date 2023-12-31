@@ -58,7 +58,8 @@
           "settings": {
             "column_background_color": "#182e4c",
             "column_heading_text": "01",
-            "column_description_text": "text",
+            "column_description_text": "Vi hår årligt et møde for forberinger",
+            "column_image": "shopify:\/\/shop_images\/6492e606ae86edc972545162_Bellevue.jpg",
             "column_text_color": "white"
           }
         },
@@ -68,7 +69,7 @@
             "column_background_color": "#fef050",
             "column_heading_text": "01",
             "column_description_text": "text",
-            "column_image": "shopify:\/\/shop_images\/ef3-placeholder-image.jpg",
+            "column_image": "shopify:\/\/shop_images\/63ed2d9d5d485cebfe2b4346_240655006_3226924147534832_8200666302775872411_n.webp",
             "column_text_color": "#182e4c"
           }
         }
@@ -90,7 +91,7 @@
         "section_height": 500,
         "image_url": "{{ page.metafields.custom.amagerstrand_image.value }}",
         "information_header_text": "LifeBoard",
-        "information_description_text": "Description",
+        "information_description_text": "{{ page.metafields.custom.beskrivelse_udfordringer.value }}",
         "icon_url": "shopify:\/\/shop_images\/Skaermbillede_2023-12-27_kl._17.11.43.png",
         "information_button_text": "Button",
         "information_button_url": "",
