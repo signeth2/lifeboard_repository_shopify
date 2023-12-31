@@ -27,7 +27,7 @@
       "type": "two-image-elements",
       "settings": {
         "header_text_one": "Pakkeløsning",
-        "element_one_description": "Description",
+        "element_one_description": "",
         "img_url_element_one": "shopify:\/\/shop_images\/6492e606ae86edc972545162_Bellevue.jpg",
         "header_text_two": "Lav selv pakke",
         "element_two_description": "Description",
