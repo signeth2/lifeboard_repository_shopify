@@ -29,7 +29,7 @@
         "reverse_layout": false,
         "remove_image_section": true,
         "section_height": 600,
-        "image_url": "shopify:\/\/shop_images\/646f52764f23488e96ecde1d_Drowning.webp",
+        "image_url": "{{ page.metafields.custom.udfordringer_image.value }}",
         "information_header_text": "Udfordringer",
         "information_description_text": "{{ page.metafields.custom.lifeboard_beskrivelse_.value }}",
         "icon_url": "shopify:\/\/shop_images\/Skaermbillede_2023-12-27_kl._17.12.01.png",
