@@ -67,8 +67,8 @@
           "settings": {
             "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.58.43.png",
             "slider_url": "shopify:\/\/pages\/hellerup-strand",
-            "slider_header": "Amager strand",
-            "slider_description": ""
+            "slider_header": "",
+            "slider_description": "Amager strand"
           }
         },
         "4d80f0ae-4f5f-4852-84d3-0615251f30f2": {
@@ -76,8 +76,8 @@
           "settings": {
             "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.59.02.png",
             "slider_url": "shopify:\/\/pages\/fredrikshavn-kommune",
-            "slider_header": "Fredrikshavn Kommune",
-            "slider_description": ""
+            "slider_header": "",
+            "slider_description": "Fredrikshavn Kommune"
           }
         },
         "56715b5e-986e-48eb-a6a6-124436b43111": {
@@ -85,8 +85,8 @@
           "settings": {
             "slider_image": "shopify:\/\/shop_images\/Screenshot_2023-12-10_at_20.59.33.png",
             "slider_url": "shopify:\/\/pages\/gilleleje-veststrand",
-            "slider_header": "Ærø Kommune",
-            "slider_description": ""
+            "slider_header": "",
+            "slider_description": "Ærø Kommune"
           }
         }
       },
