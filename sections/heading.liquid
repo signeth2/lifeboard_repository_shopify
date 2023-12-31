@@ -1,4 +1,4 @@
-<div class="heading ">
+<div class="heading " {% if section.settings.remove_image == false%} style="display: block;" {% endif %}>
     <div class="heading_information">
         <h1>{{ section.settings.heading_text }}</h1>
         <p>{{ section.settings.description_text }}</p>

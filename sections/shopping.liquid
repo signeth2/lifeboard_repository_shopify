@@ -4,8 +4,7 @@
     <div class="products">
         <h3 class="categorie-name">Service aftale</h3>
         <div class="service">
-            <p class="product-name"><b>Service aftale</b></p>
-            <p class="product description">Description</p>
+            <p class="product description" style="grid: none; padding-right:100px;">LifeBoards serviceaftale inkluderer bla.: LifeBoard-trackeren samt monitorering, udskiftning af løsdele, årligt status-måde, rådgivning og vejledning</p>
             <p class="price">1000kr</p>
         </div>
         <h3 class="categorie-name">Produkter</h3>
@@ -22,7 +21,7 @@
                 {% assign product_price = product.price %}
             
                 
-                <img {% if block.settings.package %} class="padding-image" style="padding-bottom:150px ;" {% endif %} src="{{ block.settings.product_image_picker | image_url }}" alt="">
+                <img {% if block.settings.package %} class="padding-image"  {% endif %} src="{{ block.settings.product_image_picker | image_url }}" alt="">
                 <div  class="product-information">
                     <p class="product-name">{{ product_title }}</p>
                     <p class="product-description">{{ product_description }}</p>

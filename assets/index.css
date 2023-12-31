@@ -518,6 +518,15 @@ p {
   min-width: 200px;
   min-height: 250px;
 }
+.product-selection .package-solution .solution p b {
+  font-weight: 600;
+}
+.product-selection .package-solution .solution ul {
+  padding-left: 1.5vw;
+}
+.product-selection .package-solution .solution ul li {
+  margin: 5px 0;
+}
 
 @media screen and (max-width: 791px) {
   .product-selection .pop-up #popup-container .options {
@@ -539,7 +548,7 @@ p {
   margin: 20px 0;
 }
 .shopping .products .service {
-  height: 120px;
+  height: fit-content;
   background-color: #e6e6e6;
   position: relative;
   padding: 20px;
@@ -554,6 +563,9 @@ p {
   grid-template-columns: 160px 2fr;
   grid-row-gap: 20px;
 }
+.shopping .products .product img {
+  padding-bottom: 150px;
+}
 .shopping .products .product .product-information {
   background-color: #e6e6e6;
   position: relative;
@@ -563,6 +575,12 @@ p {
   position: absolute;
   top: 20px;
   right: 20px;
+}
+.shopping .products .product .product-information .product-description {
+  width: 80%;
+}
+.shopping .products .product .product-information .product-name {
+  font-weight: 600;
 }
 .shopping .products .product .product-information .package {
   display: flex;
@@ -658,6 +676,9 @@ p {
   }
   .shopping .products .product .product-information {
     margin-bottom: 20px;
+  }
+  .shopping .products .product img {
+    padding-bottom: 20px;
   }
 }
 .column-information {
@@ -841,6 +862,11 @@ p {
   width: 50px;
 }
 
+@media screen and (max-width: 791px) {
+  .map .map-container {
+    display: block;
+  }
+}
 table {
   width: 90%;
   border-collapse: collapse;

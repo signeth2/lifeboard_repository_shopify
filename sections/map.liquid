@@ -88,7 +88,7 @@ function searchLocation() {
 
     if (closestMatch !== null) {
         var dummyCoordinates = beachCoordinates[closestMatch];
-        map.setView(dummyCoordinates, 13);
+        map.setView(dummyCoordinates, 15);
         document.getElementById('search-results').innerHTML = 'Resultater: ' + closestMatch + ' (' + dummyCoordinates.join(', ') + ')';
     } 
 }
