@@ -296,31 +296,62 @@ document.addEventListener('DOMContentLoaded', function () {
 // ------------- slider -------------
 
 document.addEventListener('DOMContentLoaded', function () {
-
-
   const slider = document.querySelector('.slider');
   const slides = document.querySelector('.slides');
-  const slideWidth = 460;
+  let slideWidth = slides.children[0].offsetWidth;
+  let totalSlides = slides.children.length;
   let currentSlide = 0;
 
+  // Klon de originale slides
+  const cloneFirst = slides.children[0].cloneNode(true);
+  const cloneLast = slides.children[totalSlides - 2].cloneNode(true);
+
+  // Tilføj kloner til slideren
+  slides.appendChild(cloneFirst);
+  slides.insertBefore(cloneLast, slides.children[0]);
+
   function updateSlides() {
+      slides.style.transition = 'transform 0.5s ease-in-out';
       slides.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
   }
 
-  document.querySelector('.next').addEventListener('click', function () {
-      currentSlide = Math.min(currentSlide + 1, slides.children.length - 2);
+  function nextSlide() {
+      currentSlide++;
+      updateSlides();
+  }
+
+  function prevSlide() {
+      currentSlide--;
+      updateSlides();
+  }
+
+  slides.addEventListener('transitionend', function () {
+      if (currentSlide <= 0) {
+          // Når vi når det første klon, nulstil uden animation
+          currentSlide = totalSlides - 1;
+          slides.style.transition = 'none';
+          slides.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
+      } else if (currentSlide >= totalSlides) {
+          // Når vi når det sidste klon, nulstil uden animation
+          currentSlide = 0;
+          slides.style.transition = 'none';
+          slides.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
+      }
+  });
+
+  document.querySelector('.next').addEventListener('click', nextSlide);
+  document.querySelector('.prev').addEventListener('click', prevSlide);
+
+  window.addEventListener('resize', function () {
+      // Opdater slideWidth og totalSlides ved vinduesændringer
+      slideWidth = slides.children[0].offsetWidth;
+      totalSlides = slides.children.length;
       updateSlides();
   });
 
-  document.querySelector('.prev').addEventListener('click', function () {
-      currentSlide = Math.max(currentSlide - 1, 0);
-      updateSlides();
-  });
-
+  // Initial opdatering
   updateSlides();
 });
-
-
 
 
 // add to cart 

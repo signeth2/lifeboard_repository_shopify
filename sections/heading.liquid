@@ -1,11 +1,11 @@
-<div class="heading " {% if section.settings.remove_image == false%} style="display: block;" {% endif %}>
+<div class="heading " {% if section.settings.remove_image == false%} style="display: block;" {% endif %} style="height:{{ section.settings.heading_range }}vh;">
     <div class="heading_information">
-        <h1>{{ section.settings.heading_text }}</h1>
+        <h1 style="font-size: {{  section.settings.heading_size }}rem;">{{ section.settings.heading_text }}</h1>
         <p>{{ section.settings.description_text }}</p>
     </div>
 
     {% if section.settings.remove_image %}
-        <img src=" {{ section.settings.heading_image | img_url: 'master' }} " alt="">
+        <img src=" {{ section.settings.heading_image | img_url: 'master' }} " alt="" style="height:{{ section.settings.heading_range }}vh;">
     {% endif %}
 </div>
 
@@ -20,6 +20,26 @@
             "id": "heading_text",
             "label": "Heading text",
             "default": "Heading"
+
+        },
+        {
+            "type": "range",
+            "id": "heading_range",
+            "label": "Section height",
+            "min": 20,
+            "max": 40,
+            "step": 5,
+            "default": 20
+
+        },
+        {
+            "type": "range",
+            "id": "heading_size",
+            "label": "Text size",
+            "min": 1,
+            "max": 10,
+            "step": 0.5,
+            "default": 3.5
 
         },
         {

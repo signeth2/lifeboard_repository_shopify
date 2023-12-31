@@ -37,7 +37,7 @@
             </div>
             <div class="flex" style="justify-content: center;">
                 <button onclick="closePopup()" class="close-button {{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}">{{ section.settings.close_button_text}}</a></button>
-                <button id="retry" onclick="retryTest()" style="    background-color: transparent; width: 40px; color: white; border: none;">{% render 'icon-retry' %}</button>
+                <button id="retry" onclick="retryTest()" style="  background-color: transparent; width: 40px; color: white; border: none;">{% render 'icon-retry' %}</button>
             </div>
             
         </div>
@@ -53,10 +53,12 @@
     <div class="package-solution">
         {% for block in section.blocks %}
             <div class="package" data-package-number="{{ block.settings.package_number }}">
-                <div>
-                    <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
+                <div >
+                    <div class="test" >
+                        <a href="{{ block.settings.client_case_url }}">{{ block.settings.client_case_name }}</a>
+                    </div>
                     <div class="solution solution-one" id="package_{{ block.settings.package_number }}">
-                        <p><b>{{ block.settings.package_product.title }}</b></p>
+                        <p class="solution-title"><b>{{ block.settings.package_product.title }}</b></p>
                         <p>{{ block.settings.package_product.description }}</p>
     
                         <!-- Form for adding product to cart -->

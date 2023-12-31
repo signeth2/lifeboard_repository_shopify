@@ -43,7 +43,7 @@
     <div class="mega-menu">
         {% for link in linklists[section.settings.menu_links].links %}
             <div class="mega-menu_nav-item flex">
-                <div class="mega-menu_circle-icon"></div>
+                <div class="mega-menu_circle-icon "><img src="{{  'lifeboard.png' | asset_url }}" alt=""></div>
                 <a href="{{ link.url }}" style="color: var(--text-color);" class="menu-link {% if section.settings.header_color == "blue" %} white {% endif %}"> {{ link.title }}</a>
             </div>
         {% endfor %}
@@ -111,6 +111,7 @@
             "default": "main-menu"
 
         },
+
         {
             "type": "image_picker",
             "id": "logo_image",

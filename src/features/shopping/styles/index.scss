@@ -26,11 +26,9 @@
             display: grid;
             grid-template-columns: 160px 2fr;
             grid-row-gap: 20px;
-
-            img{
-                padding-bottom:150px
+            .padding-image{
+                padding-bottom:150px;
             }
-            
             .product-information{
                 background-color: #e6e6e6;
                 position: relative;

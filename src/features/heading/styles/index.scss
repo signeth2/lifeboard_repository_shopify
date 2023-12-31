@@ -1,6 +1,6 @@
 .heading{
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     border-bottom: solid 2px var(--page-background);
     img{
         width: 100%;
@@ -16,4 +16,16 @@
         padding: 5vw;
         align-items: start;
     }
+}
+
+
+@media (max-width: 692px) {
+    .heading{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .heading img{
+        display: none;
+    }
+
 }

@@ -49,6 +49,10 @@
         }
   
       }
+      .options button:hover {
+        
+        opacity: 90%;
+      }
       
   
       .result, #result-text {
@@ -107,6 +111,19 @@
   }
   .package-solution .package{
     width: 100%;
+  }
+  .package-solution .package .test{
+    text-align: center;
+  }
+  .product-selection .package-solution .solution ul{
+    margin-left: 32%;
+    margin-top: 20px;
+
+  }
+  .product-selection .package-solution .solution p{
+    margin-left: 32%;
+    margin-top: 20px;
+
   }
 }
 

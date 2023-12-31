@@ -153,7 +153,14 @@
                     border-radius: 50%;
                     height: 40px;
                     width: 40px;
-                    background-color: gray;
+                    img{
+                        width: 15px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: auto;
+                        margin-top: 5%;
+                    }
                 }
                 
         }
