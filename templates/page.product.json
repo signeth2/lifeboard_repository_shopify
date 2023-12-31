@@ -6,7 +6,8 @@
       "settings": {
         "heading_text": "{{ page.title }}",
         "description_text": "Description",
-        "remove_image": false
+        "heading_image": "shopify:\/\/shop_images\/Screenshot_2023-12-27_at_17.29.17.png",
+        "remove_image": true
       }
     },
     "template-product-selection": {
