@@ -67,8 +67,8 @@
           "type": "columns",
           "settings": {
             "column_background_color": "#fef050",
-            "column_heading_text": "01",
-            "column_description_text": "text",
+            "column_heading_text": "03",
+            "column_description_text": "WaterSmart kurser årligt",
             "column_image": "shopify:\/\/shop_images\/63ed2d9d5d485cebfe2b4346_240655006_3226924147534832_8200666302775872411_n.webp",
             "column_text_color": "#182e4c"
           }
