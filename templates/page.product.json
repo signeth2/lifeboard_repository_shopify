@@ -5,7 +5,7 @@
       "type": "heading",
       "settings": {
         "heading_text": "{{ page.title }}",
-        "heading_range": 30,
+        "heading_range": 35,
         "heading_size": 3.5,
         "description_text": "Vælg en af vores standard pakkeløsninger",
         "heading_image": "shopify:\/\/shop_images\/6492e606ae86edc972545162_Bellevue.jpg",
