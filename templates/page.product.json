@@ -5,8 +5,10 @@
       "type": "heading",
       "settings": {
         "heading_text": "{{ page.title }}",
-        "description_text": "Description",
-        "heading_image": "shopify:\/\/shop_images\/Screenshot_2023-12-27_at_17.29.17.png",
+        "heading_range": 30,
+        "heading_size": 3.5,
+        "description_text": "Vælg en af vores standard pakkeløsninger",
+        "heading_image": "shopify:\/\/shop_images\/6492e606ae86edc972545162_Bellevue.jpg",
         "remove_image": true
       }
     },
