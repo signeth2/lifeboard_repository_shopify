@@ -15,7 +15,7 @@
     }
 
     #popup-container {
-      padding: 20px;
+      padding: 80px 80px 40px 80px ;
       display: grid;
       justify-content: center;
       align-items: center;
@@ -24,12 +24,19 @@
 
       p{
         color: white;
+        text-align: center;
+
+      }
+      .question_header{
+        margin-bottom: 20px;
       }
       .options{
         gap: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin: 10px 0 30px 0;
+        max-width: 1000px;
+        margin: auto;
       }
       .options button {
         background-color: var(--page-background);

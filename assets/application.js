@@ -296,63 +296,54 @@ document.addEventListener('DOMContentLoaded', function () {
 // ------------- slider -------------
 
 document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelector('.slides');
-  let slideWidth = slides.children[0].offsetWidth;
-  let totalSlides = slides.children.length;
-  let currentSlide = 0;
+  const slidesContainer = document.querySelector('.slides');
+  const slides = Array.from(slidesContainer.children);
+  const slideWidth = slides[0].offsetWidth;
+  const totalSlides = slides.length;
+  const visibleSlides = 2; 
+  let currentSlide = 0; 
 
-  // Klon de originale slides
-  const cloneFirst = slides.children[0].cloneNode(true);
-  const cloneLast = slides.children[totalSlides - 2].cloneNode(true);
+ 
+  const cloneFirst = slides.slice(0, visibleSlides).map((slide) => slide.cloneNode(true));
+  const cloneLast = slides.slice(totalSlides - visibleSlides, totalSlides).map((slide) => slide.cloneNode(true));
 
-  // Tilføj kloner til slideren
-  slides.appendChild(cloneFirst);
-  slides.insertBefore(cloneLast, slides.children[0]);
+ 
+  cloneFirst.forEach((clone) => slidesContainer.appendChild(clone));
+  cloneLast.forEach((clone) => slidesContainer.insertBefore(clone, slidesContainer.children[0]));
 
   function updateSlides() {
-      slides.style.transition = 'transform 0.5s ease-in-out';
-      slides.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
+    const translateValue = -currentSlide * slideWidth;
+    slidesContainer.style.transform = `translateX(${translateValue}px)`;
   }
 
   function nextSlide() {
-      currentSlide++;
-      updateSlides();
+    currentSlide++;
+    const isLastClone = currentSlide >= totalSlides;
+    if (isLastClone) {
+      currentSlide = 0;
+    }
+    updateSlides();
   }
 
   function prevSlide() {
-      currentSlide--;
-      updateSlides();
+    currentSlide--;
+    const isFirstClone = currentSlide < 0;
+    if (isFirstClone) {
+      currentSlide = totalSlides - visibleSlides;
+    }
+    updateSlides();
   }
-
-  slides.addEventListener('transitionend', function () {
-      if (currentSlide <= 0) {
-          // Når vi når det første klon, nulstil uden animation
-          currentSlide = totalSlides - 1;
-          slides.style.transition = 'none';
-          slides.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
-      } else if (currentSlide >= totalSlides) {
-          // Når vi når det sidste klon, nulstil uden animation
-          currentSlide = 0;
-          slides.style.transition = 'none';
-          slides.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
-      }
-  });
 
   document.querySelector('.next').addEventListener('click', nextSlide);
   document.querySelector('.prev').addEventListener('click', prevSlide);
 
   window.addEventListener('resize', function () {
-      // Opdater slideWidth og totalSlides ved vinduesændringer
-      slideWidth = slides.children[0].offsetWidth;
-      totalSlides = slides.children.length;
-      updateSlides();
+    currentSlide = Math.max(0, Math.min(currentSlide, totalSlides - visibleSlides));
+    updateSlides();
   });
 
-  // Initial opdatering
   updateSlides();
 });
-
 
 // add to cart 
 document.addEventListener('DOMContentLoaded', function () {

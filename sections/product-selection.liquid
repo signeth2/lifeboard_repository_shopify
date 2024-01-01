@@ -11,7 +11,7 @@
 
         <div id="popup-container" class="popup-container" style="display: none;">
             <div class="question" data-question="Q1">
-                <p>Spørgsmål 1: Hvor stor er jeres strand?</p>
+                <p class="question_header">Spørgsmål 1: Hvor stor er jeres strand?</p>
                 <div class="options">
                     <button onclick="answerQuestion('Q1', 'Mulighed 1')"><p class="bold">Mulighed 1</p><p>Mellem 1 til 5 kilometer</p></button>
                     <button onclick="answerQuestion('Q1', 'Mulighed 2')"><p class="bold">Mulighed 2</p><p>Mellem 5 til 10 kilometer</p></button>
@@ -20,7 +20,7 @@
             </div>
 
             <div class="question" data-question="Q2" style="display: none;">
-                <p>Spørgsmål 2: Har i andet rednings udstyr på stranden?</p>
+                <p class="question_header">Spørgsmål 2: Har i andet rednings udstyr på stranden?</p>
                 <div class="options">
                     <button onclick="answerQuestion('Q2', 'Mulighed A')"><p class="bold">Mulighed A</p><p>Ja, vi har også redningskranse</p></button>
                     <button onclick="answerQuestion('Q2', 'Mulighed B')"><p class="bold">Mulighed B</p><p>Nej, vi har ikke noget</p></button>
@@ -28,14 +28,14 @@
                 </div>
             </div>
             <div class="question" data-question="Q3" style="display: none;">
-                <p>Spørgsmål 3: Her i problemer med udlykker på is?</p>
+                <p class="question_header">Spørgsmål 3: Har i problemer med ulykker på is?</p>
                 <div class="options">
                     <button onclick="answerQuestion('Q3', 'Mulighed A')"><p class="bold">Mulighed A</p><p>Nej</p></button>
                     <button onclick="answerQuestion('Q3', 'Mulighed B')"><p class="bold">Mulighed B</p><p>Ja</p></button>
                     <button onclick="answerQuestion('Q3', 'Mulighed C')"><p class="bold">Mulighed C</p><p>Meget sjældent</p></button>
                 </div>
             </div>
-            <div class="flex" style="justify-content: center;">
+            <div class="flex" style="justify-content: center; margin-top: 60px;">
                 <button onclick="closePopup()" class="close-button {{ section.settings.button_style }} {{  section.settings.button_style }}-{{ section.settings.button_color }}"><a class="button-text-{{ section.settings.text_color }}">{{ section.settings.close_button_text}}</a></button>
                 <button id="retry" onclick="retryTest()" style="  background-color: transparent; width: 40px; color: white; border: none;">{% render 'icon-retry' %}</button>
             </div>
@@ -76,7 +76,7 @@
     
     
     <div class="flex" style="flex-wrap: wrap; justify-content: center; margin-bottom:5vw; gap: 20px; ">
-        <button type="button" class="add-to-cart primary-button primary-button-yellow" id="addToCartBtn" style="color: var(--text-color);">Lig i kurv</button>
+        <button type="button" class="add-to-cart primary-button primary-button-yellow" id="addToCartBtn" style="color: var(--text-color);">Læg i kurv</button>
         <button class="secondary-button secondary-button-yellow "> <a class="button-text-blue" href="">Kontakt sælger</a></button>
     </div>
 

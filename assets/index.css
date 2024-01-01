@@ -470,7 +470,7 @@ p {
   margin: 20px 0;
 }
 .product-selection .pop-up #popup-container {
-  padding: 20px;
+  padding: 80px 80px 40px 80px;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -479,12 +479,18 @@ p {
 }
 .product-selection .pop-up #popup-container p {
   color: white;
+  text-align: center;
+}
+.product-selection .pop-up #popup-container .question_header {
+  margin-bottom: 20px;
 }
 .product-selection .pop-up #popup-container .options {
   gap: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 10px 0 30px 0;
+  max-width: 1000px;
+  margin: auto;
 }
 .product-selection .pop-up #popup-container .options button {
   background-color: var(--page-background);
