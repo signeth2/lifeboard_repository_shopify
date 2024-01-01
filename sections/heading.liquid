@@ -1,6 +1,6 @@
-<div class="heading " {% if section.settings.remove_image == false%} style="display: block;" {% endif %} style="height:{{ section.settings.heading_range }}vh;">
+<div class="heading " {% if section.settings.remove_image == false%} style="display: block;" {% endif %} >
     <div class="heading_information">
-        <h1 style="font-size: {{  section.settings.heading_size }}rem;">{{ section.settings.heading_text }}</h1>
+        <h1 class="heading_information_header">{{ section.settings.heading_text }}</h1>
         <p>{{ section.settings.description_text }}</p>
     </div>
 
@@ -9,7 +9,22 @@
     {% endif %}
 </div>
 
+<style>
+    .heading {
+        height: {{ section.settings.heading_range }}vh;
+    }
 
+    .heading_information_header{
+        word-wrap: normal;
+    }    
+    
+    @media (max-width: 692px) {
+    .heading{
+        height: {{ section.settings.heading_range_mobile }}vh;
+    }
+
+}
+</style>
 
 {% schema %}
 {
@@ -26,6 +41,16 @@
             "type": "range",
             "id": "heading_range",
             "label": "Section height",
+            "min": 20,
+            "max": 40,
+            "step": 5,
+            "default": 20
+
+        },
+        {
+            "type": "range",
+            "id": "heading_range_mobile",
+            "label": "Section height mobile",
             "min": 20,
             "max": 40,
             "step": 5,
