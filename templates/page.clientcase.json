@@ -89,7 +89,7 @@
       "settings": {
         "reverse_layout": true,
         "remove_image_section": true,
-        "section_height": 500,
+        "section_height": 600,
         "image_url": "{{ page.metafields.custom.amagerstrand_image.value }}",
         "information_header_text": "LifeBoard",
         "information_description_text": "{{ page.metafields.custom.beskrivelse_udfordringer.value }}",
