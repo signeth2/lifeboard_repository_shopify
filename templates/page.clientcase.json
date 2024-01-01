@@ -96,7 +96,7 @@
         "icon_url": "shopify:\/\/shop_images\/Skaermbillede_2023-12-27_kl._17.11.43.png",
         "information_button_text": "Button",
         "information_button_url": "",
-        "section_add_button": true,
+        "section_add_button": false,
         "button_style": "primary-button",
         "button_color": "red",
         "text_color": "white"
