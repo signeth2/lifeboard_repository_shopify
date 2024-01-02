@@ -113,6 +113,7 @@
 }
 
 @media screen and (max-width: 791px){
+
   .product-selection  .pop-up #popup-container .options{
     grid-template-columns: 1fr;
   }
@@ -131,6 +132,10 @@
     margin-left: 32%;
     margin-top: 20px;
 
+  }
+
+  .product-selection  .pop-up #popup-container{
+    padding: 40px 10px  ;
   }
 }
 

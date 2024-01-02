@@ -571,6 +571,9 @@ p {
     margin-left: 32%;
     margin-top: 20px;
   }
+  .product-selection .pop-up #popup-container {
+    padding: 40px 10px;
+  }
 }
 .shopping {
   display: grid;
