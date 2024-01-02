@@ -24,6 +24,7 @@ shopify theme dev --store=lifeboard-development
 Windows
 ```sh 
 npm install -g @shopify/cli @shopify/theme
+shopify theme dev --store=lifeboard-development
 ```
 
 
