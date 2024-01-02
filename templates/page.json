@@ -6,7 +6,7 @@
       "settings": {
         "heading_text": "Vandsikkerheds beregner",
         "heading_range": 35,
-        "heading_range_mobile": 20,
+        "heading_range_mobile": 25,
         "heading_size": 3.5,
         "description_text": "Prøv vores vandsikkerhedsberegner, og se hvor meget redningsudstyret kan dække en strand",
         "remove_image": false
